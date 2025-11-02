@@ -10,7 +10,11 @@ config_version=5
 
 [application]
 
-config/name="menu_sinner"
+config/name="sinner"
 run/main_scene="uid://chp56y0i0a2wj"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
