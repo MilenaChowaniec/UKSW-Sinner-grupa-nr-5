@@ -16,6 +16,7 @@ func _ready() -> void:
 
 ## Check input each frame and update movement direction
 func _process(delta: float) -> void:
+	print(direction)
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 
