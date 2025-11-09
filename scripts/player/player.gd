@@ -15,14 +15,13 @@ func _ready() -> void:
 
 
 ## Check input each frame and update movement direction
-func _process(delta: float) -> void:
-	print(direction)
+func _process(_delta: float) -> void:
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 
 
 ## Handle physics (built-in function)
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 

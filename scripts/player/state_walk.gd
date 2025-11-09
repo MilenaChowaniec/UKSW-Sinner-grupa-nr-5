@@ -3,8 +3,9 @@ class_name State_Walk extends State
 
 @export var move_speed : float = 200.0
 
-## Reference to idle state
+## Reference to the other states
 @onready var idle: State = $"../idle"
+@onready var attack: State = $"../attack"
 
 
 ## Start walking animation when entering this state
@@ -37,6 +38,8 @@ func physics(_delta : float) -> State:
 	return null
 
 
-## Not required in this state
+## Check if the player starts a new attack
 func handle_input(_event: InputEvent) -> State:
+	if _event.is_action_pressed("attack"):
+		return attack
 	return null
