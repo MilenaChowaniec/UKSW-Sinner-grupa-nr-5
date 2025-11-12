@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://ca4u7b7trlp5n"]
+
+[ext_resource type="Texture2D" uid="uid://r01e05nw417e" path="res://assets/Bat/Bat.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://doxkoty8ci1kw" path="res://scenes/bat.gd" id="1_md0e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xwavj"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md0e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 22.022715
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
+radius = 158.11388
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uy6h"]
+radius = 11.0
+
+[node name="Bat" type="CharacterBody2D"]
+script = ExtResource("1_md0e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xwavj")
+animation = &"fly"
+frame_progress = 0.10395027
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_md0e3")
+debug_color = Color(0.10106967, 0.6245221, 0.5010182, 0.41960785)
+
+[node name="(DetectionArea)Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="(DetectionArea)Area2D"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_4ra3w")
+
+[node name="(AttackArea)AreaD2" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="(AttackArea)AreaD2"]
+position = Vector2(2, 1)
+shape = SubResource("CircleShape2D_5uy6h")
+debug_color = Color(0.98558336, 0, 0.3369638, 0.41960785)
+
+[connection signal="body_entered" from="(DetectionArea)Area2D" to="." method="_on_detection_area_area_2d_body_entered"]
+[connection signal="body_entered" from="(AttackArea)AreaD2" to="." method="_on_attack_area_area_d_2_body_entered"]
