@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://caipt6pngyf6s"]
+
+[ext_resource type="Texture2D" uid="uid://cunik13vs031i" path="res://assets/world/purple/fire_animation.png" id="2_8ts6p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nmnh"]
+atlas = ExtResource("2_8ts6p")
+region = Rect2(129, 0, 43, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ts6p"]
+atlas = ExtResource("2_8ts6p")
+region = Rect2(129, 48, 43, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndmam"]
+atlas = ExtResource("2_8ts6p")
+region = Rect2(129, 96, 43, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcp1i"]
+atlas = ExtResource("2_8ts6p")
+region = Rect2(129, 144, 43, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1txu"]
+atlas = ExtResource("2_8ts6p")
+region = Rect2(129, 192, 43, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43fc3"]
+atlas = ExtResource("2_8ts6p")
+region = Rect2(129, 240, 43, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fd64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nmnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ts6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndmam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcp1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1txu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43fc3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ogieniek_okno" type="Area2D"]
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -0.39994815)
+scale = Vector2(0.45, 0.431)
+sprite_frames = SubResource("SpriteFrames_8fd64")
+autoplay = "default"
+frame_progress = 0.8204833
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
