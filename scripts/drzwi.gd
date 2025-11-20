@@ -1,7 +1,11 @@
 extends Area2D
+##Klasa Drzwi obsługuje obiekty krat w rozgrywce.
+class_name Drzwi
 var Player_Is_In:bool
 @export var drzwi_animation: AnimatedSprite2D
 #to docelowo:
+## Funkcja wywoływana gdy gracz wejdzie w obszar kolizji obiektu drzwi.
+## Funkcja uruchamia animację otwierania drzwi.
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		drzwi_animation.play("open")
