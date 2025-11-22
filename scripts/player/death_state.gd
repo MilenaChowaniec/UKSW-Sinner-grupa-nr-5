@@ -15,12 +15,12 @@ func enter() -> void:
 
 ## Disconnects animation signal
 func exit() -> void:
-	animation_player.animation_finished.disconnect(end_death)
+	# tu musi byc ze koniec gry, odnosienie do menu po smierci
+	pass
 
 
 ## Not required in this state
 func process(_delta : float) -> State:
-	# tu musi byc ze koniec gry, odnosienie do menu po smierci
 	return null
 
 ## Callback triggered when death animation finishes
