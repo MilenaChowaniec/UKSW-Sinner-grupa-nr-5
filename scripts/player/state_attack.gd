@@ -30,6 +30,7 @@ func exit() -> void:
 
 ## Player cant move while attacking (for now)
 func process(_delta : float) -> State:
+	# Stop player movement if no input
 	if player.direction == Vector2.ZERO:
 		player.velocity = Vector2.ZERO
 	
@@ -46,17 +47,20 @@ func process(_delta : float) -> State:
 func physics(_delta : float) -> State:
 	return null
 
-
+## Spawn a bullet in the direction of the mouse
 func spawn_bullet():
 	var bullet_scene = preload("res://scenes/bullet.tscn")
 	var bullet_ = bullet_scene.instantiate()
 	
+	# Set bullet start position at player
 	bullet_.global_position = player.global_position
 	bullet_.start_position = player.global_position
 	
+	# Calculate direction towards mouse
 	var mouse_pos = player.get_global_mouse_position()
 	bullet_.direction = (mouse_pos - player.global_position).normalized()
 	
+	# Add bullet to current scene
 	get_tree().current_scene.add_child(bullet_)
 
 

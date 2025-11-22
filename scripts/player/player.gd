@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 var cardinal_direction : Vector2 = Vector2.RIGHT ## Direction of player (for animations)
 var direction : Vector2 = Vector2.ZERO ## Input direction from keyboard
+var hp = 6
 
 ## References to key child nodes
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
