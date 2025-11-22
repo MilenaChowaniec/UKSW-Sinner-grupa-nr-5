@@ -17,6 +17,8 @@ func enter() -> void:
 	# Connect the callback so we know when the animation ends
 	animation_player.animation_finished.connect(end_attack) 
 	attacking = true
+	
+	spawn_bullet()
 
 
 ## Called when leaving state - disconnect signal and allow transition to other states
@@ -43,6 +45,19 @@ func process(_delta : float) -> State:
 ## Not required in this state
 func physics(_delta : float) -> State:
 	return null
+
+
+func spawn_bullet():
+	var bullet_scene = preload("res://scenes/bullet.tscn")
+	var bullet_ = bullet_scene.instantiate()
+	
+	bullet_.global_position = player.global_position
+	bullet_.start_position = player.global_position
+	
+	var mouse_pos = player.get_global_mouse_position()
+	bullet_.direction = (mouse_pos - player.global_position).normalized()
+	
+	get_tree().current_scene.add_child(bullet_)
 
 
 ## Not required in this state
