@@ -5,4 +5,4 @@
 [node name="test_game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_nl0sk")]
-position = Vector2(538, 326)
+position = Vector2(566, 324)
