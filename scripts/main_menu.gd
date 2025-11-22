@@ -1,27 +1,19 @@
 extends Node2D
+##Klasa odpowiadająca za odsługe menu głównego w grze.
+class_name MainMenu
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
+##Funkcja wywoływana po naciśnięciu przycisku Start. Przenosi gracza do ekranu rozgrywki.
 func _on_start_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn") # Replace with function body.
 
-
+##Funkcja wywoływana po naciśnięciu przycisku Continue. Przenosi gracza do ekranu rozgrywki wcześniej rozpoczętej i zapisanej rozgrywki.
 func _on_continue_pressed() -> void:
 	pass # Replace with function body.
 
-
+##Funkcja wywoływana po naciśnięciu przycisku ustawień. Przenosi gracza do ekranu wyboru ustawień rozgrywki.
 func _on_settings_pressed() -> void:
 	pass # Replace with function body.
 
-
+##Funkcja wywoływana po naciśnięciu przycisku Exit. Kończy działanie programu.
 func _on_exit_pressed() -> void:
 	get_tree().quit() # Replace with function body.
