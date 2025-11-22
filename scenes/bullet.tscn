@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu1j1tjdatb1h"]
+[gd_scene load_steps=8 format=3 uid="uid://bu1j1tjdatb1h"]
 
 [ext_resource type="Texture2D" uid="uid://bkvhy1iyvibwf" path="res://assets/bullet/bullet.png" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://bq1xim6ramm3t" path="res://scripts/bullet/bullet.gd" id="1_y25gk"]
@@ -6,13 +6,134 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5glv"]
 radius = 3.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y25gk"]
+load_path = "res://.godot/imported/bullet_impact.png-78fd2c273ed0cbb997515588f7b6f34d.ctex"
+
+[sub_resource type="Animation" id="Animation_l5glv"]
+resource_name = "explosion"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_y25gk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ExplosionSprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ExplosionSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_eoqba"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_y25gk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ExplosionSprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ExplosionSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qncy5"]
+_data = {
+&"RESET": SubResource("Animation_eoqba"),
+&"explosion": SubResource("Animation_l5glv")
+}
+
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_y25gk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.075, 1.09375)
+texture = ExtResource("1_mkf8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 0)
 shape = SubResource("CircleShape2D_l5glv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.075, 1.09375)
-texture = ExtResource("1_mkf8s")
+[node name="ExplosionSprite" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_y25gk")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qncy5")
+}
