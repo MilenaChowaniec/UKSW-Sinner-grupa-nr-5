@@ -28,7 +28,7 @@ func exit() -> void:
 
 ## Player cant move while attacking (for now)
 func process(_delta : float) -> State:
-	player.velocity = Vector2.ZERO
+	#player.velocity = Vector2.ZERO
 	
 	# Once the animation is finished, switch the transition
 	if attacking == false:

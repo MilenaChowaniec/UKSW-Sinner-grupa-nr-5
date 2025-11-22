@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-var cardinal_direction : Vector2 = Vector2.DOWN ## Direction of player (for animations)
+var cardinal_direction : Vector2 = Vector2.RIGHT ## Direction of player (for animations)
 var direction : Vector2 = Vector2.ZERO ## Input direction from keyboard
 
 ## References to key child nodes
@@ -30,16 +30,13 @@ func _physics_process(_delta: float) -> void:
 func set_direction() -> bool:
 	var new_dir : Vector2 = cardinal_direction
 	
-	## No input - direction stays the same
+	# No input - direction stays the same
 	if direction == Vector2.ZERO:
 		return false
 	
-	if direction.y == 0:
+	if direction.x != 0:
 		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	elif direction.x == 0:
-		new_dir = Vector2.UP if direction.y < 0 else Vector2.DOWN
-	
-	## If direction didnt change - do nothing
+	# If direction didnt change - do nothing
 	if new_dir == cardinal_direction:
 		return false
 		
@@ -55,11 +52,7 @@ func update_animation(state : String) -> void:
 
 ## Convert facing direction to a string used in animation naming
 func animation_direction() -> String:
-	if cardinal_direction == Vector2.DOWN:
-		return "down"
-	elif cardinal_direction == Vector2.UP:
-		return "up"
-	elif cardinal_direction == Vector2.LEFT:
+	if cardinal_direction == Vector2.LEFT:
 		return "left"
 	else:
 		return "right"
