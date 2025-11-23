@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://8qj8xp7hj81y"]
 
-[ext_resource type="PackedScene" uid="uid://ddrdlai6hfgsd" path="res://scenes/heart_container.tscn" id="1_ahhtf"]
-[ext_resource type="PackedScene" uid="uid://cac8jmpcxd8pp" path="res://scenes/timer_game.tscn" id="2_oo0fn"]
+[ext_resource type="PackedScene" uid="uid://ddrdlai6hfgsd" path="res://scenes/hud/heart_container.tscn" id="1_ahhtf"]
+[ext_resource type="PackedScene" uid="uid://cac8jmpcxd8pp" path="res://scenes/hud/timer_game.tscn" id="2_oo0fn"]
 
 [node name="HUD" type="CanvasLayer"]
 
