@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://8qj8xp7hj81y"]
+
+[ext_resource type="Texture2D" uid="uid://chgaxrjjpgvha" path="res://assets/hearts/16x16 Heart Health Red.png" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://b6rykebb6rssx" path="res://scripts/hearts/heart_container.gd" id="1_oo0fn"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HeartContainer" type="HBoxContainer" parent="."]
+offset_right = 194.0
+offset_bottom = 73.0
+script = ExtResource("1_oo0fn")
+
+[node name="Heart1" type="Sprite2D" parent="HeartContainer"]
+position = Vector2(133, 39)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ahhtf")
+hframes = 3
+
+[node name="Heart2" type="Sprite2D" parent="HeartContainer"]
+position = Vector2(88, 39)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ahhtf")
+hframes = 3
+
+[node name="Heart3" type="Sprite2D" parent="HeartContainer"]
+position = Vector2(43, 39)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ahhtf")
+hframes = 3

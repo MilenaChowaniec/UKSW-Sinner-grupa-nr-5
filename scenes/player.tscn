@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://h4hxftw1f51m" path="res://assets/player/mike_idle.png" id="5_y4r1p"]
 [ext_resource type="Script" uid="uid://cmp8mbe16t2hd" path="res://scripts/player/state_attack.gd" id="8_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://dwr0jtiny67d2" path="res://assets/player/mike_hit.png" id="9_jej6c"]
-[ext_resource type="Script" uid="uid://8b430uoe815h" path="res://scripts/player/hit_state.gd" id="11_3v2ag"]
+[ext_resource type="Script" uid="uid://8b430uoe815h" path="res://scripts/player/state_hit.gd" id="11_3v2ag"]
 [ext_resource type="Script" uid="uid://ubc558qemrt" path="res://scripts/player/death_state.gd" id="12_jej6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cj0n"]
@@ -782,3 +782,5 @@ script = ExtResource("11_3v2ag")
 
 [node name="death" type="Node" parent="StateMachine"]
 script = ExtResource("12_jej6c")
+
+[node name="Camera2D" type="Camera2D" parent="."]
