@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://dc755lyl5uwyu"]
 
-[ext_resource type="Script" uid="uid://bgg1neo6l5jbb" path="res://scripts/skrzynia.gd" id="1_gcycw"]
-[ext_resource type="Texture2D" uid="uid://hefnq6wuqbsq" path="res://assets/world/skrzynie/Chests.png" id="1_wigkh"]
-[ext_resource type="Texture2D" uid="uid://m8nbshjxm5io" path="res://assets/world/skrzynie/Coração-Cristal-Pulso.png" id="3_7bcob"]
+[ext_resource type="Script" uid="uid://bgg1neo6l5jbb" path="res://scripts/inne dot.pokoji/skrzynia.gd" id="1_gcycw"]
+[ext_resource type="Texture2D" uid="uid://dhu06suqpp6w1" path="res://assets/world/skrzynie/Chests.png" id="1_wigkh"]
+[ext_resource type="Texture2D" uid="uid://0gtwtqvtq5fk" path="res://assets/world/skrzynie/Coração-Cristal-Pulso.png" id="3_7bcob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcycw"]
 size = Vector2(31.769821, 23.012676)
@@ -84,7 +84,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbp77"]
-radius = 3.8444784
+radius = 6.1431127
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7c5wl"]
 atlas = ExtResource("3_7bcob")
