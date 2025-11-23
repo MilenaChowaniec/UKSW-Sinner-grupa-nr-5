@@ -596,6 +596,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_qlg0r"]
 resource_name = "walk_left"
 length = 0.7
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -660,6 +661,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_ur7pv"]
 resource_name = "walk_right"
 length = 0.7
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -737,6 +739,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_qlg0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -747,6 +750,7 @@ flip_h = true
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(3, 5)
 shape = SubResource("CircleShape2D_8cj0n")
 
