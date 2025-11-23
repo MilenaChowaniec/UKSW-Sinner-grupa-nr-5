@@ -53,7 +53,7 @@ func physics(_delta : float) -> State:
 
 ## Spawn a bullet in the direction of the mouse
 func spawn_bullet():
-	var bullet_scene = preload("res://scenes/bullet.tscn")
+	var bullet_scene = preload("res://scenes/player/bullet.tscn")
 	var bullet_ = bullet_scene.instantiate()
 	
 	# Set bullet start position at player
