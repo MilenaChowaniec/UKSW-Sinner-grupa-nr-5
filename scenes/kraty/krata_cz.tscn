@@ -1,7 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://jepybpodmgpj"]
 
 [ext_resource type="Script" uid="uid://cd8rneuh1uqjj" path="res://scripts/krata.gd" id="1_pdyuk"]
-[ext_resource type="Texture2D" uid="uid://bwoc1pady2pfv" path="res://assets/world/czerwone/doors_lever_chest_animation.png" id="2_7oh12"]
+[ext_resource type="Texture2D" uid="uid://bmfd45gu83qg1" path="res://assets/world/red/doors_lever_chest_animation.png" id="2_7oh12"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
 size = Vector2(32.299026, 35.1324)

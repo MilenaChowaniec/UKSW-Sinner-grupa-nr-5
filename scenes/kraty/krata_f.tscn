@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cw2krqatvdhqs"]
+[gd_scene load_steps=16 format=3 uid="uid://cw2krqatvdhqs"]
 
 [ext_resource type="Script" uid="uid://cd8rneuh1uqjj" path="res://scripts/krata.gd" id="1_cm3gx"]
-[ext_resource type="Texture2D" uid="uid://gs5uwvfhg40q" path="res://assets/world/fioletowe/doors_lever_chest_animation.png" id="2_cm3gx"]
+[ext_resource type="Texture2D" uid="uid://bm3gotiqs7rx8" path="res://assets/world/purple/doors_lever_chest_animation.png" id="2_cm3gx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
 size = Vector2(32.299026, 35.1324)
@@ -23,6 +23,10 @@ atlas = ExtResource("2_cm3gx")
 region = Rect2(0, 48, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qbwa2"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm3gx"]
 atlas = ExtResource("2_cm3gx")
 region = Rect2(0, 0, 32, 48)
 
@@ -68,7 +72,10 @@ animations = [{
 "name": &"close",
 "speed": 4.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm3gx")
+}],
 "loop": false,
 "name": &"default",
 "speed": 3.0
@@ -106,7 +113,6 @@ shape = SubResource("RectangleShape2D_fiuaf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3.079544)
 sprite_frames = SubResource("SpriteFrames_08j4v")
-animation = &"close"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

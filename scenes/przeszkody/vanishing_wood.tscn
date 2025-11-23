@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://uyavh6jmglur"]
 
 [ext_resource type="Script" uid="uid://bgw81524e2lsl" path="res://scripts/vanishing_wood.gd" id="1_r3k4b"]
-[ext_resource type="Texture2D" uid="uid://btlhjqiklbvfm" path="res://assets/1.png" id="2_48uck"]
+[ext_resource type="Texture2D" uid="uid://cylxwixm5kywt" path="res://assets/world/1.png" id="2_48uck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3qp"]
 size = Vector2(29.32241, 30.303467)

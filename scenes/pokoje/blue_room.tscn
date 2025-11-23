@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cxlqvcxvlj5ce"]
+[gd_scene load_steps=17 format=4 uid="uid://cxlqvcxvlj5ce"]
 
 [ext_resource type="Texture2D" uid="uid://d1va33gyw5b8t" path="res://assets/world/blue/walls_floor_blue.png" id="1_jggjw"]
 [ext_resource type="Texture2D" uid="uid://dowm86vam4nsk" path="res://assets/world/blue/decorative_cracks_floor_blue.png" id="2_jctr2"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c8ae4odoj3dc3" path="res://scenes/drzwi/drzwi_n.tscn" id="6_qad0c"]
 [ext_resource type="PackedScene" uid="uid://bo4f2d8flp5ph" path="res://scenes/kraty/krata_n.tscn" id="7_qfjod"]
 [ext_resource type="PackedScene" uid="uid://caipt6pngyf6s" path="res://scenes/przeszkody/ogieniek_okno.tscn" id="8_18d7t"]
+[ext_resource type="PackedScene" uid="uid://dc755lyl5uwyu" path="res://scenes/skrzynia.tscn" id="9_jctr2"]
+[ext_resource type="PackedScene" uid="uid://4d5sunnlp8x7" path="res://scenes/przeszkody/lightning.tscn" id="10_58056"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_twgjl"]
 texture = ExtResource("1_jggjw")
@@ -974,7 +976,7 @@ layer_0/tile_data = PackedInt32Array(2818070, 327687, 1342177286, 2621462, 12451
 [node name="ozdoby" type="TileMapLayer" parent="TileMap"]
 z_index = 3
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAUAC4ABAAGAAsAAAAVABkACgACABoAAAAVABoACgACABsAAAAWABkACgADABoAAAAWABoACgADABsAAAAaABkACgADABoAAAAaABoACgADABsAAAAZABkACgACABoAAAAZABoACgACABsAAAAdABkACgACABoAAAAdABoACgACABsAAAAeABkACgADABoAAAAeABoACgADABsAAAAhABkACgACABoAAAAhABoACgACABsAAAAiABkACgADABoAAAAiABoACgADABsAAAAaACEACgACABoAAAAaACIACgACABsAAAAbACEACgADABoAAAAbACIACgADABsAAAAeACEACgACABoAAAAeACIACgACABsAAAAfACEACgADABoAAAAfACIACgADABsAAAAUAB8ACgACABoAAAAUACAACgACABsAAAAVAB8ACgADABoAAAAVACAACgADABsAAAAXACcACgACABoAAAAXACgACQATAAEAAAAYACcACgADABoAAAAYACgACQAUAAEAAAAXAB4ACQATAAQAAAAXAB8ACQATAAUAAAAYAB4ACQAUAAQAAAAYAB8ACQAUAAUAAAAUABgACQAIAAEAAAAUABkACQAIAAIAAAAUABoACQAIAAMAAAAUABsACQAIAAQAAAAXACkACQATAAIAAAAXACoACQATAAMAAAAYACkACQAUAAIAAAAYACoACQAUAAMAAAAfABkACQARAAEAAAAfABoACQARAAIAAAAfABsACQARAAMAAAAgABkACQASAAEAAAAgABoACQASAAIAAAAgABsACQASAAMAAAA=")
+tile_map_data = PackedByteArray("AAAUAC4ABAAGAAsAAAAVABkACgACABoAAAAVABoACgACABsAAAAWABkACgADABoAAAAWABoACgADABsAAAAaABkACgADABoAAAAaABoACgADABsAAAAZABkACgACABoAAAAZABoACgACABsAAAAdABkACgACABoAAAAdABoACgACABsAAAAeABkACgADABoAAAAeABoACgADABsAAAAhABkACgACABoAAAAhABoACgACABsAAAAiABkACgADABoAAAAiABoACgADABsAAAAaACEACgACABoAAAAaACIACQATAAEAAAAbACEACgADABoAAAAbACIACQAUAAEAAAAeACEACgACABoAAAAeACIACgACABsAAAAfACEACgADABoAAAAfACIACgADABsAAAAUAB8ACgACABoAAAAUACAACgACABsAAAAVAB8ACgADABoAAAAVACAACgADABsAAAAXACcACgACABoAAAAYACcACgADABoAAAAXAB4ACQATAAQAAAAXAB8ACQATAAUAAAAYAB4ACQAUAAQAAAAYAB8ACQAUAAUAAAAUABgACQAIAAEAAAAUABkACQAIAAIAAAAUABoACQAIAAMAAAAUABsACQAIAAQAAAAfABkACQARAAEAAAAfABoACQARAAIAAAAfABsACQARAAMAAAAgABkACQASAAEAAAAgABoACQASAAIAAAAgABsACQASAAMAAAAaACMACQATAAIAAAAaACQACQATAAMAAAAbACMACQAUAAIAAAAbACQACQAUAAMAAAA=")
 tile_set = SubResource("TileSet_8oql1")
 
 [node name="sciany" type="TileMapLayer" parent="TileMap"]
@@ -995,7 +997,7 @@ tile_map_data = PackedByteArray("AAAVABsACgACAAgAAAAVABwACgACAAgAAAAWABwACgACAAg
 tile_set = SubResource("TileSet_8oql1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(433.14236, 197.91971)
+position = Vector2(400.71896, 214.73355)
 zoom = Vector2(3, 3)
 
 [node name="drzwi" parent="." instance=ExtResource("6_qad0c")]
@@ -1041,3 +1043,22 @@ position = Vector2(281.88058, 225.86295)
 [node name="ogieniek9" parent="ogienki" instance=ExtResource("8_18d7t")]
 z_index = 3
 position = Vector2(330.15796, 354.54413)
+
+[node name="skrzynia" parent="." instance=ExtResource("9_jctr2")]
+z_index = 3
+position = Vector2(332.86923, 375.61395)
+
+[node name="lightning" parent="." instance=ExtResource("10_58056")]
+z_index = 3
+position = Vector2(307.57098, 283.67136)
+scale = Vector2(0.7, 0.7)
+
+[node name="lightning2" parent="." instance=ExtResource("10_58056")]
+z_index = 3
+position = Vector2(497.98682, 249.4266)
+scale = Vector2(0.7, 0.7)
+
+[node name="lightning3" parent="." instance=ExtResource("10_58056")]
+z_index = 3
+position = Vector2(351.97626, 387.1582)
+scale = Vector2(0.7, 0.7)

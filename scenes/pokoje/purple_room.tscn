@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=4 uid="uid://croixqo1ufg6b"]
+[gd_scene load_steps=15 format=4 uid="uid://croixqo1ufg6b"]
 
-[ext_resource type="Texture2D" uid="uid://dj12j7q1n1k5" path="res://assets/world/purple/walls_floor.png" id="1_j0ani"]
-[ext_resource type="Texture2D" uid="uid://dn62uaqooyddo" path="res://assets/world/purple/decorative_cracks_floor.png" id="2_6jfl2"]
-[ext_resource type="Texture2D" uid="uid://dd4gk4sli0ejv" path="res://assets/world/purple/decorative_cracks_walls.png" id="3_350lj"]
-[ext_resource type="Texture2D" uid="uid://cg2x4njjhn52w" path="res://assets/world/purple/Objects.png" id="4_8pv4i"]
+[ext_resource type="Texture2D" uid="uid://c26i0s4q8evma" path="res://assets/world/purple/walls_floor.png" id="1_j0ani"]
+[ext_resource type="Texture2D" uid="uid://ctcm8vxt4lgx8" path="res://assets/world/purple/decorative_cracks_floor.png" id="2_6jfl2"]
+[ext_resource type="Texture2D" uid="uid://bkoy56xlx5p4i" path="res://assets/world/purple/decorative_cracks_walls.png" id="3_350lj"]
+[ext_resource type="Texture2D" uid="uid://bk0kmternb3l" path="res://assets/world/purple/Objects.png" id="4_8pv4i"]
 [ext_resource type="PackedScene" uid="uid://d0wyp7plf1l64" path="res://scenes/drzwi/drzwi_f.tscn" id="5_nrapo"]
 [ext_resource type="PackedScene" uid="uid://cw2krqatvdhqs" path="res://scenes/kraty/krata_f.tscn" id="6_my236"]
 [ext_resource type="PackedScene" uid="uid://bgik8t4oilkdy" path="res://scenes/przeszkody/pochodnia.tscn" id="7_vlmgv"]
 [ext_resource type="PackedScene" uid="uid://brb8361tpveby" path="res://scenes/przeszkody/trap.tscn" id="8_wnjtr"]
+[ext_resource type="PackedScene" uid="uid://dc755lyl5uwyu" path="res://scenes/skrzynia.tscn" id="9_6jfl2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vu5en"]
 texture = ExtResource("1_j0ani")
@@ -1145,17 +1146,17 @@ scale = Vector2(1.2, 1)
 
 [node name="pochodnie" type="Node" parent="."]
 
-[node name="ogieniek2" parent="pochodnie" instance=ExtResource("7_vlmgv")]
-z_index = 3
-position = Vector2(529.08777, 408.58917)
+[node name="pochdnia" parent="pochodnie" instance=ExtResource("7_vlmgv")]
+z_index = 2
+position = Vector2(405.206, 408.07507)
 
-[node name="ogieniek3" parent="pochodnie" instance=ExtResource("7_vlmgv")]
-z_index = 3
-position = Vector2(412.3116, 408.2959)
+[node name="pochdnia2" parent="pochodnie" instance=ExtResource("7_vlmgv")]
+z_index = 2
+position = Vector2(453.78445, 406.78995)
 
-[node name="ogieniek4" parent="pochodnie" instance=ExtResource("7_vlmgv")]
-z_index = 3
-position = Vector2(470.9264, 407.71558)
+[node name="pochdnia3" parent="pochodnie" instance=ExtResource("7_vlmgv")]
+z_index = 2
+position = Vector2(517.01355, 406.78995)
 
 [node name="trap" parent="." instance=ExtResource("8_wnjtr")]
 z_index = 1
@@ -1166,3 +1167,7 @@ scale = Vector2(0.9, 0.8)
 z_index = 3
 position = Vector2(600.47144, 451.1774)
 scale = Vector2(1.25, 0.5)
+
+[node name="skrzynia" parent="." instance=ExtResource("9_6jfl2")]
+z_index = 3
+position = Vector2(476.77988, 435.18542)
