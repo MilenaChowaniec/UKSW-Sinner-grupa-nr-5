@@ -5,6 +5,10 @@ var attacking : bool = false
 
 ## Reference to AnimationPlayer to detect when the attack animation finishes
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
+## Reference gun point 
+@onready var gun_point_right: Node2D = $"../../GunPointRight"
+@onready var gun_point_left: Node2D = $"../../GunPointLeft"
+
 
 ## Reference to the other states so we can transition
 @onready var walk: State = $"../walk"
@@ -53,8 +57,12 @@ func spawn_bullet():
 	var bullet_ = bullet_scene.instantiate()
 	
 	# Set bullet start position at player
-	bullet_.global_position = player.global_position
-	bullet_.start_position = player.global_position
+	if player.cardinal_direction == Vector2.RIGHT:
+		bullet_.global_position = gun_point_right.global_position
+		bullet_.start_position = bullet_.global_position
+	else:
+		bullet_.global_position = gun_point_left.global_position
+		bullet_.start_position = bullet_.global_position
 	
 	# Calculate direction towards mouse
 	var mouse_pos = player.get_global_mouse_position()

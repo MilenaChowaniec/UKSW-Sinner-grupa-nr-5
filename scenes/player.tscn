@@ -759,6 +759,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_tuyoq")
 }
 
+[node name="GunPointRight" type="Node2D" parent="."]
+position = Vector2(21, 9)
+
+[node name="GunPointLeft" type="Node2D" parent="."]
+position = Vector2(-19.5, 9)
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_fjrip")
 
