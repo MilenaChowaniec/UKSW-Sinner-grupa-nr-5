@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cac8jmpcxd8pp"]
+
+[ext_resource type="Script" uid="uid://b2i0hfsc03kxf" path="res://scripts/hud/timer_game.gd" id="1_i338w"]
+[ext_resource type="FontFile" uid="uid://bql8obr3wlyca" path="res://assets/fonts/GrapeSoda.ttf" id="2_2ce3n"]
+
+[node name="Timer_Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 221.0
+offset_right = 324.0
+offset_bottom = 45.0
+script = ExtResource("1_i338w")
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_2ce3n")
+theme_override_font_sizes/font_size = 30
