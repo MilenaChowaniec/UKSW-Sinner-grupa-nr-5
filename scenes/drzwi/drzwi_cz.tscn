@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://itbaxc17mvhw"]
 
-[ext_resource type="Script" uid="uid://ndmywmnlv81f" path="res://scripts/drzwi.gd" id="1_rk71f"]
+[ext_resource type="Script" uid="uid://ndmywmnlv81f" path="res://scripts/przejścia/drzwi.gd" id="1_rk71f"]
 [ext_resource type="Texture2D" uid="uid://bmfd45gu83qg1" path="res://assets/world/red/doors_lever_chest_animation.png" id="2_lna5m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
@@ -70,7 +70,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"close",
-"speed": 4.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,7 +98,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
-"speed": 4.0
+"speed": 8.0
 }]
 
 [node name="drzwi" type="Area2D" node_paths=PackedStringArray("drzwi_animation")]
@@ -113,8 +113,7 @@ shape = SubResource("RectangleShape2D_fiuaf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -0.08189392)
 sprite_frames = SubResource("SpriteFrames_08j4v")
-animation = &"open"
+animation = &"close"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

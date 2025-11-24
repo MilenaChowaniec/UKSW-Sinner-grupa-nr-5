@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://4d5sunnlp8x7"]
 
 [ext_resource type="Script" uid="uid://cf2apdl28nx1e" path="res://scripts/przeszkody/lightning.gd" id="1_raah3"]
-[ext_resource type="Texture2D" uid="uid://2f65acltmgea" path="res://assets/Lightning Trap - Level 1.png" id="2_tqmwp"]
+[ext_resource type="Texture2D" uid="uid://bnx7n0whpd7x8" path="res://assets/Lightning Trap - Level 1.png" id="2_tqmwp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7nfe2"]
 atlas = ExtResource("2_tqmwp")
@@ -94,7 +94,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ermn0"]
-size = Vector2(24.744926, 4.28697)
+size = Vector2(24.744926, 14.413923)
 
 [node name="lightning" type="Area2D"]
 script = ExtResource("1_raah3")
@@ -104,7 +104,7 @@ sprite_frames = SubResource("SpriteFrames_ig3cb")
 animation = &"active"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.2462044, 36.324005)
+position = Vector2(4.084118, 38.05426)
 shape = SubResource("RectangleShape2D_ermn0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
