@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bo4f2d8flp5ph"]
 
-[ext_resource type="Script" uid="uid://cd8rneuh1uqjj" path="res://scripts/krata.gd" id="1_52bl5"]
+[ext_resource type="Script" uid="uid://bxwfamcrjb8de" path="res://scripts/przejścia/krata.gd" id="1_52bl5"]
 [ext_resource type="Texture2D" uid="uid://bwha44qfect8l" path="res://assets/world/blue/doors_lever_chest_animation_blue.png" id="2_52bl5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
@@ -70,7 +70,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"close",
-"speed": 4.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,7 +98,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
-"speed": 4.0
+"speed": 8.0
 }]
 
 [node name="krata" type="Area2D" node_paths=PackedStringArray("krata_animation")]
@@ -113,8 +113,6 @@ shape = SubResource("RectangleShape2D_fiuaf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3.079544)
 sprite_frames = SubResource("SpriteFrames_08j4v")
-animation = &"open"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

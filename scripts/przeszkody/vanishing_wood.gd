@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 ##Klasa reprezentująca platformę, która znika po wejściu gracza i odradza się po określonym czasie.
 class_name VanishingPlatform
 ##steruje cyklem znikania i pojawiania się
