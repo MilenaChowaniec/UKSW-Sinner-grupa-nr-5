@@ -1,0 +1,119 @@
+[gd_scene load_steps=16 format=3 uid="uid://cw2krqatvdhqs"]
+
+[ext_resource type="Script" uid="uid://cd8rneuh1uqjj" path="res://scripts/krata.gd" id="1_cm3gx"]
+[ext_resource type="Texture2D" uid="uid://bm3gotiqs7rx8" path="res://assets/world/purple/doors_lever_chest_animation.png" id="2_cm3gx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
+size = Vector2(32.299026, 35.1324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0l5j"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6gwe"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exgu7"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4s8b"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbwa2"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm3gx"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6f3c"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q45lc"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkale"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdplf"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bxry"]
+atlas = ExtResource("2_cm3gx")
+region = Rect2(0, 192, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08j4v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0l5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6gwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exgu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4s8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbwa2")
+}],
+"loop": false,
+"name": &"close",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm3gx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6f3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q45lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkale")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdplf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bxry")
+}],
+"loop": false,
+"name": &"open",
+"speed": 4.0
+}]
+
+[node name="krata" type="Area2D" node_paths=PackedStringArray("krata_animation")]
+script = ExtResource("1_cm3gx")
+krata_animation = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0.007217407, 5.9973526)
+shape = SubResource("RectangleShape2D_fiuaf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3.079544)
+sprite_frames = SubResource("SpriteFrames_08j4v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

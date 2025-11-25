@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang='pl'><head>
+<meta charset='UTF-8' />
+<title>Dokumentacja GDScript</title>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js'></script>
+<script>document.addEventListener('DOMContentLoaded',()=>hljs.highlightAll());</script>
+<script>
+function toggle(id){
+  const el=document.getElementById(id);
+  el.style.display = (el.style.display==='none'?'block':'none');
+}
+</script>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 1000px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+pre { background: #fafafa; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+code { font-family: Consolas, monospace; }
+.file-block { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #ccc; }
+.class-block { margin-left: 1rem; }
+.func-button { cursor: pointer; color: #005bbb; text-decoration: underline; }
+.func-button:hover { color: #003f7d; }
+</style></head><body>
+<h1>Dokumentacja GDScript</h1>
+<p>Automatycznie wygenerowana z komentarzy <code>##</code>.</p>
+<h2>Spis treści</h2><ul>
+<li><a href='#scripts_main_menu.gd-MainMenu' title='scripts/main_menu.gd'>MainMenu</a></li>
+</ul>
+<div class='file-block' id='file-scripts_main_menu.gd'>
+<h2>Plik: <code>scripts/main_menu.gd</code></h2>
+<div class='class-block' id='scripts_main_menu.gd-MainMenu'>
+<h3>Klasa: MainMenu</h3>
+<p>Klasa odpowiadająca za odsługe menu głównego w grze.</p>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_main_menu.gd-MainMenu-0')">_on_start_game_pressed()</p>
+<p>Funkcja wywoływana po naciśnięciu przycisku Start. Przenosi gracza do ekranu rozgrywki.</p>
+<pre id='codeblock-scripts_main_menu.gd-MainMenu-0' style='display:none;'><code class='language-gdscript'>func _on_start_game_pressed() -&gt; void:
+	get_tree().change_scene_to_file(&quot;res://scenes/game.tscn&quot;) # Replace with function body.
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_main_menu.gd-MainMenu-1')">_on_continue_pressed()</p>
+<p>Funkcja wywoływana po naciśnięciu przycisku Continue. Przenosi gracza do ekranu rozgrywki wcześniej rozpoczętej i zapisanej rozgrywki.</p>
+<pre id='codeblock-scripts_main_menu.gd-MainMenu-1' style='display:none;'><code class='language-gdscript'>func _on_continue_pressed() -&gt; void:
+	pass # Replace with function body.
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_main_menu.gd-MainMenu-2')">_on_settings_pressed()</p>
+<p>Funkcja wywoływana po naciśnięciu przycisku ustawień. Przenosi gracza do ekranu wyboru ustawień rozgrywki.</p>
+<pre id='codeblock-scripts_main_menu.gd-MainMenu-2' style='display:none;'><code class='language-gdscript'>func _on_settings_pressed() -&gt; void:
+	pass # Replace with function body.
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_main_menu.gd-MainMenu-3')">_on_exit_pressed()</p>
+<p>Funkcja wywoływana po naciśnięciu przycisku Exit. Kończy działanie programu.</p>
+<pre id='codeblock-scripts_main_menu.gd-MainMenu-3' style='display:none;'><code class='language-gdscript'>func _on_exit_pressed() -&gt; void:
+	get_tree().quit() # Replace with function body.</code></pre>
+</div>
+</div>
+</body></html>

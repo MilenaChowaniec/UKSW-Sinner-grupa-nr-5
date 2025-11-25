@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://uyavh6jmglur"]
+
+[ext_resource type="Script" uid="uid://bgw81524e2lsl" path="res://scripts/vanishing_wood.gd" id="1_r3k4b"]
+[ext_resource type="Texture2D" uid="uid://cylxwixm5kywt" path="res://assets/world/1.png" id="2_48uck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3qp"]
+size = Vector2(29.32241, 30.303467)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djexn"]
+size = Vector2(34.205727, 34.88167)
+
+[node name="vanishing_wood" type="StaticBody2D"]
+script = ExtResource("1_r3k4b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(12.596676, 2.7437286)
+shape = SubResource("RectangleShape2D_gk3qp")
+
+[node name="1" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(12.598415, -3.2353408)
+scale = Vector2(0.08, 0.083)
+texture = ExtResource("2_48uck")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12.553135, 2.5257244)
+shape = SubResource("RectangleShape2D_djexn")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
