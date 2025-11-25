@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ca4u7b7trlp5n"]
 
 [ext_resource type="Texture2D" uid="uid://r01e05nw417e" path="res://assets/Bat/Bat.png" id="1_7p1mj"]
-[ext_resource type="Script" uid="uid://doxkoty8ci1kw" path="res://scenes/bat.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://doxkoty8ci1kw" path="res://scripts/bat.gd" id="1_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("1_7p1mj")
@@ -59,7 +59,6 @@ script = ExtResource("1_md0e3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xwavj")
 animation = &"fly"
-frame_progress = 0.10395027
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -75,7 +74,6 @@ position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_4ra3w")
 
 [node name="(AttackArea)AreaD2" type="Area2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="(AttackArea)AreaD2"]
