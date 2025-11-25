@@ -59,14 +59,14 @@ func spawn_bullet():
 	# Set bullet start position at player
 	if player.cardinal_direction == Vector2.RIGHT:
 		bullet_.global_position = gun_point_right.global_position
-		bullet_.start_position = bullet_.global_position
 	else:
 		bullet_.global_position = gun_point_left.global_position
-		bullet_.start_position = bullet_.global_position
+	
+	bullet_.start_position = bullet_.global_position
 	
 	# Calculate direction towards mouse
 	var mouse_pos = player.get_global_mouse_position()
-	bullet_.direction = (mouse_pos - player.global_position).normalized()
+	bullet_.direction = (mouse_pos - bullet_.global_position).normalized()
 	
 	bullet_.scale = player.scale
 	
