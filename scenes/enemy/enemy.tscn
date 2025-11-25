@@ -1,7 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca4u7b7trlp5n"]
+[gd_scene load_steps=16 format=3 uid="uid://ca4u7b7trlp5n"]
 
 [ext_resource type="Texture2D" uid="uid://r01e05nw417e" path="res://assets/Bat/Bat.png" id="1_7p1mj"]
-[ext_resource type="Script" uid="uid://doxkoty8ci1kw" path="res://scripts/bat.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://doxkoty8ci1kw" path="res://scripts/enemy/bat.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://dtymyxhquyf28" path="res://assets/Bat/Bat-die.png" id="2_40wdo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjssy"]
+atlas = ExtResource("2_40wdo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl05p"]
+atlas = ExtResource("2_40wdo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwlon"]
+atlas = ExtResource("2_40wdo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbhyu"]
+atlas = ExtResource("2_40wdo")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("1_7p1mj")
@@ -21,10 +38,22 @@ region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xwavj"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjssy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl05p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwlon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbhyu")
+}],
 "loop": true,
 "name": &"die",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -45,10 +74,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
-radius = 22.022715
+radius = 4.55209
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
-radius = 158.11388
+radius = 80.024994
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uy6h"]
 radius = 11.0
@@ -59,27 +88,29 @@ script = ExtResource("1_md0e3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xwavj")
 animation = &"fly"
+frame_progress = 0.6580858
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(1, -1)
+position = Vector2(2, 3)
+scale = Vector2(1.7648934, 2.3919575)
 shape = SubResource("CircleShape2D_md0e3")
 debug_color = Color(0.10106967, 0.6245221, 0.5010182, 0.41960785)
 
-[node name="(DetectionArea)Area2D" type="Area2D" parent="."]
-visible = false
+[node name="DetectionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="(DetectionArea)Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_4ra3w")
 
-[node name="(AttackArea)AreaD2" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="(AttackArea)AreaD2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_5uy6h")
 debug_color = Color(0.98558336, 0, 0.3369638, 0.41960785)
 
-[connection signal="body_entered" from="(DetectionArea)Area2D" to="." method="_on_detection_area_area_2d_body_entered"]
-[connection signal="body_entered" from="(AttackArea)AreaD2" to="." method="_on_attack_area_area_d_2_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
