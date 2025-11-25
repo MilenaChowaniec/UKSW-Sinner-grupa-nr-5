@@ -19,8 +19,6 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="canvas_items"
 
-<<<<<<< HEAD
-=======
 [input]
 
 left={
@@ -49,7 +47,6 @@ attack={
 ]
 }
 
->>>>>>> 4a9dc03cd53ce6fa9c6e7c964abd89c822a605fd
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
