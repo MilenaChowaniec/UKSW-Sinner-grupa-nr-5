@@ -1,7 +1,7 @@
 class_name bullet extends Area2D
 
-@export var speed: float = 700.0 ## Bullet movement speed
-@export var max_distance: float = 400 ## Max distance bullet can travel before exploding
+@export var speed: float = 200.0 ## Bullet movement speed
+@export var max_distance: float = 100 ## Max distance bullet can travel before exploding
 
 ## References to bullet sprites and for explosion animation
 @onready var sprite: Sprite2D = $Sprite2D

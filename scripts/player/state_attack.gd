@@ -68,6 +68,8 @@ func spawn_bullet():
 	var mouse_pos = player.get_global_mouse_position()
 	bullet_.direction = (mouse_pos - player.global_position).normalized()
 	
+	bullet_.scale = player.scale
+	
 	# Add bullet to current scene
 	get_tree().current_scene.add_child(bullet_)
 

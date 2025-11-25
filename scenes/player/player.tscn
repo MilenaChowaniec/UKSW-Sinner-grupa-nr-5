@@ -739,12 +739,12 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_qlg0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -2.000002)
-scale = Vector2(1.5375, 1.515625)
+scale = Vector2(0.5, 0.493)
 texture = ExtResource("5_y4r1p")
 flip_h = true
 hframes = 7
@@ -760,10 +760,10 @@ libraries = {
 }
 
 [node name="GunPointRight" type="Node2D" parent="."]
-position = Vector2(21, 9)
+position = Vector2(8, 1.5)
 
 [node name="GunPointLeft" type="Node2D" parent="."]
-position = Vector2(-19.5, 9)
+position = Vector2(-5.5, 1.5)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_fjrip")
@@ -784,3 +784,4 @@ script = ExtResource("11_3v2ag")
 script = ExtResource("12_jej6c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
