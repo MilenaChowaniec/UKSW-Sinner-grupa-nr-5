@@ -4,21 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://chgaxrjjpgvha" path="res://assets/hearts/16x16 Heart Health Red.png" id="2_qsesa"]
 
 [node name="HeartContainer" type="HBoxContainer"]
-offset_right = 194.0
-offset_bottom = 73.0
+offset_right = 59.0
+offset_bottom = 26.0
 script = ExtResource("1_srcrn")
 
-[node name="Heart1" type="Sprite2D" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Heart1" type="Sprite2D" parent="Control"]
 position = Vector2(44, 13)
 texture = ExtResource("2_qsesa")
 hframes = 3
 
-[node name="Heart2" type="Sprite2D" parent="."]
+[node name="Heart2" type="Sprite2D" parent="Control"]
 position = Vector2(29, 13)
 texture = ExtResource("2_qsesa")
 hframes = 3
 
-[node name="Heart3" type="Sprite2D" parent="."]
+[node name="Heart3" type="Sprite2D" parent="Control"]
 position = Vector2(14, 13)
 texture = ExtResource("2_qsesa")
 hframes = 3

@@ -6,9 +6,9 @@
 [node name="Timer_Game" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 221.0
-offset_right = 324.0
-offset_bottom = 45.0
+offset_top = 1.0
+offset_right = 103.0
+offset_bottom = 46.0
 script = ExtResource("1_i338w")
 
 [node name="TimerLabel" type="Label" parent="."]
