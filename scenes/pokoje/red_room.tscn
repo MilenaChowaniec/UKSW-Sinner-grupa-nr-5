@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bbows24orh6ku" path="res://assets/world/red/walls_floor_czerowny.png" id="4_eye05"]
 [ext_resource type="Texture2D" uid="uid://b67cl47lu6poc" path="res://assets/world/red/Objects_czerwone.png" id="5_d0k71"]
 [ext_resource type="Texture2D" uid="uid://iasfjc4f58mb" path="res://assets/world/red/decorative_cracks_floor_czerwone.png" id="6_2o68w"]
-[ext_resource type="Script" uid="uid://bhpdi33m2dp87" path="res://scripts/przeszkody/lawa.gd" id="7_eye05"]
+[ext_resource type="Script" uid="uid://wnfp6cirm6i" path="res://scripts/przeszkody/lawa.gd" id="7_eye05"]
 [ext_resource type="PackedScene" uid="uid://buxu6tpew4c0x" path="res://scenes/player/player.tscn" id="7_sq0k0"]
 [ext_resource type="PackedScene" uid="uid://cyakvvsmh3hxs" path="res://scenes/przeszkody/ogieniek_1.tscn" id="7_w3h70"]
 [ext_resource type="PackedScene" uid="uid://ch5t36se0di0u" path="res://scenes/przeszkody/ogieniek_2.tscn" id="8_88a4y"]
@@ -1190,6 +1190,7 @@ position = Vector2(481.09808, 465.70575)
 zoom = Vector2(3, 3)
 
 [node name="lawa" type="Area2D" parent="."]
+position = Vector2(-0.099090576, 6.3421326)
 script = ExtResource("7_eye05")
 
 [node name="Collision-lawa" type="CollisionShape2D" parent="lawa"]
@@ -1259,45 +1260,40 @@ position = Vector2(470.7596, 427.58295)
 
 [node name="woods" type="Node" parent="."]
 
-[node name="vanishing_wood" parent="woods" instance=ExtResource("9_ue15h")]
-z_index = 1
-position = Vector2(443.7206, 482.6765)
-scale = Vector2(0.5, 1)
-
 [node name="vanishing_wood2" parent="woods" instance=ExtResource("9_ue15h")]
 z_index = 1
-position = Vector2(429.71573, 475.47592)
-scale = Vector2(0.5, 1)
+position = Vector2(429.40448, 479.4159)
+scale = Vector2(0.6, 1)
 
 [node name="vanishing_wood3" parent="woods" instance=ExtResource("9_ue15h")]
 z_index = 1
-position = Vector2(414.85565, 480.40356)
-scale = Vector2(0.5, 1)
+position = Vector2(411.74622, 479.3135)
+scale = Vector2(0.6, 1)
 
 [node name="vanishing_wood6" parent="woods" instance=ExtResource("9_ue15h")]
 z_index = 1
-position = Vector2(457.98352, 482.7917)
-scale = Vector2(0.5, 1)
+position = Vector2(464.79483, 479.32336)
+scale = Vector2(0.6, 1)
 
 [node name="vanishing_wood7" parent="woods" instance=ExtResource("9_ue15h")]
 z_index = 1
-position = Vector2(472.34885, 483.01712)
-scale = Vector2(0.5, 1)
+position = Vector2(482.37497, 479.29303)
+scale = Vector2(0.6, 1)
 
 [node name="vanishing_wood8" parent="woods" instance=ExtResource("9_ue15h")]
 z_index = 1
-position = Vector2(486.93933, 479.29956)
-scale = Vector2(0.5, 1)
+position = Vector2(499.9762, 479.29333)
+scale = Vector2(0.6, 1)
 
 [node name="vanishing_wood9" parent="woods" instance=ExtResource("9_ue15h")]
 z_index = 1
-position = Vector2(501.47925, 475.0979)
-scale = Vector2(0.5, 1)
+position = Vector2(517.566, 479.2497)
+scale = Vector2(0.6, 1)
 
 [node name="vanishing_wood10" parent="woods" instance=ExtResource("9_ue15h")]
 z_index = 1
-position = Vector2(516.0822, 474.09323)
-scale = Vector2(0.5, 1)
+position = Vector2(447.04843, 479.43024)
+scale = Vector2(0.6, 1)
 
 [node name="krata" parent="." instance=ExtResource("11_w1hs2")]
 z_index = 4
