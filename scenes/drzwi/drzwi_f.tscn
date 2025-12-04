@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://d0wyp7plf1l64"]
 
-[ext_resource type="Script" uid="uid://ndmywmnlv81f" path="res://scripts/przejścia/drzwi.gd" id="1_1gyjs"]
+[ext_resource type="Script" uid="uid://bgdr86xk85e6k" path="res://scripts/przejścia/drzwi.gd" id="1_1gyjs"]
 [ext_resource type="Texture2D" uid="uid://bm3gotiqs7rx8" path="res://assets/world/purple/doors_lever_chest_animation.png" id="2_1gyjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
-size = Vector2(32.299026, 41.978798)
+size = Vector2(32.299026, 39.132896)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oak3l"]
 atlas = ExtResource("2_1gyjs")
@@ -100,7 +100,7 @@ drzwi_animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(0.007217407, -0.3124237)
+position = Vector2(0.007217407, 5.5587196)
 shape = SubResource("RectangleShape2D_fiuaf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

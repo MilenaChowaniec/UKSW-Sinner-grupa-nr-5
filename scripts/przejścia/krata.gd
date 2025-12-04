@@ -1,6 +1,6 @@
 
 ##Klasa Krata obsługuje obiekty krat w rozgrywce.
-class_name Krata extends Area2D
+class_name Grid extends Area2D
 @export var krata_animation: AnimatedSprite2D
 var open = false
 
@@ -11,6 +11,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not open:
 		open = true
 		krata_animation.play("open")
+		body.set_physics_process(false)
+		await krata_animation.animation_finished
+		body.set_physics_process(true)
 		
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player" and open:

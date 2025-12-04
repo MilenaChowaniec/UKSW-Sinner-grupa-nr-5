@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://cw2krqatvdhqs"]
 
-[ext_resource type="Script" uid="uid://cd8rneuh1uqjj" path="res://scripts/przejścia/krata.gd" id="1_cm3gx"]
+[ext_resource type="Script" uid="uid://bxwfamcrjb8de" path="res://scripts/przejścia/krata.gd" id="1_cm3gx"]
 [ext_resource type="Texture2D" uid="uid://bm3gotiqs7rx8" path="res://assets/world/purple/doors_lever_chest_animation.png" id="2_cm3gx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
-size = Vector2(32.299026, 35.1324)
+size = Vector2(32.299026, 31.327587)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0l5j"]
 atlas = ExtResource("2_cm3gx")
@@ -107,7 +107,7 @@ krata_animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(0.007217407, 5.9973526)
+position = Vector2(0.20540619, 5.6205616)
 shape = SubResource("RectangleShape2D_fiuaf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

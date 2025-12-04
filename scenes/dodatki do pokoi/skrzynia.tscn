@@ -1,46 +1,46 @@
-[gd_scene load_steps=21 format=3 uid="uid://dc755lyl5uwyu"]
+[gd_scene load_steps=22 format=3 uid="uid://dc755lyl5uwyu"]
 
-[ext_resource type="Script" uid="uid://bgg1neo6l5jbb" path="res://scripts/inne dot.pokoji/skrzynia.gd" id="1_gcycw"]
-[ext_resource type="Texture2D" uid="uid://h2h13pr88c7a" path="res://assets/world/skrzynie/Chests.png" id="1_wigkh"]
-[ext_resource type="Texture2D" uid="uid://m8nbshjxm5io" path="res://assets/world/skrzynie/Coração-Cristal-Pulso.png" id="3_7bcob"]
+[ext_resource type="Script" uid="uid://c5ppk3gdut2wh" path="res://scripts/dodatki do pokoi/skrzynia.gd" id="1_iwfkv"]
+[ext_resource type="Texture2D" uid="uid://h2h13pr88c7a" path="res://assets/world/skrzynie/Chests.png" id="2_s6l28"]
+[ext_resource type="Texture2D" uid="uid://m8nbshjxm5io" path="res://assets/world/skrzynie/Coração-Cristal-Pulso.png" id="3_fowqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcycw"]
-size = Vector2(32.835968, 24.569384)
+size = Vector2(25.842869, 20.30511)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rysid"]
-atlas = ExtResource("1_wigkh")
+atlas = ExtResource("2_s6l28")
 region = Rect2(0, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbp77"]
-atlas = ExtResource("1_wigkh")
+atlas = ExtResource("2_s6l28")
 region = Rect2(0, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1aq6"]
-atlas = ExtResource("1_wigkh")
+atlas = ExtResource("2_s6l28")
 region = Rect2(48, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hr6u"]
-atlas = ExtResource("1_wigkh")
+atlas = ExtResource("2_s6l28")
 region = Rect2(96, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0phlu"]
-atlas = ExtResource("1_wigkh")
+atlas = ExtResource("2_s6l28")
 region = Rect2(144, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o2jul"]
-atlas = ExtResource("1_wigkh")
+atlas = ExtResource("2_s6l28")
 region = Rect2(192, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpp0p"]
-atlas = ExtResource("1_wigkh")
+atlas = ExtResource("2_s6l28")
 region = Rect2(0, 32, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8rwu"]
-atlas = ExtResource("1_wigkh")
+atlas = ExtResource("2_s6l28")
 region = Rect2(48, 32, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_130rc"]
-atlas = ExtResource("1_wigkh")
+atlas = ExtResource("2_s6l28")
 region = Rect2(96, 32, 48, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7c5wl"]
@@ -83,23 +83,26 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bcob"]
+size = Vector2(28.979218, 22.201448)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbp77"]
 radius = 6.1431127
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7c5wl"]
-atlas = ExtResource("3_7bcob")
+atlas = ExtResource("3_fowqi")
 region = Rect2(0, 0, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fypxa"]
-atlas = ExtResource("3_7bcob")
+atlas = ExtResource("3_fowqi")
 region = Rect2(1024, 0, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_575k4"]
-atlas = ExtResource("3_7bcob")
+atlas = ExtResource("3_fowqi")
 region = Rect2(0, 1024, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oim1o"]
-atlas = ExtResource("3_7bcob")
+atlas = ExtResource("3_fowqi")
 region = Rect2(1024, 1024, 1024, 1024)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rysid"]
@@ -122,27 +125,34 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="skrzynia" type="Area2D" node_paths=PackedStringArray("skrzynia_animation")]
-script = ExtResource("1_gcycw")
+[node name="skrzynia" type="StaticBody2D" node_paths=PackedStringArray("skrzynia_animation")]
+visibility_layer = 5
+script = ExtResource("1_iwfkv")
 skrzynia_animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.2096329, 3.919774)
+position = Vector2(1.5660458, 3.8948135)
 shape = SubResource("RectangleShape2D_gcycw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6.7163467, -1.7516441)
 sprite_frames = SubResource("SpriteFrames_7c5wl")
 
+[node name="collision_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_area"]
+position = Vector2(2.2129745, 3.9311342)
+shape = SubResource("RectangleShape2D_7bcob")
+
 [node name="serce1" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="serce1"]
 z_index = 2
-position = Vector2(27.256542, 11.645054)
+position = Vector2(33.697765, -1.039196)
 shape = SubResource("CircleShape2D_lbp77")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="serce1"]
-position = Vector2(27.5167, 11.733479)
+position = Vector2(33.858818, -0.55438995)
 scale = Vector2(0.02, 0.02)
 sprite_frames = SubResource("SpriteFrames_rysid")
 autoplay = "default"
@@ -152,16 +162,15 @@ frame_progress = 0.18670338
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="serce2"]
 z_index = 2
-position = Vector2(16.120007, 21.306883)
+position = Vector2(-4.987377, 23.090605)
 shape = SubResource("CircleShape2D_lbp77")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="serce2"]
-position = Vector2(16.227608, 21.54787)
+position = Vector2(-4.5896225, 23.277195)
 scale = Vector2(0.02, 0.02)
 sprite_frames = SubResource("SpriteFrames_rysid")
 autoplay = "default"
 frame_progress = 0.18670338
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="collision_area" to="." method="_on_collision_area_body_entered"]

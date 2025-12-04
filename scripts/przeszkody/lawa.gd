@@ -1,10 +1,7 @@
-class_name Lawa extends Area2D
+class_name Lava extends Area2D
 @onready var timer: Timer = $Timer
 var player_inside = false
-@onready var player: Player = $"../Player"
-
-
-
+@onready var player: Player = $"../../Player"
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -12,7 +9,6 @@ func _on_body_entered(body: Node2D) -> void:
 		player_inside = true
 		$Timer.start()
 		
-
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		print("wyszedles z lawa")

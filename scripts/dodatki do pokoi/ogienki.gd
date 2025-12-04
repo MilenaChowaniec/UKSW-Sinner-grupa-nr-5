@@ -1,5 +1,5 @@
 ##Klasa Ogienki obsługująca obiekty płomieni w rozgrywce.
-class_name Ogienki extends Area2D
+class_name Fire extends Area2D
 
 ##Funkcja uruchamia się po zderzeniu z innym obiektem.
 ##Jeśli obiektem jest gracz, funkcja odejmuje graczowi hp.

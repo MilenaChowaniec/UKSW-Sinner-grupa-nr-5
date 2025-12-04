@@ -34,6 +34,7 @@ position = Vector2(12.584007, 2.6647167)
 shape = SubResource("RectangleShape2D_djexn")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

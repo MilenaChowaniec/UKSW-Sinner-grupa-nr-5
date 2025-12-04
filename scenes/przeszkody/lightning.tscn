@@ -93,8 +93,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ermn0"]
-size = Vector2(24.744926, 14.413923)
+[sub_resource type="CircleShape2D" id="CircleShape2D_raah3"]
+radius = 6.2315526
 
 [node name="lightning" type="Area2D"]
 script = ExtResource("1_raah3")
@@ -102,10 +102,12 @@ script = ExtResource("1_raah3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ig3cb")
 animation = &"active"
+frame = 9
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.084118, 38.05426)
-shape = SubResource("RectangleShape2D_ermn0")
+position = Vector2(-0.085193634, 39.09659)
+shape = SubResource("CircleShape2D_raah3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

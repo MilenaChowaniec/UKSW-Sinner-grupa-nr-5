@@ -1,4 +1,4 @@
-class_name Skrzynia extends Area2D
+class_name Chest extends StaticBody2D
 @export var skrzynia_animation: AnimatedSprite2D
 @onready var serce: Area2D = $serce1
 @onready var serce2: Area2D = $serce2
@@ -17,10 +17,11 @@ func _ready() -> void:
 
 ##Funkcja aktywowana przez wejście ciała na obiekt skrzyni.
 ##Funkcja uruchamia animację otwierania skrzyni.
-func _on_body_entered(body: Node2D) -> void:
+func _on_collision_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not open:
 		skrzynia_animation.play("open")
 		open = true
+		
 
 ##Funkcja aktywowana po zakończeniu animacji otwarcia skrzyni.
 ##Funkcja przełącza widoczność serc na włączoną i wykrywanie obiektów na aktywne.

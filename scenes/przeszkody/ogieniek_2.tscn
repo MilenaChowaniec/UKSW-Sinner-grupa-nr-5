@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://ch5t36se0di0u"]
 
-[ext_resource type="Script" uid="uid://cora8lj14cbsi" path="res://scripts/przeszkody/ogienki.gd" id="1_m6uab"]
+[ext_resource type="Script" uid="uid://gm82uok62s4n" path="res://scripts/dodatki do pokoi/ogienki.gd" id="1_m6uab"]
 [ext_resource type="Texture2D" uid="uid://dg4rv6lnnlx3n" path="res://assets/world/flames/Group 7 - 3/Group 7 - 3.png" id="2_2bv1d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16fq8"]
