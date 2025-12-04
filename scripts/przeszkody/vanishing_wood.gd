@@ -1,6 +1,5 @@
-extends StaticBody2D
 ##Klasa reprezentująca platformę, która znika po wejściu gracza i odradza się po określonym czasie.
-class_name VanishingPlatform
+class_name VanishingPlatform extends Area2D
 ##steruje cyklem znikania i pojawiania się
 @onready var timer: Timer = $Timer
 ##obszar kolizji platformy
@@ -9,24 +8,31 @@ class_name VanishingPlatform
 @onready var collision_area: CollisionShape2D = $Area2D/CollisionShape2D
 
 ##zmienna określająca czas po którym po wejściu gracza na platformę zaczyna ona znikać.
-@export var disappear_delay := 1.0
+@export var disappear_delay := 0.6
 ##zmienna określająca czas po którym platfroma znów się pojawia po zniknięciu.
 @export var respawn_delay := 10.0
 ##zmienna określająca czy platforma jest aktualnie aktywna: false - nieaktywna, true - aktywna.
 var is_active: bool = true
+var player_on_this_wood: bool = false
+
+
+func _physics_process(_delta: float) -> void:
+	var bodies = get_overlapping_bodies()
+	for b in bodies:
+		if b.name == "Player":
+			player_on_this_wood = true
+		else:
+			player_on_this_wood = false
+	
+
 
 ##Funkcja uruchamiana przy inicjalizacji obiektu.
 ##Funkcja określa parametry początkowe obiektu.
 func _ready() -> void:
+	add_to_group("wood_platforms") 
 	modulate.a = 1.0
 	collision_shape_2d.disabled = false
 	collision_area.disabled = false
-
-#to do testow bez gracza:
-func _on_area_2d_mouse_entered() -> void:
-	timer.wait_time = disappear_delay
-	timer.start()
-	#if body.name = timer.start()
 
 ## Funkcja wywoływana automatycznie po upłynięciu czasu timera.
 ## Steruje cyklem działania platformy -> zniknięcie -> odrodzenie -> zniknięcie -> ...
@@ -57,3 +63,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		timer.wait_time = disappear_delay
 		timer.start()
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	player_on_this_wood = false

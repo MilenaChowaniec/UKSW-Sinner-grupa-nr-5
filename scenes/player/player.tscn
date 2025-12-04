@@ -1,11 +1,11 @@
 [gd_scene load_steps=26 format=3 uid="uid://buxu6tpew4c0x"]
 
 [ext_resource type="Script" uid="uid://bd3x8inhwhkcq" path="res://scripts/player/player.gd" id="1_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://d2l807lc5wik2" path="res://assets/player/mike_attack.png" id="3_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://dshbyo8v4ar7l" path="res://assets/player/mike_attack.png" id="3_y4r1p"]
 [ext_resource type="Script" uid="uid://basxc86n1c1em" path="res://scripts/player/player_state_machine.gd" id="4_fjrip"]
-[ext_resource type="Texture2D" uid="uid://ejaa77uu4ojo" path="res://assets/player/mike_run.png" id="4_smehm"]
+[ext_resource type="Texture2D" uid="uid://b3f6tj1h1w4vq" path="res://assets/player/mike_run.png" id="4_smehm"]
 [ext_resource type="Script" uid="uid://dj7oswpe1x8og" path="res://scripts/player/state_idle.gd" id="4_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://dnci8opkfgxw0" path="res://assets/player/mike_death.png" id="5_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://b2joetd7wijlj" path="res://assets/player/mike_death.png" id="5_3v2ag"]
 [ext_resource type="Script" uid="uid://c02dgq5opkr4y" path="res://scripts/player/state_walk.gd" id="5_fjrip"]
 [ext_resource type="Texture2D" uid="uid://h4hxftw1f51m" path="res://assets/player/mike_idle.png" id="5_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://35gah518x6ip" path="res://assets/player/mike_hit.png" id="6_gx1jg"]
@@ -781,3 +781,4 @@ script = ExtResource("11_3v2ag")
 
 [node name="death" type="Node" parent="StateMachine"]
 script = ExtResource("12_jej6c")
+

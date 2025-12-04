@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://codbct2pkg1rs"]
+
+[ext_resource type="PackedScene" uid="uid://cxlqvcxvlj5ce" path="res://scenes/pokoje/blue_room.tscn" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://croixqo1ufg6b" path="res://scenes/pokoje/purple_room.tscn" id="2_iywne"]
+[ext_resource type="Script" uid="uid://brfhidq1owmpg" path="res://scripts/game/spawn_area.gd" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://utqkg6x75r86" path="res://scenes/pokoje/red_room.tscn" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://buxu6tpew4c0x" path="res://scenes/player/player.tscn" id="4_u5sy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
+size = Vector2(41.224457, 11.821625)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("2_p57ef")
+
+[node name="purple_room" parent="." instance=ExtResource("2_iywne")]
+position = Vector2(-285.47083, -477.58505)
+scale = Vector2(1.5, 1.5)
+
+[node name="spawn_purple" type="Marker2D" parent="purple_room"]
+position = Vector2(368.84033, 586.96277)
+
+[node name="spawn_area_purple" type="Area2D" parent="purple_room"]
+
+[node name="spawn_collison" type="CollisionShape2D" parent="purple_room/spawn_area_purple"]
+position = Vector2(607.62476, 410.99866)
+shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="blue_room" parent="." instance=ExtResource("1_lbhrr")]
+position = Vector2(1109.3667, -127.68877)
+scale = Vector2(1.5, 1.5)
+
+[node name="spawn_blue" type="Marker2D" parent="blue_room"]
+position = Vector2(281.46857, 479.78052)
+
+[node name="spawn_area_blue" type="Area2D" parent="blue_room"]
+position = Vector2(-1011.7162, -229.11937)
+
+[node name="spawn_collison" type="CollisionShape2D" parent="blue_room/spawn_area_blue"]
+position = Vector2(1537.5702, 352.0625)
+shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="red_room" parent="." instance=ExtResource("3_p57ef")]
+position = Vector2(2213.586, -405.6385)
+scale = Vector2(1.5, 1.5)
+
+[node name="spawn_red" type="Marker2D" parent="red_room"]
+position = Vector2(368.9724, 570.4469)
+
+[node name="spawn_area_red" type="Area2D" parent="red_room"]
+position = Vector2(-1784.9739, 26.005417)
+
+[node name="spawn_collison" type="CollisionShape2D" parent="red_room/spawn_area_red"]
+position = Vector2(2393.6572, 382.50992)
+shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="Player" parent="." instance=ExtResource("4_u5sy4")]
+z_index = 3
+position = Vector2(264.95508, 401.68845)
+scale = Vector2(0.7, 0.7)
+collision_mask = 5
+
+[connection signal="body_entered" from="purple_room/spawn_area_purple" to="." method="_on_spawn_area_purple_body_entered"]
+[connection signal="body_entered" from="blue_room/spawn_area_blue" to="." method="_on_spawn_area_blue_body_entered"]
+[connection signal="body_entered" from="red_room/spawn_area_red" to="." method="_on_spawn_area_red_body_entered"]
