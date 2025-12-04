@@ -1,6 +1,5 @@
-extends StaticBody2D
-##Klasa Trap obsługuje obiekty pułapki w rozgrywce - kolce wysuwające się z podłoża.
-class_name Trap
+class_name Trap extends Area2D
+##Klasa Pułapka obsługuje obiekty pułapki w rozgrywce - kolce wysuwające się z podłoża.
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -33,7 +32,16 @@ func _on_timer_timeout() -> void:
 		timer.start()
 	else:
 		trap_up = true
-		sprite.play("trap_up")            
+		sprite.play("trap_up")  
+		await get_tree().create_timer(0.5).timeout          
 		collision_shape.disabled = false #zadaja obrazenia 
 		timer.wait_time = up_time    
 		timer.start()
+
+##Funkcja wywoływana po zderzeniu z innym obiektem.
+##Jeśli obiektem jest gracz, traci on punkty hp.
+##@param body - obiekt, z którym nastąpiło zderzenie
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		print("odjeto hp")
+		#tu trzeba odjac hp graczowi

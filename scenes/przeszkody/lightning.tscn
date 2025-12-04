@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://4d5sunnlp8x7"]
 
-[ext_resource type="Script" uid="uid://cf2apdl28nx1e" path="res://scripts/lightning.gd" id="1_raah3"]
-[ext_resource type="Texture2D" uid="uid://bnx7n0whpd7x8" path="res://assets/Lightning Trap - Level 1.png" id="2_tqmwp"]
+[ext_resource type="Script" uid="uid://wixmueqan0c6" path="res://scripts/przeszkody/lightning.gd" id="1_raah3"]
+[ext_resource type="Texture2D" uid="uid://bnx7n0whpd7x8" path="res://assets/world/Lightning Trap - Level 1.png" id="2_tqmwp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7nfe2"]
 atlas = ExtResource("2_tqmwp")
@@ -93,8 +93,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ermn0"]
-size = Vector2(24.744926, 13.29567)
+[sub_resource type="CircleShape2D" id="CircleShape2D_raah3"]
+radius = 6.2315526
 
 [node name="lightning" type="Area2D"]
 script = ExtResource("1_raah3")
@@ -102,9 +102,12 @@ script = ExtResource("1_raah3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ig3cb")
 animation = &"active"
+frame = 9
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.2462044, 41.188705)
-shape = SubResource("RectangleShape2D_ermn0")
+position = Vector2(-0.085193634, 39.09659)
+shape = SubResource("CircleShape2D_raah3")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

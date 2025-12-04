@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://jepybpodmgpj"]
+[gd_scene load_steps=16 format=3 uid="uid://jepybpodmgpj"]
 
-[ext_resource type="Script" uid="uid://cd8rneuh1uqjj" path="res://scripts/krata.gd" id="1_pdyuk"]
+[ext_resource type="Script" uid="uid://bxwfamcrjb8de" path="res://scripts/przejścia/krata.gd" id="1_pdyuk"]
 [ext_resource type="Texture2D" uid="uid://bmfd45gu83qg1" path="res://assets/world/red/doors_lever_chest_animation.png" id="2_7oh12"]
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
 size = Vector2(32.299026, 35.1324)
@@ -24,6 +23,10 @@ atlas = ExtResource("2_7oh12")
 region = Rect2(0, 48, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iplfi"]
+atlas = ExtResource("2_7oh12")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atswq"]
 atlas = ExtResource("2_7oh12")
 region = Rect2(0, 0, 32, 48)
 
@@ -67,9 +70,12 @@ animations = [{
 }],
 "loop": false,
 "name": &"close",
-"speed": 4.0
+"speed": 8.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atswq")
+}],
 "loop": false,
 "name": &"default",
 "speed": 3.0
@@ -92,7 +98,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
-"speed": 4.0
+"speed": 8.0
 }]
 
 [node name="krata" type="Area2D" node_paths=PackedStringArray("krata_animation")]
@@ -107,8 +113,6 @@ shape = SubResource("RectangleShape2D_fiuaf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3.079544)
 sprite_frames = SubResource("SpriteFrames_08j4v")
-animation = &"open"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
