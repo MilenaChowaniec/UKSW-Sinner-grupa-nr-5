@@ -1,7 +1,9 @@
 
 ##Klasa Krata obsługuje obiekty krat w rozgrywce.
 class_name Grid extends Area2D
+##Referencja do animacji kraty.
 @export var krata_animation: AnimatedSprite2D
+##Zmienna określająca czy krata jest otwarta: false - zamknięte, true - otwarte.
 var open = false
 
 #to docelowo albo żeby dopiero jak zabijemy wroga się otwierało:
@@ -14,7 +16,9 @@ func _on_body_entered(body: Node2D) -> void:
 		body.set_physics_process(false)
 		await krata_animation.animation_finished
 		body.set_physics_process(true)
-		
+	
+## Funkcja wywoływana gdy gracz wyjdzie z obszaru kolizji obiektu kraty.
+## Funkcja uruchamia animację zamykania kraty.	
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player" and open:
 		open = false
