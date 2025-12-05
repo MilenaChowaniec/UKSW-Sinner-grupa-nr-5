@@ -6,6 +6,7 @@ class_name State_Walk extends State
 ## Reference to the other states
 @onready var idle: State = $"../idle"
 @onready var attack: State = $"../attack"
+@onready var hit: State = $"../hit"
 
 
 ## Start walking animation when entering this state
@@ -22,6 +23,10 @@ func exit() -> void:
 ## Move the player if theres input, otherwise return to idle state
 ## Update facing direction and animation when direction changes
 func process(_delta : float) -> State:
+	if player.got_hit == true:
+		player.got_hit = false
+		return hit
+		
 	if player.direction == Vector2.ZERO:
 		return idle
 	

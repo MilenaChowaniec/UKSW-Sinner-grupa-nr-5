@@ -56,7 +56,6 @@ shape = SubResource("RectangleShape2D_u5sy4")
 [node name="Player" parent="." instance=ExtResource("4_u5sy4")]
 z_index = 3
 position = Vector2(264.95508, 401.68845)
-scale = Vector2(0.7, 0.7)
 collision_mask = 5
 
 [connection signal="body_entered" from="purple_room/spawn_area_purple" to="." method="_on_spawn_area_purple_body_entered"]

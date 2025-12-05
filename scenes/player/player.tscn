@@ -1,17 +1,19 @@
-[gd_scene load_steps=26 format=3 uid="uid://buxu6tpew4c0x"]
+[gd_scene load_steps=29 format=3 uid="uid://buxu6tpew4c0x"]
 
 [ext_resource type="Script" uid="uid://bd3x8inhwhkcq" path="res://scripts/player/player.gd" id="1_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://dshbyo8v4ar7l" path="res://assets/player/mike_attack.png" id="3_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://d2l807lc5wik2" path="res://assets/player/mike_attack.png" id="3_y4r1p"]
 [ext_resource type="Script" uid="uid://basxc86n1c1em" path="res://scripts/player/player_state_machine.gd" id="4_fjrip"]
-[ext_resource type="Texture2D" uid="uid://b3f6tj1h1w4vq" path="res://assets/player/mike_run.png" id="4_smehm"]
+[ext_resource type="Texture2D" uid="uid://ejaa77uu4ojo" path="res://assets/player/mike_run.png" id="4_smehm"]
 [ext_resource type="Script" uid="uid://dj7oswpe1x8og" path="res://scripts/player/state_idle.gd" id="4_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://b2joetd7wijlj" path="res://assets/player/mike_death.png" id="5_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://dnci8opkfgxw0" path="res://assets/player/mike_death.png" id="5_3v2ag"]
 [ext_resource type="Script" uid="uid://c02dgq5opkr4y" path="res://scripts/player/state_walk.gd" id="5_fjrip"]
 [ext_resource type="Texture2D" uid="uid://h4hxftw1f51m" path="res://assets/player/mike_idle.png" id="5_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://35gah518x6ip" path="res://assets/player/mike_hit.png" id="6_gx1jg"]
 [ext_resource type="Script" uid="uid://cmp8mbe16t2hd" path="res://scripts/player/state_attack.gd" id="8_ur7pv"]
 [ext_resource type="Script" uid="uid://8b430uoe815h" path="res://scripts/player/state_hit.gd" id="11_3v2ag"]
-[ext_resource type="Script" uid="uid://ubc558qemrt" path="res://scripts/player/death_state.gd" id="12_jej6c"]
+[ext_resource type="Script" path="res://scripts/player/death_state.gd" id="12_jej6c"]
+[ext_resource type="PackedScene" uid="uid://ju4n3w1iok7" path="res://scenes/GeneralNodes/hit box/hit_box.tscn" id="13_gx1jg"]
+[ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="14_ugbui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cj0n"]
 radius = 4.055175
@@ -738,8 +740,11 @@ _data = {
 &"walk_right": SubResource("Animation_ur7pv")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugbui"]
+radius = 5.5555553
+
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.8, 1.8)
 script = ExtResource("1_qlg0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -750,6 +755,7 @@ flip_h = true
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1.3333333, 0)
 shape = SubResource("CircleShape2D_8cj0n")
 
@@ -775,6 +781,7 @@ script = ExtResource("5_fjrip")
 
 [node name="attack" type="Node" parent="StateMachine"]
 script = ExtResource("8_ur7pv")
+decelerate_speed = 1.0
 
 [node name="hit" type="Node" parent="StateMachine"]
 script = ExtResource("11_3v2ag")
@@ -782,3 +789,21 @@ script = ExtResource("11_3v2ag")
 [node name="death" type="Node" parent="StateMachine"]
 script = ExtResource("12_jej6c")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Interactions" type="Node2D" parent="."]
+
+[node name="HitBox" parent="Interactions" instance=ExtResource("13_gx1jg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HitBox"]
+position = Vector2(1.6666667, 1.6666667)
+shape = SubResource("CircleShape2D_ugbui")
+debug_color = Color(0.97311753, 0.13217619, 0.2853005, 0.41960785)
+
+[node name="HurtBox" parent="Interactions" instance=ExtResource("14_ugbui")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
+position = Vector2(1.6666667, 1.6666667)
+shape = SubResource("CircleShape2D_ugbui")
+debug_color = Color(0.97311753, 0.13217619, 0.2853005, 0.41960785)

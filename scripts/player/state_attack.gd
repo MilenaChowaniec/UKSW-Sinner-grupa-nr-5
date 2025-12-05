@@ -3,8 +3,11 @@ class_name State_Attack extends State
 
 var attacking : bool = false
 
+@export_range(1,20,0.5) var decelerate_speed : float = 5.0
+
 ## Reference to AnimationPlayer to detect when the attack animation finishes
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
+
 ## Reference gun point 
 @onready var gun_point_right: Node2D = $"../../GunPointRight"
 @onready var gun_point_left: Node2D = $"../../GunPointLeft"
@@ -13,6 +16,7 @@ var attacking : bool = false
 ## Reference to the other states so we can transition
 @onready var walk: State = $"../walk"
 @onready var idle: State = $"../idle"
+@onready var hit: State = $"../hit"
 
 
 ## Start attacking animation when entering this state
@@ -29,14 +33,15 @@ func enter() -> void:
 func exit() -> void:
 	animation_player.animation_finished.disconnect(end_attack)
 	attacking = false
-	pass
 
 
 ## Player cant move while attacking (for now)
 func process(_delta : float) -> State:
-	# Stop player movement if no input
-	if player.direction == Vector2.ZERO:
-		player.velocity = Vector2.ZERO
+	if player.got_hit == true:
+		player.got_hit = false
+		return hit
+	
+	player.velocity -= player.velocity * decelerate_speed * _delta
 	
 	# Once the animation is finished, switch the transition
 	if attacking == false:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://brb8361tpveby"]
+[gd_scene load_steps=18 format=3 uid="uid://brb8361tpveby"]
 
-[ext_resource type="Script" uid="uid://d3yg6hq5ox40g" path="res://scripts/przeszkody/trap.gd" id="1_pmii2"]
+[ext_resource type="Script" uid="uid://dosy3dcmi51nh" path="res://scripts/przeszkody/trap.gd" id="1_pmii2"]
 [ext_resource type="Texture2D" uid="uid://7wtcupynpvx1" path="res://assets/world/purple/trap_animation.png" id="2_1mhpv"]
+[ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="3_ay8nn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crw1k"]
 atlas = ExtResource("2_1mhpv")
@@ -101,6 +102,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nydmd"]
 size = Vector2(44.389847, 75.84044)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay8nn"]
+size = Vector2(39, 55)
+
 [node name="trap" type="Area2D"]
 script = ExtResource("1_pmii2")
 
@@ -113,6 +117,14 @@ position = Vector2(4.703209, -4.0522556)
 shape = SubResource("RectangleShape2D_nydmd")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="HurtBox" parent="." instance=ExtResource("3_ay8nn")]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(4.5, 12.5)
+shape = SubResource("RectangleShape2D_ay8nn")
+debug_color = Color(0.95348984, 0.18827915, 0.28579795, 0.41960785)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
