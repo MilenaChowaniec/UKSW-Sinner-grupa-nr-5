@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://ch5t36se0di0u"]
 
-[ext_resource type="Script" uid="uid://cx7ut7jxlksht" path="res://scripts/ogieniek_1.gd" id="1_nhxcy"]
-[ext_resource type="Texture2D" uid="uid://b5qrsqw0unsm7" path="res://assets/world/flames/Group 7 - 3/Group 7 - 3.png" id="2_2bv1d"]
+[ext_resource type="Script" uid="uid://gm82uok62s4n" path="res://scripts/dodatki do pokoi/ogienki.gd" id="1_m6uab"]
+[ext_resource type="Texture2D" uid="uid://dg4rv6lnnlx3n" path="res://assets/world/flames/Group 7 - 3/Group 7 - 3.png" id="2_2bv1d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16fq8"]
 atlas = ExtResource("2_2bv1d")
@@ -110,12 +110,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4o7ur"]
-radius = 4.0
+radius = 6.2375755
 height = 14.0
 
 [node name="ogieniek2" type="Area2D"]
-collision_mask = 2
-script = ExtResource("1_nhxcy")
+script = ExtResource("1_m6uab")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

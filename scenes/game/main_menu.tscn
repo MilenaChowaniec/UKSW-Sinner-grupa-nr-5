@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://chp56y0i0a2wj"]
 
-[ext_resource type="Script" uid="uid://brkc2sj2wtsb6" path="res://scripts/main_menu.gd" id="1_7b55j"]
+[ext_resource type="Script" uid="uid://brkc2sj2wtsb6" path="res://scripts/game/main_menu.gd" id="1_7b55j"]
 [ext_resource type="Texture2D" uid="uid://rqpn6fpmw8l4" path="res://assets/background.png" id="2_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://bfe6na04j4vn" path="res://assets/buttons/play_blue_pressed.png" id="5_5pajh"]
 [ext_resource type="Texture2D" uid="uid://nmkqe0m3sw0f" path="res://assets/buttons/continue_blue.png" id="6_lgwnu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cec771ay2a4gu" path="res://assets/buttons/settings_blue.png" id="10_7b55j"]
 [ext_resource type="Texture2D" uid="uid://bd66ycspy0wha" path="res://assets/buttons/settings_blue_pressed.png" id="11_5pajh"]
 [ext_resource type="FontFile" uid="uid://bql8obr3wlyca" path="res://assets/fonts/GrapeSoda.ttf" id="14_7b55j"]
+
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pajh"]
 texture = ExtResource("2_5dd4i")

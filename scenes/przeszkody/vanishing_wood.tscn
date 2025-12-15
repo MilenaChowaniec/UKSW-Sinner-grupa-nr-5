@@ -1,15 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://uyavh6jmglur"]
 
-[ext_resource type="Script" uid="uid://bgw81524e2lsl" path="res://scripts/vanishing_wood.gd" id="1_r3k4b"]
+[ext_resource type="Script" uid="uid://cxiud7br5q1vr" path="res://scripts/przeszkody/vanishing_wood.gd" id="1_r3k4b"]
 [ext_resource type="Texture2D" uid="uid://cylxwixm5kywt" path="res://assets/world/1.png" id="2_48uck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3qp"]
 size = Vector2(29.32241, 30.303467)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djexn"]
-size = Vector2(34.205727, 34.88167)
+size = Vector2(29.52501, 30.642178)
 
-[node name="vanishing_wood" type="StaticBody2D"]
+[node name="vanishing_wood" type="Area2D"]
+scale = Vector2(1, 1.5)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_r3k4b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -26,11 +29,14 @@ texture = ExtResource("2_48uck")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(12.553135, 2.5257244)
+z_index = 1
+position = Vector2(12.584007, 2.6647167)
 shape = SubResource("RectangleShape2D_djexn")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

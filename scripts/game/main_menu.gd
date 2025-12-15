@@ -4,7 +4,7 @@ class_name MainMenu
 
 ##Funkcja wywoływana po naciśnięciu przycisku Start. Przenosi gracza do ekranu rozgrywki.
 func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/pokoje/purple_room.tscn") # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/game/game.tscn") # Replace with function body.
 
 ##Funkcja wywoływana po naciśnięciu przycisku Continue. Przenosi gracza do ekranu rozgrywki wcześniej rozpoczętej i zapisanej rozgrywki.
 func _on_continue_pressed() -> void:
