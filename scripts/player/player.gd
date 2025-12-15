@@ -9,6 +9,7 @@ var got_hit = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var camera_2d: Camera2D = $Camera2D
 
 
 ## Initialize the state machine and pass this player to it
