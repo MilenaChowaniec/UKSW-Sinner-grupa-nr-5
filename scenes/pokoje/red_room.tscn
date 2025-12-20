@@ -1153,10 +1153,10 @@ sources/8 = SubResource("TileSetAtlasSource_4oupy")
 sources/9 = SubResource("TileSetAtlasSource_fa2c2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f05lu"]
-size = Vector2(111.97662, 114.28223)
+size = Vector2(106.98831, 109.14111)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0k71"]
-size = Vector2(112, 95)
+size = Vector2(107.25001, 84.875)
 
 [node name="red_room" type="Node2D"]
 
@@ -1193,7 +1193,7 @@ position = Vector2(-0.099090576, 6.3421326)
 script = ExtResource("7_eye05")
 
 [node name="Collision-lawa" type="CollisionShape2D" parent="lawa"]
-position = Vector2(472.00967, 486.47433)
+position = Vector2(471.0991, 489.65787)
 shape = SubResource("RectangleShape2D_f05lu")
 debug_color = Color(0.97986513, 0.12792519, 0.15953073, 0.41960785)
 
@@ -1203,7 +1203,7 @@ debug_color = Color(0.97986513, 0.12792519, 0.15953073, 0.41960785)
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lawa/HurtBox"]
-position = Vector2(472.0991, 482.15787)
+position = Vector2(470.7241, 478.09537)
 shape = SubResource("RectangleShape2D_d0k71")
 debug_color = Color(0.8831233, 0.28763926, 0.45108157, 0.41960785)
 

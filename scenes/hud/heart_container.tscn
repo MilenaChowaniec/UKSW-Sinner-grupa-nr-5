@@ -14,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Heart1" type="Sprite2D" parent="Control"]
 position = Vector2(87, 28)
@@ -34,3 +35,4 @@ texture = ExtResource("2_qsesa")
 hframes = 3
 
 [node name="Timer_Game" parent="." instance=ExtResource("3_ugps4")]
+mouse_filter = 2
