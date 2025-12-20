@@ -17,9 +17,9 @@ func enter() -> void:
 	
 	# If player is still alive, play hit animation and connect callback
 	if player.hp > 0:
-		player.update_animation("hit")
+		#player.update_animation("hit")
 		being_hit = false
-		animation_player.animation_finished.connect(end_hit)
+		#animation_player.animation_finished.connect(end_hit)
 	being_hit = true
 
 func take_damage(_damage : int) -> void:
@@ -28,7 +28,7 @@ func take_damage(_damage : int) -> void:
 
 ## What happens when player exits this state?
 func exit() -> void:
-	animation_player.animation_finished.disconnect(end_hit)
+	#animation_player.animation_finished.disconnect(end_hit)
 	being_hit = false
 
 

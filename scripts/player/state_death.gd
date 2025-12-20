@@ -21,6 +21,7 @@ func exit() -> void:
 
 ## Not required in this state
 func process(_delta : float) -> State:
+	player.velocity = Vector2.ZERO
 	return null
 
 ## Callback triggered when death animation finishes

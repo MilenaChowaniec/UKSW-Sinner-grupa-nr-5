@@ -5,6 +5,7 @@ class_name State_Idle extends State
 @onready var walk: State = $"../walk"
 @onready var attack: State = $"../attack"
 @onready var hit: State = $"../hit"
+@onready var death: State = $"../death"
 
 
 ## Start idle animation when entering this state
@@ -20,8 +21,11 @@ func exit() -> void:
 ## If the player presses movement, switch to walk state
 func process(_delta : float) -> State:
 	if player.got_hit == true:
+		if player.hp == 0:
+			return death
 		player.got_hit = false
-		return hit
+		player.update_animation("hit")
+	
 	if player.direction != Vector2.ZERO:
 		return walk
 		

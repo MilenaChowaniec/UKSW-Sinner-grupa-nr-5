@@ -3,6 +3,9 @@ class_name Lava extends Area2D
 var player_inside = false
 @onready var player: Player = $"../../Player"
 
+@onready var hurt_box: Hurt_Box = $HurtBox
+
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print("zderzenie z lawa")
@@ -21,9 +24,9 @@ func _on_timer_timeout() -> void:
 		
 	var player_on_any_wood := false
 	for wood in get_tree().get_nodes_in_group("wood_platforms"):
-			if wood.player_on_this_wood:
-				player_on_any_wood = true
-				break
+		if wood.player_on_this_wood:
+			player_on_any_wood = true
+			break
 				
 	if player_on_any_wood:
 		return

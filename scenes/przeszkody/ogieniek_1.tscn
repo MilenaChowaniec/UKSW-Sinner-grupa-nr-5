@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cyakvvsmh3hxs"]
+[gd_scene load_steps=21 format=3 uid="uid://cyakvvsmh3hxs"]
 
 [ext_resource type="Script" uid="uid://gm82uok62s4n" path="res://scripts/dodatki do pokoi/ogienki.gd" id="1_f5xxj"]
-[ext_resource type="Texture2D" uid="uid://bdtlvgjirc7mn" path="res://assets/world/decorations/Group 5 - 4/Group 5 - 4.png" id="1_gp6xw"]
+[ext_resource type="Texture2D" uid="uid://dudtpdnubalfd" path="res://assets/world/decorations/Group 5 - 4/Group 5 - 4.png" id="1_gp6xw"]
+[ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="3_ish3l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ulo2a"]
 atlas = ExtResource("1_gp6xw")
@@ -113,6 +114,10 @@ animations = [{
 radius = 5.8486786
 height = 16.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alrch"]
+radius = 6.0
+height = 14.0
+
 [node name="ogieniek1" type="Area2D"]
 script = ExtResource("1_f5xxj")
 
@@ -126,5 +131,13 @@ frame_progress = 0.06776205
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_7jgva")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_ish3l")]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 15)
+shape = SubResource("CapsuleShape2D_alrch")
+debug_color = Color(0.8709261, 0.30175155, 0.46640867, 0.41960785)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -19,6 +19,10 @@ func _ready() -> void:
 
 func take_damage(_damage : int) -> void:
 	got_hit = true
+	hp -= 1
+
+func add_hp(hp: int):
+	hp = hp + 1
 	
 ## Check input each frame and update movement direction
 func _process(_delta: float) -> void:
