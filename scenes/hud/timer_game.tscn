@@ -7,13 +7,15 @@
 layout_mode = 3
 anchors_preset = 0
 offset_top = 1.0
-offset_right = 103.0
-offset_bottom = 46.0
+offset_right = 1153.0
+offset_bottom = 649.0
 script = ExtResource("1_i338w")
 
 [node name="TimerLabel" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 19.0
+offset_top = 50.0
+offset_right = 59.0
+offset_bottom = 81.0
 theme_override_fonts/font = ExtResource("2_2ce3n")
 theme_override_font_sizes/font_size = 30

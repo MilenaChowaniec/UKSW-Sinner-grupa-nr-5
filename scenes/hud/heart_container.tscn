@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddrdlai6hfgsd"]
+[gd_scene load_steps=4 format=3 uid="uid://ddrdlai6hfgsd"]
 
 [ext_resource type="Script" uid="uid://b6rykebb6rssx" path="res://scripts/hud/heart_container.gd" id="1_srcrn"]
 [ext_resource type="Texture2D" uid="uid://chgaxrjjpgvha" path="res://assets/hearts/16x16 Heart Health Red.png" id="2_qsesa"]
+[ext_resource type="PackedScene" uid="uid://cac8jmpcxd8pp" path="res://scenes/hud/timer_game.tscn" id="3_ugps4"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_srcrn")
@@ -31,3 +32,5 @@ position = Vector2(27, 28)
 scale = Vector2(2, 2)
 texture = ExtResource("2_qsesa")
 hframes = 3
+
+[node name="Timer_Game" parent="." instance=ExtResource("3_ugps4")]
