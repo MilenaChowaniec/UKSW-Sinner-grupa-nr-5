@@ -13,7 +13,7 @@ func freeze_player(player: Node2D, duration: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		animation.play("active")
+		#tu trzeba odjąc hp graczowi
 		body.set_physics_process(false)
 		await animation.animation_finished
 		body.set_physics_process(true)
-		#tu trzeba odjąc hp graczowi

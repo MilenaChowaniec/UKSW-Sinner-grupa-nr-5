@@ -1,12 +1,10 @@
-
 ##Klasa Drzwi obsługuje obiekty drzwi w rozgrywce.
 class_name Door extends Area2D
-
+##Zmienna określająca czy drzwi są otwarte: false - zamknięte, true - otwarte.
 var open = false
-
+##Referencja do animacji drzwi.
 @export var drzwi_animation: AnimatedSprite2D
-	
-#to docelowo:
+
 ## Funkcja wywoływana gdy gracz wejdzie w obszar kolizji obiektu drzwi.
 ## Funkcja uruchamia animację otwierania drzwi.
 func _on_body_entered(body: Node2D) -> void:
@@ -17,7 +15,8 @@ func _on_body_entered(body: Node2D) -> void:
 		await drzwi_animation.animation_finished
 		body.set_physics_process(true)
 		
-
+##Funkcja wywoływana gdy gracz wyjdzie z obszaru kolizji obiektu drzwi.
+##Funkcja uruchamia animację zamykania drzwi.
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player" and open:
 		open = false

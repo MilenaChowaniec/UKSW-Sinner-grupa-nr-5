@@ -1,6 +1,10 @@
+##Klasa Chest obsługująca obiekty skrzynek z wypadającymi serduszkami do zebrania przez gracza.
 class_name Chest extends StaticBody2D
+##Referencja do animacji skrzyni.
 @export var skrzynia_animation: AnimatedSprite2D
+##Referencja do pierwszego obiektu zbieralnego serduszka wypadającego ze skrzyni.
 @onready var serce: Area2D = $serce1
+##Referencja do drugiego obiektu zbieralnego serduszka wypadającego ze skrzyni.
 @onready var serce2: Area2D = $serce2
 
 ##Zmienna określająca czy skrzynia jest otwarta: true - skrzynia otwarta, false - skrzynia zamknięta. 

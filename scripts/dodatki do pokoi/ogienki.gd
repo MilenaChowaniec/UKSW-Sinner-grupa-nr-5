@@ -1,4 +1,4 @@
-##Klasa Ogienki obsługująca obiekty płomieni w rozgrywce.
+##Klasa Fire obsługująca obiekty płomieni w rozgrywce.
 class_name Fire extends Area2D
 
 ##Funkcja uruchamia się po zderzeniu z innym obiektem.
