@@ -5,9 +5,12 @@ class_name Lava extends Area2D
 ##Zmienna określająca czy gracz znajduje się w lawie: false - gracz poza lawą, true - gracz w lawie.
 var player_inside = false
 
+@onready var hurt_box: Hurt_Box = $HurtBox
+
 ##Funkcja uruchamiana gdy obiekt wejdzie w obszar kolizji obiektu lawa.
 ##Jeśli obiektem jest gracz, funkcja uruchamia timer.
 ##@param body - obiekt, który wszedł w obszar kolizji
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_inside = true
@@ -30,9 +33,12 @@ func _on_timer_timeout() -> void:
 		
 	var player_on_any_wood := false
 	for wood in get_tree().get_nodes_in_group("wood_platforms"):
-			if wood.player_on_this_wood:
-				player_on_any_wood = true
-				break
+		if wood.player_on_this_wood:
+			hurt_box.set_collision_mask_value(9, false)
+			player_on_any_wood = true
+			break
+		#else:
+			#hurt_box.set_collision_mask_value(9, true)
 				
 	if player_on_any_wood:
 		return

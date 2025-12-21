@@ -1,12 +1,13 @@
-[gd_scene load_steps=21 format=4 uid="uid://utqkg6x75r86"]
+[gd_scene load_steps=23 format=4 uid="uid://utqkg6x75r86"]
 
 [ext_resource type="Texture2D" uid="uid://co5fairbgc4vm" path="res://assets/world/red/decorative_cracks_walls_czerwone.png" id="1_iyqfy"]
-[ext_resource type="Texture2D" uid="uid://b871mmy2qcxf3" path="res://assets/world/textures/FireSet.png" id="2_smndh"]
-[ext_resource type="Texture2D" uid="uid://qda2wabekpcf" path="res://assets/world/textures/ALL_content.png" id="3_sq0k0"]
+[ext_resource type="Texture2D" uid="uid://cor8hth54q67i" path="res://assets/world/textures/FireSet.png" id="2_smndh"]
+[ext_resource type="Texture2D" uid="uid://vjehrt60ss13" path="res://assets/world/textures/ALL_content.png" id="3_sq0k0"]
 [ext_resource type="Texture2D" uid="uid://bbows24orh6ku" path="res://assets/world/red/walls_floor_czerowny.png" id="4_eye05"]
 [ext_resource type="Texture2D" uid="uid://b67cl47lu6poc" path="res://assets/world/red/Objects_czerwone.png" id="5_d0k71"]
 [ext_resource type="Texture2D" uid="uid://iasfjc4f58mb" path="res://assets/world/red/decorative_cracks_floor_czerwone.png" id="6_2o68w"]
 [ext_resource type="Script" uid="uid://wnfp6cirm6i" path="res://scripts/przeszkody/lawa.gd" id="7_eye05"]
+[ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="8_eye05"]
 [ext_resource type="PackedScene" uid="uid://c1fwdii2psobm" path="res://scenes/dodatki do pokoi/ogienki_red.tscn" id="8_sq0k0"]
 [ext_resource type="PackedScene" uid="uid://uyavh6jmglur" path="res://scenes/przeszkody/vanishing_wood.tscn" id="9_ue15h"]
 [ext_resource type="PackedScene" uid="uid://itbaxc17mvhw" path="res://scenes/drzwi/drzwi_cz.tscn" id="10_p4kq5"]
@@ -1152,7 +1153,10 @@ sources/8 = SubResource("TileSetAtlasSource_4oupy")
 sources/9 = SubResource("TileSetAtlasSource_fa2c2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f05lu"]
-size = Vector2(111.97662, 114.28223)
+size = Vector2(106.98831, 109.14111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0k71"]
+size = Vector2(107.25001, 84.875)
 
 [node name="red_room" type="Node2D"]
 
@@ -1189,11 +1193,19 @@ position = Vector2(-0.099090576, 6.3421326)
 script = ExtResource("7_eye05")
 
 [node name="Collision-lawa" type="CollisionShape2D" parent="lawa"]
-position = Vector2(472.00967, 486.47433)
+position = Vector2(471.0991, 489.65787)
 shape = SubResource("RectangleShape2D_f05lu")
 debug_color = Color(0.97986513, 0.12792519, 0.15953073, 0.41960785)
 
 [node name="Timer" type="Timer" parent="lawa"]
+
+[node name="HurtBox" parent="lawa" instance=ExtResource("8_eye05")]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lawa/HurtBox"]
+position = Vector2(470.7241, 478.09537)
+shape = SubResource("RectangleShape2D_d0k71")
+debug_color = Color(0.8831233, 0.28763926, 0.45108157, 0.41960785)
 
 [node name="ogienki" parent="." instance=ExtResource("8_sq0k0")]
 z_index = 3

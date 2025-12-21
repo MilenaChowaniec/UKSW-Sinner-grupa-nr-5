@@ -1,27 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddrdlai6hfgsd"]
+[gd_scene load_steps=4 format=3 uid="uid://ddrdlai6hfgsd"]
 
 [ext_resource type="Script" uid="uid://b6rykebb6rssx" path="res://scripts/hud/heart_container.gd" id="1_srcrn"]
 [ext_resource type="Texture2D" uid="uid://chgaxrjjpgvha" path="res://assets/hearts/16x16 Heart Health Red.png" id="2_qsesa"]
+[ext_resource type="PackedScene" uid="uid://cac8jmpcxd8pp" path="res://scenes/hud/timer_game.tscn" id="3_ugps4"]
 
-[node name="HeartContainer" type="HBoxContainer"]
-offset_right = 194.0
-offset_bottom = 73.0
+[node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_srcrn")
 
-[node name="Heart1" type="Sprite2D" parent="."]
-position = Vector2(133, 39)
-scale = Vector2(3, 3)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Heart1" type="Sprite2D" parent="Control"]
+position = Vector2(87, 28)
+scale = Vector2(2, 2)
 texture = ExtResource("2_qsesa")
 hframes = 3
 
-[node name="Heart2" type="Sprite2D" parent="."]
-position = Vector2(88, 39)
-scale = Vector2(3, 3)
+[node name="Heart2" type="Sprite2D" parent="Control"]
+position = Vector2(57, 28)
+scale = Vector2(2, 2)
 texture = ExtResource("2_qsesa")
 hframes = 3
 
-[node name="Heart3" type="Sprite2D" parent="."]
-position = Vector2(43, 39)
-scale = Vector2(3, 3)
+[node name="Heart3" type="Sprite2D" parent="Control"]
+position = Vector2(27, 28)
+scale = Vector2(2, 2)
 texture = ExtResource("2_qsesa")
 hframes = 3
+
+[node name="Timer_Game" parent="." instance=ExtResource("3_ugps4")]
+mouse_filter = 2
