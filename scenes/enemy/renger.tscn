@@ -237,8 +237,8 @@ script = ExtResource("1_kqdhr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_egim0")
-animation = &"move"
-frame_progress = 0.19905211
+animation = &"wake"
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -246,9 +246,11 @@ position = Vector2(3, 0)
 shape = SubResource("CapsuleShape2D_8alca")
 
 [node name="PlayerDetectionZone" type="Area2D" parent="."]
+visible = false
 script = ExtResource("8_eim58")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionZone"]
+visible = false
 position = Vector2(3.888889, 0)
 shape = SubResource("CircleShape2D_r55cp")
 
