@@ -42,7 +42,8 @@ func _on_spawn_area_blue_body_entered(body: Node2D) -> void:
 ##Funkcja kończy rozgrywkę.
 func _on_spawn_area_red_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://scenes/game/gameover.tscn")
+		
 
 func set_camera_bounds(left : int, top : int, right: int, bottom: int) -> void:
 	player.camera_2d.limit_left = left
