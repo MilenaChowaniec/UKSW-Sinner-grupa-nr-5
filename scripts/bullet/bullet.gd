@@ -27,6 +27,7 @@ func _process(delta):
 		#explode()
 
 ## Trigger bullet explosion
+# niepotrzebne juz 
 func explode():
 	speed = 0 
 	sprite.visible = false 

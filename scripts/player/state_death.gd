@@ -10,7 +10,6 @@ var dying : bool = false
 func enter() -> void:
 	dying = true
 	player.update_animation("death")
-	print("death")
 	animation_player.animation_finished.connect(end_death)
 
 
