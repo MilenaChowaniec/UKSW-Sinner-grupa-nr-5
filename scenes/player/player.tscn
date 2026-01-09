@@ -755,7 +755,6 @@ flip_h = true
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(1.3333333, 0)
 shape = SubResource("CircleShape2D_8cj0n")
 

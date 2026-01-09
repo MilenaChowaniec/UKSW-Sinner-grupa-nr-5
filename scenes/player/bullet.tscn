@@ -138,3 +138,5 @@ hframes = 4
 libraries = {
 &"": SubResource("AnimationLibrary_qncy5")
 }
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

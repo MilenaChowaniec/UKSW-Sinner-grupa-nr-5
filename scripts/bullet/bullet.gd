@@ -22,9 +22,9 @@ func _process(delta):
 	# Update bullet position based on speed and direction
 	global_position += direction.normalized() * speed * delta
 	
-	# Check if bullet reached its maximum travel distance
-	if global_position.distance_to(start_position) >= max_distance:
-		explode()
+	## Check if bullet reached its maximum travel distance
+	#if global_position.distance_to(start_position) >= max_distance:
+		#explode()
 
 ## Trigger bullet explosion
 func explode():
@@ -32,6 +32,9 @@ func explode():
 	sprite.visible = false 
 	explosion_sprite.visible = true
 	animation_player.play("explosion")
+
+func _on_body_entered(body: Node) -> void:
+	explode()
 	 
 ## Callback for when explosion animation finishes
 func _on_explosion_finished(anim_name: String) -> void:
