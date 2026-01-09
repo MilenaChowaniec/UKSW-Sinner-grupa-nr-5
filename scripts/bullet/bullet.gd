@@ -35,6 +35,8 @@ func explode():
 	animation_player.play("explosion")
 
 func _on_body_entered(body: Node) -> void:
+	if body.name == "Player":
+		return
 	explode()
 	 
 ## Callback for when explosion animation finishes
