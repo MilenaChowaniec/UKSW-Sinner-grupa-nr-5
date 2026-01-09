@@ -73,14 +73,14 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
-radius = 4.55209
+[sub_resource type="CircleShape2D" id="CircleShape2D_40wdo"]
+radius = 2.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
 radius = 80.024994
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uy6h"]
-radius = 11.0
+radius = 6.0
 
 [node name="Bat" type="CharacterBody2D"]
 script = ExtResource("1_md0e3")
@@ -88,16 +88,16 @@ script = ExtResource("1_md0e3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xwavj")
 animation = &"fly"
-frame_progress = 0.6580858
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(2, 3)
-scale = Vector2(1.7648934, 2.3919575)
-shape = SubResource("CircleShape2D_md0e3")
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_40wdo")
 debug_color = Color(0.10106967, 0.6245221, 0.5010182, 0.41960785)
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(1, 0)
@@ -108,7 +108,7 @@ visible = false
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(2, 1)
+position = Vector2(2, 2)
 shape = SubResource("CircleShape2D_5uy6h")
 debug_color = Color(0.98558336, 0, 0.3369638, 0.41960785)
 
