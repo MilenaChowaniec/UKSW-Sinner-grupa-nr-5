@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed: float = 50.0  # Prędkość poruszania się bata
 @export var patrol_radius: float = 100.0  # Promień okręgu patrolowego
 @export var patrol_speed: float = 2.0  # Prędkość obracania się po okręgu
+@export var hp: int = 3  # Punkty życia bata
 
 # Referencje do węzłów
 @onready var animated_sprite = $AnimatedSprite2D  # Referencja do AnimatedSprite2D
@@ -14,6 +15,10 @@ var player_in_detection_area: bool = false  # Czy gracz jest w zasięgu wykrywan
 # Zmienne do patrolowania
 var patrol_center: Vector2  # Środek okręgu patrolowego (startowa pozycja)
 var patrol_angle: float = 0.0  # Aktualny kąt na okręgu
+
+# Zmienne do HP i stanu
+var is_dead: bool = false  # Czy bat jest martwy
+var got_hit: bool = false  # Czy bat został trafiony
 
 
 func _ready():
@@ -33,6 +38,10 @@ func _ready():
 	if detection_area:
 		detection_area.body_entered.connect(_on_detection_area_body_entered)
 		detection_area.body_exited.connect(_on_detection_area_body_exited)
+	
+	# Połącz sygnał zakończenia animacji
+	if animated_sprite:
+		animated_sprite.animation_finished.connect(_on_animation_finished)
 
 
 func _physics_process(delta):
@@ -104,3 +113,35 @@ func _on_detection_area_body_exited(body):
 	# Sprawdź czy ciało które wyszło to gracz
 	if body.is_in_group("player"):
 		player_in_detection_area = false  # Gracz wyszedł z zasięgu
+
+
+# Funkcja do zadawania obrażeń batowi
+func take_damage(_damage: int) -> void:
+	got_hit = true  # Oznacz że bat został trafiony
+	hp -= 1  # Odejmij 1 HP
+	
+	# Sprawdź czy bat powinien umrzeć
+	check_death()
+
+
+# Funkcja sprawdzająca czy bat powinien umrzeć
+func check_death():
+	if hp <= 0 and not is_dead:
+		die()
+
+
+# Funkcja śmierci bata
+func die():
+	is_dead = true  # Oznacz bata jako martwego
+	velocity = Vector2.ZERO  # Zatrzymaj ruch
+	
+	# Odtwórz animację śmierci
+	if animated_sprite:
+		animated_sprite.play("die")
+
+
+# Wywoływane gdy animacja się kończy
+func _on_animation_finished():
+	# Jeśli zakończyła się animacja śmierci, usuń bata
+	if is_dead and animated_sprite.animation == "die":
+		queue_free()  # Usuń bata ze sceny
