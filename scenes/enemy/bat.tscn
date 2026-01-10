@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://ca4u7b7trlp5n"]
+[gd_scene load_steps=19 format=3 uid="uid://ca4u7b7trlp5n"]
 
 [ext_resource type="Texture2D" uid="uid://r01e05nw417e" path="res://assets/Bat/Bat.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://doxkoty8ci1kw" path="res://scripts/enemy/bat.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://dtymyxhquyf28" path="res://assets/Bat/Bat-die.png" id="2_40wdo"]
 [ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="4_7gqi0"]
+[ext_resource type="PackedScene" uid="uid://ju4n3w1iok7" path="res://scenes/GeneralNodes/hit box/hit_box.tscn" id="5_agdka"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjssy"]
 atlas = ExtResource("2_40wdo")
@@ -83,6 +84,9 @@ radius = 80.024994
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gqi0"]
 radius = 21.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_agdka"]
+radius = 17.029387
+
 [node name="Bat" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_md0e3")
 
@@ -108,4 +112,12 @@ shape = SubResource("CircleShape2D_4ra3w")
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
 shape = SubResource("CircleShape2D_7gqi0")
+
+[node name="HitBox" parent="." instance=ExtResource("5_agdka")]
+collision_layer = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_agdka")
