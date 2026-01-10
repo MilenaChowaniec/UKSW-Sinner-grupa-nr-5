@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c6v6js5rapeaw"]
+[gd_scene load_steps=43 format=3 uid="uid://c6v6js5rapeaw"]
 
 [ext_resource type="Script" uid="uid://cxd02dy2s8l1" path="res://scripts/enemy/Renger/renger_v_2.gd" id="1_ke24c"]
 [ext_resource type="PackedScene" uid="uid://p2op8ywu55r1" path="res://scenes/enemy/pocisk_renger.tscn" id="2_6jrpl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cq4ko0bxmfws3" path="res://assets/Renger/static idle.png" id="7_ntkq2"]
 [ext_resource type="Texture2D" uid="uid://cbqsomuagsstt" path="res://assets/Renger/wake.png" id="8_j3mx5"]
 [ext_resource type="PackedScene" uid="uid://ju4n3w1iok7" path="res://scenes/GeneralNodes/hit box/hit_box.tscn" id="9_ll3dn"]
+[ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="10_xuer2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3lrg"]
 atlas = ExtResource("3_v4u22")
@@ -239,7 +240,11 @@ radius = 81.11112
 radius = 7.7777777
 height = 25.555557
 
-[node name="Renger(patrol)" type="CharacterBody2D" groups=["enemy"]]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_stb81"]
+radius = 5.3846164
+height = 21.538464
+
+[node name="Renger_v2" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(1.3, 1.3)
 script = ExtResource("1_ke24c")
 patrol_speed = 70.0
@@ -247,7 +252,7 @@ bullet_scene = ExtResource("2_6jrpl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_egim0")
-animation = &"shoot"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -281,3 +286,11 @@ collision_layer = 512
 position = Vector2(2.777778, 0)
 shape = SubResource("CapsuleShape2D_nnob8")
 debug_color = Color(0.9527126, 0.123495005, 0.45814937, 0.41960785)
+
+[node name="HurtBox" parent="." instance=ExtResource("10_xuer2")]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(3.0769234, 1.5384617)
+shape = SubResource("CapsuleShape2D_stb81")
+debug_color = Color(0.9478157, 0.006132628, 0.58074784, 0.41960785)
