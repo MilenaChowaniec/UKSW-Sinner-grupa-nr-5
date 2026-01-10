@@ -24,11 +24,7 @@ position = Vector2(328, 451)
 script = ExtResource("1_7b55j")
 
 [node name="background" type="Panel" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = -1
 offset_left = -333.0
 offset_top = -455.0
 offset_right = 831.0
