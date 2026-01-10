@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://p2op8ywu55r1"]
+[gd_scene load_steps=6 format=3 uid="uid://p2op8ywu55r1"]
 
 [ext_resource type="Script" uid="uid://5yabh5s2xlc7" path="res://scripts/enemy/Renger/pocisk_renger.gd" id="1_24el0"]
-[ext_resource type="Texture2D" uid="uid://r4n22derohyl" path="res://assets/bullet/pocisk.png" id="1_nr203"]
+[ext_resource type="Texture2D" uid="uid://cdug8hmcbwdnd" path="res://assets/bullet/pocisk.png" id="1_nr203"]
+[ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="3_picl5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_24el0"]
 radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xr233"]
+radius = 8.0
 
 [node name="pocisk_renger" type="Area2D"]
 script = ExtResource("1_24el0")
@@ -16,3 +20,10 @@ texture = ExtResource("1_nr203")
 shape = SubResource("CircleShape2D_24el0")
 disabled = true
 debug_color = Color(0.6916071, 0.28703296, 1, 0.41960785)
+
+[node name="HurtBox" parent="." instance=ExtResource("3_picl5")]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_xr233")
+debug_color = Color(0.896246, 0.28490624, 0.37312785, 0.41960785)
