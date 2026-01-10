@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu1j1tjdatb1h"]
+[gd_scene load_steps=10 format=3 uid="uid://bu1j1tjdatb1h"]
 
 [ext_resource type="Texture2D" uid="uid://bkvhy1iyvibwf" path="res://assets/bullet/bullet.png" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://bq1xim6ramm3t" path="res://scripts/bullet/bullet.gd" id="1_y25gk"]
+[ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="3_0td6m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5glv"]
 radius = 1.5
@@ -118,6 +119,9 @@ _data = {
 &"explosion": SubResource("Animation_l5glv")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0td6m"]
+radius = 2.0
+
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_y25gk")
 
@@ -138,5 +142,13 @@ hframes = 4
 libraries = {
 &"": SubResource("AnimationLibrary_qncy5")
 }
+
+[node name="HurtBox" parent="." instance=ExtResource("3_0td6m")]
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_0td6m")
+debug_color = Color(0.9099916, 0.23168159, 0.4815629, 0.41960785)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -3,7 +3,7 @@ extends Area2D
 # Eksportowane zmienne
 @export var speed: float = 150.0  # Prędkość pocisku
 @export var damage: int = 1  # Obrażenia zadawane graczowi
-@export var lifetime: float = 7.0  # Czas życia pocisku (sekundy)
+@export var lifetime: float = 1.0  # Czas życia pocisku (sekundy)
 
 # Zmienne wewnętrzne
 var direction: Vector2 = Vector2.ZERO  # Kierunek lotu pocisku
@@ -39,14 +39,3 @@ func set_direction(new_direction: Vector2):
 # Funkcja wywoływana gdy pocisk koliduje z czymś
 func _on_body_entered(body):
 	print("Pocisk trafił w: ", body.name)
-	
-	# Sprawdź czy trafił gracza
-	if body.is_in_group("player"):
-		print("Pocisk trafił gracza!")
-		
-		# Zadaj obrażenia graczowi (jeśli gracz ma funkcję take_damage)
-		if body.has_method("take_damage"):
-			body.take_damage(damage)
-		
-		# Usuń pocisk po trafieniu
-		queue_free()

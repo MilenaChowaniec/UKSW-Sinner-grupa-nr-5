@@ -22,9 +22,6 @@ func _process(delta):
 	# Update bullet position based on speed and direction
 	global_position += direction.normalized() * speed * delta
 	
-	## Check if bullet reached its maximum travel distance
-	#if global_position.distance_to(start_position) >= max_distance:
-		#explode()
 
 ## Trigger bullet explosion
 # niepotrzebne juz 
@@ -37,6 +34,7 @@ func explode():
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Player":
 		return
+	print(body.name)
 	explode()
 	 
 ## Callback for when explosion animation finishes
