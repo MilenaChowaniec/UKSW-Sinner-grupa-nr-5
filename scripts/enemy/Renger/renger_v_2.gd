@@ -47,7 +47,6 @@ func _ready():
 	patrol_state = PatrolState.MOVING
 	animated_sprite.flip_h = true
 	
-	print("Ranger ready - starting patrol")
 
 
 func _physics_process(delta):
@@ -90,7 +89,6 @@ func patrol_movement(delta):
 		else:  # Patrzy w prawo
 			shoot_directions = [Vector2.RIGHT, Vector2.UP]
 		
-		print("Ranger reached target - starting shooting sequence")
 		return
 	
 	# Poruszaj się w kierunku celu
@@ -148,7 +146,6 @@ func shooting_sequence(delta):
 		else:
 			current_shot_index += 1
 		
-		print("Ranger fired shot #", shots_fired)
 		
 		# Czy skończył wszystkie 4 strzały?
 		if shots_fired >= 4:
@@ -156,7 +153,6 @@ func shooting_sequence(delta):
 			current_patrol_direction *= -1
 			patrol_state = PatrolState.MOVING
 			
-			print("Ranger finished shooting - changing direction and moving")
 
 
 # ===== STRZELANIE - POJEDYNCZY STRZAŁ =====
@@ -187,7 +183,6 @@ func fire_bullet():
 	# Ustaw kierunek pocisku
 	if bullet.has_method("set_direction"):
 		bullet.set_direction(direction)
-		print("Bullet fired in direction: ", direction)
 	else:
 		print("ERROR: Bullet doesn't have set_direction method!")
 

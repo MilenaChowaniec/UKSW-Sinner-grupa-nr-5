@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bngdhoya5o254" path="res://scripts/enemy/Renger/renger.gd" id="1_kqdhr"]
 [ext_resource type="PackedScene" uid="uid://p2op8ywu55r1" path="res://scenes/enemy/pocisk_renger.tscn" id="2_kqdhr"]
-[ext_resource type="Texture2D" uid="uid://dmr3fsb7wiqqa" path="res://assets/Renger/damaged.png" id="2_o34pr"]
-[ext_resource type="Texture2D" uid="uid://cp5osqkrdotd" path="res://assets/Renger/death.png" id="3_nnob8"]
-[ext_resource type="Texture2D" uid="uid://bvfk6ohhrp6kr" path="res://assets/Renger/move.png" id="4_en7n4"]
-[ext_resource type="Texture2D" uid="uid://k1pnkaa651xv" path="res://assets/Renger/shoot.png" id="5_7123d"]
-[ext_resource type="Texture2D" uid="uid://cq4ko0bxmfws3" path="res://assets/Renger/static idle.png" id="6_xk8l2"]
-[ext_resource type="Texture2D" uid="uid://cbqsomuagsstt" path="res://assets/Renger/wake.png" id="7_fi1r5"]
+[ext_resource type="Texture2D" uid="uid://1ne3mqdm07m" path="res://assets/Renger/damaged.png" id="2_o34pr"]
+[ext_resource type="Texture2D" uid="uid://bup166ao3l62r" path="res://assets/Renger/death.png" id="3_nnob8"]
+[ext_resource type="Texture2D" uid="uid://mgc1webaoxxc" path="res://assets/Renger/move.png" id="4_en7n4"]
+[ext_resource type="Texture2D" uid="uid://c1a6gj7idf4dw" path="res://assets/Renger/shoot.png" id="5_7123d"]
+[ext_resource type="Texture2D" uid="uid://cm4wq3hi56wlx" path="res://assets/Renger/static idle.png" id="6_xk8l2"]
+[ext_resource type="Texture2D" uid="uid://dj8p47odxtkck" path="res://assets/Renger/wake.png" id="7_fi1r5"]
 [ext_resource type="PackedScene" uid="uid://ju4n3w1iok7" path="res://scenes/GeneralNodes/hit box/hit_box.tscn" id="9_o34pr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3lrg"]
@@ -240,7 +240,6 @@ radius = 7.7777777
 height = 25.555557
 
 [node name="Renger" type="CharacterBody2D" groups=["enemy"]]
-scale = Vector2(1.3, 1.3)
 script = ExtResource("1_kqdhr")
 bullet_scene = ExtResource("2_kqdhr")
 

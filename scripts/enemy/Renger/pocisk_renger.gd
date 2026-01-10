@@ -11,9 +11,9 @@ var lifetime_timer: float = 0.0  # Timer czasu życia
 
 func _ready():
 	# Połącz sygnał kolizji
-	body_entered.connect(_on_body_entered)
+	#body_entered.connect(_on_body_entered)
+	pass
 	
-	print("Pocisk rangera utworzony!")
 
 
 func _physics_process(delta):
@@ -24,7 +24,6 @@ func _physics_process(delta):
 	# Zliczaj czas życia
 	lifetime_timer += delta
 	if lifetime_timer >= lifetime:
-		print("Pocisk znikł (koniec czasu życia)")
 		queue_free()  # Usuń pocisk po określonym czasie
 
 
