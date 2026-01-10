@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ca4u7b7trlp5n"]
+[gd_scene load_steps=17 format=3 uid="uid://ca4u7b7trlp5n"]
 
 [ext_resource type="Texture2D" uid="uid://r01e05nw417e" path="res://assets/Bat/Bat.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://doxkoty8ci1kw" path="res://scripts/enemy/bat.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://dtymyxhquyf28" path="res://assets/Bat/Bat-die.png" id="2_40wdo"]
+[ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="4_7gqi0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjssy"]
 atlas = ExtResource("2_40wdo")
@@ -79,6 +80,9 @@ radius = 2.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
 radius = 80.024994
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7gqi0"]
+radius = 21.0
+
 [node name="Bat" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_md0e3")
 
@@ -99,3 +103,9 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_4ra3w")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_7gqi0")]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_7gqi0")
