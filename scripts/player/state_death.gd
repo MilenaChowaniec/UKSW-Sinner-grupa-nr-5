@@ -21,11 +21,13 @@ func exit() -> void:
 
 ## Not required in this state
 func process(_delta : float) -> State:
+	player.velocity = Vector2.ZERO
 	return null
 
 ## Callback triggered when death animation finishes
 func end_death(_new_anim : String) -> void:
 	dying = false
+	get_tree().change_scene_to_file("res://scenes/game/gameover.tscn")
 
 
 ## Not required in this state

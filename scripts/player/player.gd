@@ -3,18 +3,27 @@ class_name Player extends CharacterBody2D
 var cardinal_direction : Vector2 = Vector2.RIGHT ## Direction of player (for animations)
 var direction : Vector2 = Vector2.ZERO ## Input direction from keyboard
 var hp = 6
+var got_hit = false
 
 ## References to key child nodes
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var camera_2d: Camera2D = $Camera2D
 
 
 ## Initialize the state machine and pass this player to it
 func _ready() -> void:
 	state_machine.initialize(self)
+	$Interactions/HitBox.damaged.connect(take_damage)
 
+func take_damage(_damage : int) -> void:
+	got_hit = true
+	hp -= 1
 
+func add_hp(hp: int):
+	hp = hp + 1
+	
 ## Check input each frame and update movement direction
 func _process(_delta: float) -> void:
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")

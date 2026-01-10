@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://codbct2pkg1rs"]
+[gd_scene load_steps=8 format=3 uid="uid://codbct2pkg1rs"]
 
 [ext_resource type="PackedScene" uid="uid://cxlqvcxvlj5ce" path="res://scenes/pokoje/blue_room.tscn" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://croixqo1ufg6b" path="res://scenes/pokoje/purple_room.tscn" id="2_iywne"]
 [ext_resource type="Script" uid="uid://brfhidq1owmpg" path="res://scripts/game/spawn_area.gd" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://utqkg6x75r86" path="res://scenes/pokoje/red_room.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://buxu6tpew4c0x" path="res://scenes/player/player.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://ddrdlai6hfgsd" path="res://scenes/hud/heart_container.tscn" id="6_5i0tg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
 size = Vector2(41.224457, 11.821625)
@@ -53,10 +54,11 @@ position = Vector2(-1784.9739, 26.005417)
 position = Vector2(2393.6572, 382.50992)
 shape = SubResource("RectangleShape2D_u5sy4")
 
+[node name="CanvasLayer" parent="." instance=ExtResource("6_5i0tg")]
+
 [node name="Player" parent="." instance=ExtResource("4_u5sy4")]
 z_index = 3
 position = Vector2(264.95508, 401.68845)
-scale = Vector2(0.7, 0.7)
 collision_mask = 5
 
 [connection signal="body_entered" from="purple_room/spawn_area_purple" to="." method="_on_spawn_area_purple_body_entered"]

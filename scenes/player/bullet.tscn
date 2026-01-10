@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bq1xim6ramm3t" path="res://scripts/bullet/bullet.gd" id="1_y25gk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5glv"]
-radius = 5.5
+radius = 1.5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y25gk"]
 load_path = "res://.godot/imported/bullet_impact.png-78fd2c273ed0cbb997515588f7b6f34d.ctex"
@@ -119,19 +119,18 @@ _data = {
 }
 
 [node name="bullet" type="Area2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_y25gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.527)
+scale = Vector2(0.5, 0.509)
 texture = ExtResource("1_mkf8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11, 1)
+position = Vector2(4, 0)
 shape = SubResource("CircleShape2D_l5glv")
 
 [node name="ExplosionSprite" type="Sprite2D" parent="."]
-visible = false
+scale = Vector2(0.5, 0.5)
 texture = SubResource("CompressedTexture2D_y25gk")
 hframes = 4
 
@@ -139,3 +138,5 @@ hframes = 4
 libraries = {
 &"": SubResource("AnimationLibrary_qncy5")
 }
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

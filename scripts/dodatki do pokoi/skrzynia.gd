@@ -41,12 +41,14 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 ##Funkcja dodaje punkty hp graczowi.		
 func _on_serce_body_entered(body: Node) -> void:
 	if body.name == "Player":
-		#tu trzeba dodac graczowi hp za zebrane serce
+		body.hp += 1
+		print(body.hp)
 		serce.queue_free()
-		
+
 ##Funkcja aktywowana po dotknięciu drugiego serca przez inny obiekt.
 ##Funkcja dodaje punkty hp graczowi.		
 func _on_serce2_body_entered(body: Node) -> void:
 	if body.name == "Player":
-		#tu trzeba dodac graczowi hp za zebrane serce
+		body.hp += 1
+		print(body.hp)
 		serce2.queue_free()
