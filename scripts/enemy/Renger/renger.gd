@@ -61,7 +61,6 @@ func _physics_process(delta):
 		shoot_timer -= delta
 		if shoot_timer <= 0:
 			can_shoot = true
-			print("Ranger może znowu strzelać!")
 	
 	# Jeśli ranger nie żyje, jest w animacji obrażeń lub strzela, nie ruszaj się
 	if is_dead or is_damaged or is_shooting:
@@ -108,9 +107,8 @@ func move_towards_player():
 
 # ===== FUNKCJE STRZELANIA =====
 
-# Funkcja rozpoczynająca strzał - ZMIENIONA
+# Funkcja rozpoczynająca strzał
 func start_shooting():
-	print("Ranger zaczyna strzelać!")
 	is_shooting = true
 	can_move = false
 	velocity = Vector2.ZERO  # Zatrzymaj się
@@ -132,40 +130,33 @@ func start_shooting():
 	if animated_sprite:
 		animated_sprite.play("shoot")
 
+
 # Funkcja wystrzeliwująca pocisk
-# Funkcja wystrzeliwująca pocisk - ZMIENIONA
-# Funkcja wystrzeliwująca pocisk - ZMIENIONA
 func shoot_bullet():
 	if bullet_scene == null:
-		print("BŁĄD: Brak sceny pocisku! Przeciągnij pocisk_renger.tscn do parametru 'Bullet Scene'")
 		return
 
 	if player == null:
-		print("BŁĄD: Brak gracza!")
 		return
 
-	print("Ranger wystrzeliwuje pocisk!")
-
-# Stwórz instancję pocisku
+	# Stwórz instancję pocisku
 	var bullet = bullet_scene.instantiate()
 
-# Dodaj pocisk do sceny (jako dziecko root node, nie rangera!)
+	# Dodaj pocisk do sceny (jako dziecko root node, nie rangera!)
 	get_tree().root.add_child(bullet)
 
-# Ustaw pozycję pocisku NA POZYCJI MARKERA (zamiast rangera)
+	# Ustaw pozycję pocisku NA POZYCJI MARKERA (zamiast rangera)
 	if bullet_spawn_point:
 		bullet.global_position = bullet_spawn_point.global_position
 	else:
-# Fallback - jeśli nie ma markera, użyj pozycji rangera
+		# Fallback - jeśli nie ma markera, użyj pozycji rangera
 		bullet.global_position = global_position
 
-# Oblicz kierunek do gracza
+	# Oblicz kierunek do gracza
 	var direction = (player.global_position - global_position).normalized()
 
-# Ustaw kierunek pocisku
+	# Ustaw kierunek pocisku
 	bullet.set_direction(direction)
-
-	print("Pocisk wystrzelony w kierunku gracza!")
 
 
 # ===== SYGNAŁY SHOOT RANGE =====
@@ -173,21 +164,18 @@ func shoot_bullet():
 func _on_shoot_range_entered(body):
 	if body.is_in_group("player"):
 		player_in_shoot_range = true
-		print("Gracz wszedł w zasięg strzału!")
 
 
 func _on_shoot_range_exited(body):
 	if body.is_in_group("player"):
 		player_in_shoot_range = false
-		print("Gracz wyszedł z zasięgu strzału!")
 
 
-# ===== POZOSTAŁE FUNKCJE (bez zmian) =====
+# ===== POZOSTAŁE FUNKCJE =====
 
 func _on_player_detection_zone_entered(body):
 	if body.is_in_group("player"):
 		player_detected = true
-		print("Gracz wykryty!")
 		
 		if is_going_to_sleep:
 			is_going_to_sleep = false
@@ -199,7 +187,6 @@ func _on_player_detection_zone_entered(body):
 func _on_player_detection_zone_exited(body):
 	if body.is_in_group("player"):
 		player_detected = false
-		print("Gracz wyszedł z zasięgu")
 		
 		if not is_aggroed:
 			can_move = false
@@ -207,12 +194,9 @@ func _on_player_detection_zone_exited(body):
 			
 			if is_awake and not is_dead:
 				go_to_sleep()
-		else:
-			print("Ranger jest rozwścieczony - nie zasypia mimo wyjścia gracza!")
 
 
 func wake_up():
-	print("Ranger się budzi!")
 	is_awake = true
 	can_move = false
 	
@@ -222,7 +206,6 @@ func wake_up():
 
 
 func go_to_sleep():
-	print("Ranger wraca do snu!")
 	is_going_to_sleep = true
 	
 	if animated_sprite:
@@ -234,18 +217,13 @@ func take_damage(_damage: int) -> void:
 	if is_dead:
 		return
 	
-	print("Ranger otrzymał obrażenia! HP przed: ", hp)
-	
 	if not is_aggroed:
 		is_aggroed = true
-		print("Ranger jest teraz rozwścieczony! Będzie gonić gracza wszędzie!")
 		
 		if not is_awake:
 			wake_up()
 	
 	hp -= _damage
-	
-	print("HP po obrażeniach: ", hp)
 	
 	if hp <= 0:
 		die()
@@ -254,7 +232,6 @@ func take_damage(_damage: int) -> void:
 
 
 func play_damaged_animation():
-	print("Odtwarzanie animacji 'damaged'")
 	is_damaged = true
 	can_move = false
 	velocity = Vector2.ZERO
@@ -264,7 +241,6 @@ func play_damaged_animation():
 
 
 func die():
-	print("Ranger umiera!")
 	is_dead = true
 	can_move = false
 	is_aggroed = false
@@ -277,13 +253,11 @@ func die():
 func _on_animation_finished():
 	if animated_sprite.animation == "wake":
 		if is_going_to_sleep:
-			print("Ranger zasnął - animacja 'wake' od tyłu zakończona")
 			is_awake = false
 			is_going_to_sleep = false
 			can_move = false
 			animated_sprite.play("static_idle")
 		else:
-			print("Animacja 'wake' zakończona - ranger może się teraz ruszać")
 			can_move = true
 			if player_detected or is_aggroed:
 				# Sprawdź czy gracz jest w zasięgu strzału
@@ -291,7 +265,6 @@ func _on_animation_finished():
 					animated_sprite.play("move")
 	
 	elif animated_sprite.animation == "damaged":
-		print("Animacja 'damaged' zakończona")
 		is_damaged = false
 		
 		if not is_dead and is_awake:
@@ -300,8 +273,6 @@ func _on_animation_finished():
 				animated_sprite.play("move")
 	
 	elif animated_sprite.animation == "shoot":
-		print("Animacja 'shoot' zakończona!")
-		
 		# Wystrzel pocisk na końcu animacji
 		shoot_bullet()
 		
@@ -310,13 +281,10 @@ func _on_animation_finished():
 		shoot_timer = shoot_cooldown
 		is_shooting = false
 		
-		print("Cooldown strzelania aktywny na ", shoot_cooldown, " sekund")
-		
 		# Jeśli gracz nadal jest w zasięgu strzału, ranger będzie czekał i strzelił ponownie
 		# Jeśli gracz wyszedł, ranger zacznie go gonić
 		if not player_in_shoot_range and is_awake:
 			can_move = true
 	
 	elif animated_sprite.animation == "death":
-		print("Animacja 'death' zakończona - usuwanie rangera")
 		queue_free()

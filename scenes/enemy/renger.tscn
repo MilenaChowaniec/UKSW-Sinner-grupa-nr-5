@@ -229,10 +229,10 @@ radius = 6.0
 height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r55cp"]
-radius = 106.11258
+radius = 133.3345
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e1hoj"]
-radius = 74.463104
+radius = 81.11112
 
 [node name="Renger" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(1.8, 1.8)
@@ -264,5 +264,6 @@ shape = SubResource("CircleShape2D_e1hoj")
 debug_color = Color(0.8050723, 0.31467864, 0.697445, 0.41960785)
 
 [node name="BulletSpawnPoint" type="Marker2D" parent="."]
+visible = false
 position = Vector2(11.111112, -3.3333335)
 gizmo_extents = 3.0
