@@ -13,6 +13,8 @@ extends CharacterBody2D
 @onready var player_detection_zone = $PlayerDetectionZone  # Area2D do wykrywania gracza
 @onready var shoot_range = $ShootRange  # Area2D zasięgu strzału
 @onready var bullet_spawn_point = $BulletSpawnPoint  # Punkt spawnu pocisku
+@onready var hit_box: Hit_Box = $HitBox
+
 
 # Zmienne stanu
 var player: Node2D = null  # Referencja do gracza
@@ -34,7 +36,7 @@ func _ready():
 	# Uruchom animację początkową - ranger śpi
 	if animated_sprite:
 		animated_sprite.play("static_idle")
-	
+	$HitBox.damaged.connect(take_damage)
 	# Znajdź gracza w grupie "player"
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:

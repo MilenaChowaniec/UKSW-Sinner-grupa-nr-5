@@ -13,6 +13,8 @@ extends CharacterBody2D
 @onready var detection_area = $DetectionArea  # Referencja do Area2D wykrywającej gracza
 var player: Node2D = null  # Przechowuje referencję do gracza
 var player_in_detection_area: bool = false  # Czy gracz jest w zasięgu wykrywania
+@onready var hit_box: Hit_Box = $HitBox
+
 
 # Zmienne do patrolowania
 var patrol_center: Vector2  # Środek okręgu patrolowego (startowa pozycja)
@@ -31,7 +33,7 @@ var knockback_timer: float = 0.0  # Timer odrzutu
 func _ready():
 	# Zapisz startową pozycję jako środek okręgu patrolowego
 	patrol_center = global_position
-	
+	$HitBox.damaged.connect(take_damage)
 	# Znajdź gracza w grupie "player"
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
