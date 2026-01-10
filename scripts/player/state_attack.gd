@@ -17,6 +17,7 @@ var attacking : bool = false
 @onready var walk: State = $"../walk"
 @onready var idle: State = $"../idle"
 @onready var hit: State = $"../hit"
+@onready var death: State = $"../death"
 
 
 ## Start attacking animation when entering this state
@@ -38,8 +39,11 @@ func exit() -> void:
 ## Player cant move while attacking (for now)
 func process(_delta : float) -> State:
 	if player.got_hit == true:
+		if player.hp == 0:
+			return death
 		player.got_hit = false
-		return hit
+		player.update_animation("hit")
+		player.velocity = Vector2.ZERO
 	
 	player.velocity -= player.velocity * decelerate_speed * _delta
 	

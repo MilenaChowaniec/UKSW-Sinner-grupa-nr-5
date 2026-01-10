@@ -24,11 +24,12 @@ func exit() -> void:
 ## Move the player if theres input, otherwise return to idle state
 ## Update facing direction and animation when direction changes
 func process(_delta : float) -> State:
-	#if player.got_hit == true:
-		#if player.hp == 0:
-			#return death
-		#player.got_hit = false
-		#player.update_animation("hit")
+	if player.got_hit == true:
+		if player.hp == 0:
+			return death
+		player.got_hit = false
+		player.update_animation("hit")
+		player.velocity = Vector2.ZERO
 		
 	if player.direction == Vector2.ZERO:
 		return idle

@@ -25,6 +25,7 @@ func process(_delta : float) -> State:
 			return death
 		player.got_hit = false
 		player.update_animation("hit")
+		player.velocity = Vector2.ZERO
 	
 	if player.direction != Vector2.ZERO:
 		return walk
