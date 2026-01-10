@@ -249,14 +249,20 @@ position = Vector2(3, 0)
 shape = SubResource("CapsuleShape2D_8alca")
 
 [node name="PlayerDetectionZone" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionZone"]
 position = Vector2(3.888889, 0)
 shape = SubResource("CircleShape2D_r55cp")
 
 [node name="ShootRange" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShootRange"]
 position = Vector2(3.888889, 0)
 shape = SubResource("CircleShape2D_e1hoj")
 debug_color = Color(0.8050723, 0.31467864, 0.697445, 0.41960785)
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(11.111112, -3.3333335)
+gizmo_extents = 3.0

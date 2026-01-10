@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D  # Sprite z animacjami
 @onready var player_detection_zone = $PlayerDetectionZone  # Area2D do wykrywania gracza
 @onready var shoot_range = $ShootRange  # Area2D zasięgu strzału
+@onready var bullet_spawn_point = $BulletSpawnPoint  # Punkt spawnu pocisku
 
 # Zmienne stanu
 var player: Node2D = null  # Referencja do gracza
@@ -107,7 +108,7 @@ func move_towards_player():
 
 # ===== FUNKCJE STRZELANIA =====
 
-# Funkcja rozpoczynająca strzał
+# Funkcja rozpoczynająca strzał - ZMIENIONA
 func start_shooting():
 	print("Ranger zaczyna strzelać!")
 	is_shooting = true
@@ -118,41 +119,52 @@ func start_shooting():
 	if player:
 		if player.global_position.x < global_position.x:
 			animated_sprite.flip_h = true
+			# Przesuń marker na lewą stronę
+			if bullet_spawn_point:
+				bullet_spawn_point.position.x = -abs(bullet_spawn_point.position.x)
 		else:
 			animated_sprite.flip_h = false
+			# Przesuń marker na prawą stronę
+			if bullet_spawn_point:
+				bullet_spawn_point.position.x = abs(bullet_spawn_point.position.x)
 	
 	# Odtwórz animację strzału
 	if animated_sprite:
 		animated_sprite.play("shoot")
 
-
 # Funkcja wystrzeliwująca pocisk
+# Funkcja wystrzeliwująca pocisk - ZMIENIONA
+# Funkcja wystrzeliwująca pocisk - ZMIENIONA
 func shoot_bullet():
 	if bullet_scene == null:
 		print("BŁĄD: Brak sceny pocisku! Przeciągnij pocisk_renger.tscn do parametru 'Bullet Scene'")
 		return
-	
+
 	if player == null:
 		print("BŁĄD: Brak gracza!")
 		return
-	
+
 	print("Ranger wystrzeliwuje pocisk!")
-	
-	# Stwórz instancję pocisku
+
+# Stwórz instancję pocisku
 	var bullet = bullet_scene.instantiate()
-	
-	# Dodaj pocisk do sceny (jako dziecko root node, nie rangera!)
+
+# Dodaj pocisk do sceny (jako dziecko root node, nie rangera!)
 	get_tree().root.add_child(bullet)
-	
-	# Ustaw pozycję pocisku na pozycji rangera
-	bullet.global_position = global_position
-	
-	# Oblicz kierunek do gracza
+
+# Ustaw pozycję pocisku NA POZYCJI MARKERA (zamiast rangera)
+	if bullet_spawn_point:
+		bullet.global_position = bullet_spawn_point.global_position
+	else:
+# Fallback - jeśli nie ma markera, użyj pozycji rangera
+		bullet.global_position = global_position
+
+# Oblicz kierunek do gracza
 	var direction = (player.global_position - global_position).normalized()
-	
-	# Ustaw kierunek pocisku
+
+# Ustaw kierunek pocisku
 	bullet.set_direction(direction)
-	
+
 	print("Pocisk wystrzelony w kierunku gracza!")
 
 
