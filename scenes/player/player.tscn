@@ -1,18 +1,17 @@
 [gd_scene load_steps=29 format=3 uid="uid://buxu6tpew4c0x"]
 
 [ext_resource type="Script" uid="uid://bd3x8inhwhkcq" path="res://scripts/player/player.gd" id="1_qlg0r"]
-
-[ext_resource type="Texture2D" uid="uid://d2l807lc5wik2" path="res://assets/player/mike_attack.png" id="3_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://bhkfknt8wlk5f" path="res://assets/player/mike_attack.png" id="3_y4r1p"]
 [ext_resource type="Script" uid="uid://basxc86n1c1em" path="res://scripts/player/player_state_machine.gd" id="4_fjrip"]
-[ext_resource type="Texture2D" uid="uid://ejaa77uu4ojo" path="res://assets/player/mike_run.png" id="4_smehm"]
+[ext_resource type="Texture2D" uid="uid://bleycmdgamd2i" path="res://assets/player/mike_run.png" id="4_smehm"]
 [ext_resource type="Script" uid="uid://dj7oswpe1x8og" path="res://scripts/player/state_idle.gd" id="4_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://dnci8opkfgxw0" path="res://assets/player/mike_death.png" id="5_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://bk3il8lavvfjj" path="res://assets/player/mike_death.png" id="5_3v2ag"]
 [ext_resource type="Script" uid="uid://c02dgq5opkr4y" path="res://scripts/player/state_walk.gd" id="5_fjrip"]
 [ext_resource type="Texture2D" uid="uid://h4hxftw1f51m" path="res://assets/player/mike_idle.png" id="5_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://35gah518x6ip" path="res://assets/player/mike_hit.png" id="6_gx1jg"]
+[ext_resource type="Texture2D" uid="uid://bnjvon1gk5y2v" path="res://assets/player/mike_hit.png" id="6_gx1jg"]
 [ext_resource type="Script" uid="uid://cmp8mbe16t2hd" path="res://scripts/player/state_attack.gd" id="8_ur7pv"]
 [ext_resource type="Script" uid="uid://8b430uoe815h" path="res://scripts/player/state_hit.gd" id="11_3v2ag"]
-[ext_resource type="Script" uid="uid://ubc558qemrt" path="res://scripts/player/state_death.gd" id="12_jej6c"]
+[ext_resource type="Script" path="res://scripts/player/state_death.gd" id="12_jej6c"]
 [ext_resource type="PackedScene" uid="uid://ju4n3w1iok7" path="res://scenes/GeneralNodes/hit box/hit_box.tscn" id="13_gx1jg"]
 [ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="14_ugbui"]
 
@@ -744,7 +743,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_ugbui"]
 radius = 5.5555553
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(1.8, 1.8)
 script = ExtResource("1_qlg0r")
 
