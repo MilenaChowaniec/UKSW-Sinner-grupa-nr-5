@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Eksportowane zmienne
-@export var hp: int = 3  # Punkty życia rangera
+@export var hp: int = 6  # Punkty życia rangera
 @export var move_speed: float = 40.0  # Prędkość poruszania się rangera
 @export var shoot_cooldown: float = 2.0  # Przerwa między strzałami (sekundy)
 

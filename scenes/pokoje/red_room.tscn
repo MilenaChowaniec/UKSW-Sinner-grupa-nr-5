@@ -1,16 +1,19 @@
-[gd_scene load_steps=19 format=4 uid="uid://utqkg6x75r86"]
+[gd_scene load_steps=22 format=4 uid="uid://utqkg6x75r86"]
 
-[ext_resource type="Texture2D" uid="uid://iq8hrodb55cq" path="res://assets/world/red/decorative_cracks_walls_czerwone.png" id="1_iyqfy"]
-[ext_resource type="Texture2D" uid="uid://bmd76stl2humf" path="res://assets/world/textures/FireSet.png" id="2_smndh"]
-[ext_resource type="Texture2D" uid="uid://r6oipo3wnvaj" path="res://assets/world/textures/ALL_content.png" id="3_sq0k0"]
-[ext_resource type="Texture2D" uid="uid://gk1whi0nncqd" path="res://assets/world/red/walls_floor_czerowny.png" id="4_eye05"]
-[ext_resource type="Texture2D" uid="uid://cojvxlhl51vdm" path="res://assets/world/red/Objects_czerwone.png" id="5_d0k71"]
-[ext_resource type="Texture2D" uid="uid://blfakq6xh235j" path="res://assets/world/red/decorative_cracks_floor_czerwone.png" id="6_2o68w"]
+[ext_resource type="Texture2D" uid="uid://co5fairbgc4vm" path="res://assets/world/red/decorative_cracks_walls_czerwone.png" id="1_iyqfy"]
+[ext_resource type="Texture2D" uid="uid://cor8hth54q67i" path="res://assets/world/textures/FireSet.png" id="2_smndh"]
+[ext_resource type="Texture2D" uid="uid://vjehrt60ss13" path="res://assets/world/textures/ALL_content.png" id="3_sq0k0"]
+[ext_resource type="Texture2D" uid="uid://bbows24orh6ku" path="res://assets/world/red/walls_floor_czerowny.png" id="4_eye05"]
+[ext_resource type="Texture2D" uid="uid://b67cl47lu6poc" path="res://assets/world/red/Objects_czerwone.png" id="5_d0k71"]
+[ext_resource type="Texture2D" uid="uid://iasfjc4f58mb" path="res://assets/world/red/decorative_cracks_floor_czerwone.png" id="6_2o68w"]
 [ext_resource type="PackedScene" uid="uid://c1fwdii2psobm" path="res://scenes/dodatki do pokoi/ogienki_red.tscn" id="8_sq0k0"]
 [ext_resource type="PackedScene" uid="uid://itbaxc17mvhw" path="res://scenes/drzwi/drzwi_cz.tscn" id="10_p4kq5"]
 [ext_resource type="PackedScene" uid="uid://4d5sunnlp8x7" path="res://scenes/przeszkody/lightning.tscn" id="11_iyqfy"]
 [ext_resource type="PackedScene" uid="uid://jepybpodmgpj" path="res://scenes/kraty/krata_cz.tscn" id="11_w1hs2"]
+[ext_resource type="PackedScene" uid="uid://ca4u7b7trlp5n" path="res://scenes/enemy/bat.tscn" id="12_eye05"]
 [ext_resource type="PackedScene" uid="uid://dc755lyl5uwyu" path="res://scenes/dodatki do pokoi/skrzynia.tscn" id="12_smndh"]
+[ext_resource type="PackedScene" uid="uid://c6v6js5rapeaw" path="res://scenes/enemy/renger_v2.tscn" id="13_d0k71"]
+[ext_resource type="PackedScene" uid="uid://dquev2ab6hg6j" path="res://scenes/enemy/renger.tscn" id="14_2o68w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ncuik"]
 texture = ExtResource("1_iyqfy")
@@ -1217,3 +1220,12 @@ scale = Vector2(0.7, 0.7)
 z_index = 4
 position = Vector2(518.0183, 435.47144)
 scale = Vector2(0.7, 0.7)
+
+[node name="Bat" parent="." instance=ExtResource("12_eye05")]
+position = Vector2(569, 445)
+
+[node name="Renger_v2" parent="." instance=ExtResource("13_d0k71")]
+position = Vector2(472, 447)
+
+[node name="Renger" parent="." instance=ExtResource("14_2o68w")]
+position = Vector2(529, 485)

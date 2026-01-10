@@ -34,7 +34,6 @@ func explode():
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Player":
 		return
-	print(body.name)
 	explode()
 	 
 ## Callback for when explosion animation finishes
