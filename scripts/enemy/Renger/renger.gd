@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # Eksportowane zmienne
 @export var hp: int = 3  # Punkty życia rangera
+@export var move_speed: float = 40.0  # Prędkość poruszania się rangera
 
 # Referencje do węzłów
 @onready var animated_sprite = $AnimatedSprite2D  # Sprite z animacjami
@@ -13,6 +14,7 @@ var player_detected: bool = false  # Czy gracz został wykryty
 var is_awake: bool = false  # Czy ranger się obudził
 var is_dead: bool = false  # Czy ranger nie żyje
 var is_going_to_sleep: bool = false  # Czy ranger zasypia (animacja wake do tyłu)
+var can_move: bool = false  # Czy ranger może się poruszać
 
 func _ready():
 	# Uruchom animację początkową - ranger śpi
@@ -35,8 +37,35 @@ func _ready():
 
 
 func _physics_process(_delta):
-	# Na razie pusta - dodamy logikę w kolejnych krokach
-	pass
+	# Jeśli ranger nie żyje lub nie może się ruszać, nie rób nic
+	if is_dead or not can_move:
+		return
+	
+	# Jeśli gracz istnieje i jest wykryty, idź w jego stronę
+	if player and player_detected:
+		move_towards_player()
+
+
+# Funkcja poruszania się w stronę gracza
+func move_towards_player():
+	# Oblicz kierunek do gracza
+	var direction = (player.global_position - global_position).normalized()
+	
+	# Obróć sprite w stronę gracza
+	if direction.x < 0:
+		animated_sprite.flip_h = true  # Gracz po lewej
+	else:
+		animated_sprite.flip_h = false  # Gracz po prawej
+	
+	# Ustaw prędkość w kierunku gracza
+	velocity = direction * move_speed
+	
+	# Odtwórz animację ruchu
+	if animated_sprite.animation != "move":
+		animated_sprite.play("move")
+	
+	# Przesuń rangera
+	move_and_slide()
 
 
 # Funkcja wywoływana gdy coś wchodzi do PlayerDetectionZone
@@ -62,7 +91,10 @@ func _on_player_detection_zone_exited(body):
 		player_detected = false
 		print("Gracz wyszedł z zasięgu")
 		
-		# Ranger wraca do snu
+		# Ranger przestaje się ruszać i wraca do snu
+		can_move = false
+		velocity = Vector2.ZERO
+		
 		if is_awake and not is_dead:
 			go_to_sleep()
 
@@ -71,6 +103,7 @@ func _on_player_detection_zone_exited(body):
 func wake_up():
 	print("Ranger się budzi!")
 	is_awake = true
+	can_move = false  # Nie może się ruszać podczas budzenia
 	
 	# Odtwórz animację budzenia normalnie (do przodu)
 	if animated_sprite:
@@ -98,9 +131,13 @@ func _on_animation_finished():
 			print("Ranger zasnął - animacja 'wake' od tyłu zakończona")
 			is_awake = false
 			is_going_to_sleep = false
+			can_move = false
 			# Przejdź do static_idle
 			animated_sprite.play("static_idle")
 		else:
 			# Jeśli ranger się budził (animacja do przodu)
-			print("Animacja 'wake' zakończona - ranger obudzony")
-			# Tutaj później dodamy przejście do idle lub ataku
+			print("Animacja 'wake' zakończona - ranger może się teraz ruszać")
+			can_move = true  # Teraz może się ruszać
+			# Jeśli gracz nadal jest w zasięgu, zacznij iść
+			if player_detected:
+				animated_sprite.play("move")

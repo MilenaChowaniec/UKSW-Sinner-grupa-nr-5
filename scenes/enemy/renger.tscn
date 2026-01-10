@@ -228,7 +228,7 @@ radius = 6.0
 height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r55cp"]
-radius = 67.0
+radius = 105.00589
 
 [node name="Renger" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(1.8, 1.8)
@@ -236,7 +236,7 @@ script = ExtResource("1_kqdhr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_egim0")
-animation = &"damaged"
+animation = &"wake"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
