@@ -15,6 +15,7 @@ var is_awake: bool = false  # Czy ranger się obudził
 var is_dead: bool = false  # Czy ranger nie żyje
 var is_going_to_sleep: bool = false  # Czy ranger zasypia (animacja wake do tyłu)
 var can_move: bool = false  # Czy ranger może się poruszać
+var is_damaged: bool = false  # Czy ranger jest w trakcie animacji obrażeń
 
 func _ready():
 	# Uruchom animację początkową - ranger śpi
@@ -37,8 +38,8 @@ func _ready():
 
 
 func _physics_process(_delta):
-	# Jeśli ranger nie żyje lub nie może się ruszać, nie rób nic
-	if is_dead or not can_move:
+	# Jeśli ranger nie żyje, jest w animacji obrażeń lub nie może się ruszać, nie rób nic
+	if is_dead or not can_move or is_damaged:
 		return
 	
 	# Jeśli gracz istnieje i jest wykryty, idź w jego stronę
@@ -122,6 +123,51 @@ func go_to_sleep():
 		animated_sprite.speed_scale = 1.0  # Możesz zmienić prędkość np. na 1.5 dla szybszego zasypiania
 
 
+# Funkcja zadawania obrażeń rangerowi
+func take_damage(_damage: int) -> void:
+	# Jeśli ranger jest martwy, ignoruj obrażenia
+	if is_dead:
+		return
+	
+	print("Ranger otrzymał obrażenia! HP przed: ", hp)
+	
+	# Odejmij HP
+	hp -= _damage
+	
+	print("HP po obrażeniach: ", hp)
+	
+	# Sprawdź czy ranger powinien umrzeć
+	if hp <= 0:
+		die()
+	else:
+		# Ranger jeszcze żyje - odtwórz animację obrażeń
+		play_damaged_animation()
+
+
+# Funkcja odtwarzająca animację obrażeń
+func play_damaged_animation():
+	print("Odtwarzanie animacji 'damaged'")
+	is_damaged = true  # Zablokuj ruch podczas animacji
+	can_move = false
+	velocity = Vector2.ZERO  # Zatrzymaj ruch
+	
+	# Odtwórz animację obrażeń
+	if animated_sprite:
+		animated_sprite.play("damaged")
+
+
+# Funkcja śmierci rangera
+func die():
+	print("Ranger umiera!")
+	is_dead = true  # Oznacz rangera jako martwego
+	can_move = false
+	velocity = Vector2.ZERO  # Zatrzymaj ruch
+	
+	# Odtwórz animację śmierci
+	if animated_sprite:
+		animated_sprite.play("death")
+
+
 # Funkcja wywoływana gdy animacja się kończy
 func _on_animation_finished():
 	# Sprawdź która animacja się skończyła
@@ -141,3 +187,26 @@ func _on_animation_finished():
 			# Jeśli gracz nadal jest w zasięgu, zacznij iść
 			if player_detected:
 				animated_sprite.play("move")
+	
+	elif animated_sprite.animation == "damaged":
+		# Po animacji obrażeń, wróć do normalnego stanu
+		print("Animacja 'damaged' zakończona")
+		is_damaged = false
+		
+		# Jeśli gracz nadal jest w zasięgu i ranger żyje, wróć do ruchu
+		if player_detected and not is_dead and is_awake:
+			can_move = true
+			animated_sprite.play("move")
+		elif is_awake:
+			# Jeśli gracz nie jest w zasięgu, ale ranger jest obudzony
+			can_move = true
+	
+	elif animated_sprite.animation == "death":
+		# Po animacji śmierci, usuń rangera
+		print("Animacja 'death' zakończona - usuwanie rangera")
+		queue_free()  # Usuń rangera ze sceny
+		
+func _input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
+		take_damage(1)
+		print("Test obrażeń!")
