@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dquev2ab6hg6j"]
+[gd_scene load_steps=38 format=3 uid="uid://dquev2ab6hg6j"]
 
 [ext_resource type="Script" uid="uid://bngdhoya5o254" path="res://scripts/enemy/Renger/renger.gd" id="1_kqdhr"]
 [ext_resource type="Texture2D" uid="uid://dmr3fsb7wiqqa" path="res://assets/Renger/damaged.png" id="2_o34pr"]
@@ -228,7 +228,10 @@ radius = 6.0
 height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r55cp"]
-radius = 105.00589
+radius = 106.11258
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1hoj"]
+radius = 74.463104
 
 [node name="Renger" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(1.8, 1.8)
@@ -236,7 +239,7 @@ script = ExtResource("1_kqdhr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_egim0")
-animation = &"wake"
+animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -248,3 +251,10 @@ shape = SubResource("CapsuleShape2D_8alca")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionZone"]
 position = Vector2(3.888889, 0)
 shape = SubResource("CircleShape2D_r55cp")
+
+[node name="ShootRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootRange"]
+position = Vector2(3.888889, 0)
+shape = SubResource("CircleShape2D_e1hoj")
+debug_color = Color(0.8050723, 0.31467864, 0.697445, 0.41960785)

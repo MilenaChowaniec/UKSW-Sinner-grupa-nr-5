@@ -221,8 +221,3 @@ func _on_animation_finished():
 		# Po animacji śmierci, usuń rangera
 		print("Animacja 'death' zakończona - usuwanie rangera")
 		queue_free()  # Usuń rangera ze sceny
-
-func _input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
-		take_damage(1)
-		print("Test obrażeń!")
