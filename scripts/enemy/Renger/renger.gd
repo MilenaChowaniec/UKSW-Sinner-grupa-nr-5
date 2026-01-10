@@ -16,6 +16,7 @@ var is_dead: bool = false  # Czy ranger nie żyje
 var is_going_to_sleep: bool = false  # Czy ranger zasypia (animacja wake do tyłu)
 var can_move: bool = false  # Czy ranger może się poruszać
 var is_damaged: bool = false  # Czy ranger jest w trakcie animacji obrażeń
+var is_aggroed: bool = false  # Czy ranger jest rozwścieczony (zawsze goni gracza)
 
 func _ready():
 	# Uruchom animację początkową - ranger śpi
@@ -42,8 +43,11 @@ func _physics_process(_delta):
 	if is_dead or not can_move or is_damaged:
 		return
 	
-	# Jeśli gracz istnieje i jest wykryty, idź w jego stronę
-	if player and player_detected:
+	# Jeśli ranger jest rozwścieczony, ZAWSZE goni gracza (nawet poza detection zone)
+	if is_aggroed and player:
+		move_towards_player()
+	# W przeciwnym razie tylko gdy gracz jest wykryty
+	elif player and player_detected:
 		move_towards_player()
 
 
@@ -92,12 +96,16 @@ func _on_player_detection_zone_exited(body):
 		player_detected = false
 		print("Gracz wyszedł z zasięgu")
 		
-		# Ranger przestaje się ruszać i wraca do snu
-		can_move = false
-		velocity = Vector2.ZERO
-		
-		if is_awake and not is_dead:
-			go_to_sleep()
+		# TYLKO jeśli ranger NIE jest rozwścieczony, może zasnąć
+		if not is_aggroed:
+			# Ranger przestaje się ruszać i wraca do snu
+			can_move = false
+			velocity = Vector2.ZERO
+			
+			if is_awake and not is_dead:
+				go_to_sleep()
+		else:
+			print("Ranger jest rozwścieczony - nie zasypia mimo wyjścia gracza!")
 
 
 # Funkcja budzenia rangera
@@ -131,6 +139,15 @@ func take_damage(_damage: int) -> void:
 	
 	print("Ranger otrzymał obrażenia! HP przed: ", hp)
 	
+	# WAŻNE: Ranger staje się rozwścieczony!
+	if not is_aggroed:
+		is_aggroed = true
+		print("Ranger jest teraz rozwścieczony! Będzie gonić gracza wszędzie!")
+		
+		# Jeśli ranger śpi, obudź go natychmiast
+		if not is_awake:
+			wake_up()
+	
 	# Odejmij HP
 	hp -= _damage
 	
@@ -161,6 +178,7 @@ func die():
 	print("Ranger umiera!")
 	is_dead = true  # Oznacz rangera jako martwego
 	can_move = false
+	is_aggroed = false  # Nie jest już rozwścieczony
 	velocity = Vector2.ZERO  # Zatrzymaj ruch
 	
 	# Odtwórz animację śmierci
@@ -184,8 +202,8 @@ func _on_animation_finished():
 			# Jeśli ranger się budził (animacja do przodu)
 			print("Animacja 'wake' zakończona - ranger może się teraz ruszać")
 			can_move = true  # Teraz może się ruszać
-			# Jeśli gracz nadal jest w zasięgu, zacznij iść
-			if player_detected:
+			# Jeśli gracz nadal jest w zasięgu LUB ranger jest rozwścieczony, zacznij iść
+			if player_detected or is_aggroed:
 				animated_sprite.play("move")
 	
 	elif animated_sprite.animation == "damaged":
@@ -193,19 +211,17 @@ func _on_animation_finished():
 		print("Animacja 'damaged' zakończona")
 		is_damaged = false
 		
-		# Jeśli gracz nadal jest w zasięgu i ranger żyje, wróć do ruchu
-		if player_detected and not is_dead and is_awake:
+		# Po obrażeniach ranger ZAWSZE wraca do gonienia gracza (bo jest aggroed)
+		if not is_dead and is_awake:
 			can_move = true
-			animated_sprite.play("move")
-		elif is_awake:
-			# Jeśli gracz nie jest w zasięgu, ale ranger jest obudzony
-			can_move = true
+			if player:
+				animated_sprite.play("move")
 	
 	elif animated_sprite.animation == "death":
 		# Po animacji śmierci, usuń rangera
 		print("Animacja 'death' zakończona - usuwanie rangera")
 		queue_free()  # Usuń rangera ze sceny
-		
+
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
 		take_damage(1)
