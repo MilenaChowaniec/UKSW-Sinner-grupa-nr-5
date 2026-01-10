@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ca4u7b7trlp5n"]
+[gd_scene load_steps=15 format=3 uid="uid://ca4u7b7trlp5n"]
 
 [ext_resource type="Texture2D" uid="uid://r01e05nw417e" path="res://assets/Bat/Bat.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://doxkoty8ci1kw" path="res://scripts/enemy/bat.gd" id="1_md0e3"]
@@ -79,9 +79,6 @@ radius = 2.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
 radius = 80.024994
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5uy6h"]
-radius = 6.0
-
 [node name="Bat" type="CharacterBody2D"]
 script = ExtResource("1_md0e3")
 
@@ -102,14 +99,3 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_4ra3w")
-
-[node name="AttackArea" type="Area2D" parent="."]
-visible = false
-position = Vector2(0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(2, 2)
-shape = SubResource("CircleShape2D_5uy6h")
-debug_color = Color(0.98558336, 0, 0.3369638, 0.41960785)
-
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

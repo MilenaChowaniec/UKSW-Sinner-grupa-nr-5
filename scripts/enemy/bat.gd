@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var patrol_radius: float = 100.0  # Promień okręgu patrolowego
 @export var patrol_speed: float = 2.0  # Prędkość obracania się po okręgu
 @export var hp: int = 3  # Punkty życia bata
+@export var knockback_force: float = 300.0  # Siła odrzutu
+@export var knockback_duration: float = 0.4  # Czas trwania odrzutu
 
 # Referencje do węzłów
 @onready var animated_sprite = $AnimatedSprite2D  # Referencja do AnimatedSprite2D
@@ -19,6 +21,11 @@ var patrol_angle: float = 0.0  # Aktualny kąt na okręgu
 # Zmienne do HP i stanu
 var is_dead: bool = false  # Czy bat jest martwy
 var got_hit: bool = false  # Czy bat został trafiony
+
+# Zmienne do knockback
+var is_knockback: bool = false  # Czy bat jest w trakcie odrzutu
+var knockback_velocity: Vector2 = Vector2.ZERO  # Prędkość odrzutu
+var knockback_timer: float = 0.0  # Timer odrzutu
 
 
 func _ready():
@@ -45,6 +52,15 @@ func _ready():
 
 
 func _physics_process(delta):
+	# Jeśli bat jest martwy, nie wykonuj żadnej logiki ruchu
+	if is_dead:
+		return
+	
+	# Jeśli bat jest w trakcie knockback
+	if is_knockback:
+		handle_knockback(delta)
+		return
+	
 	# Sprawdź czy gracz istnieje i czy jest w zasięgu wykrywania
 	if player == null or not player_in_detection_area:
 		# Gracz nie jest w zasięgu - wykonaj patrol w kółko
@@ -62,6 +78,53 @@ func _physics_process(delta):
 	velocity = direction * speed
 	
 	# Przesuń bata używając wbudowanej funkcji
+	move_and_slide()
+	
+	# Sprawdź kolizję z graczem
+	check_collision_with_player()
+
+
+func check_collision_with_player():
+	# Sprawdź czy bat zderzył się z graczem
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("player"):
+			apply_knockback_from_player()
+			break
+
+
+func apply_knockback_from_player():
+	if player == null:
+		return
+	
+	# Oblicz kierunek odrzutu (od gracza)
+	var knockback_direction = (global_position - player.global_position).normalized()
+	
+	# Ustaw prędkość odrzutu
+	knockback_velocity = knockback_direction * knockback_force
+	
+	# Włącz stan knockback
+	is_knockback = true
+	knockback_timer = knockback_duration
+
+
+func handle_knockback(delta):
+	# Zmniejsz timer
+	knockback_timer -= delta
+	
+	# Jeśli timer się skończył, wyłącz knockback
+	if knockback_timer <= 0:
+		is_knockback = false
+		knockback_velocity = Vector2.ZERO
+		return
+	
+	# Zastosuj prędkość knockback
+	velocity = knockback_velocity
+	
+	# Stopniowo zmniejszaj prędkość odrzutu (opcjonalne)
+	knockback_velocity = knockback_velocity.lerp(Vector2.ZERO, delta * 5)
+	
+	# Przesuń bata
 	move_and_slide()
 
 
