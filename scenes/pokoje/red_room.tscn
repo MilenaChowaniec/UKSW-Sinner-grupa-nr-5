@@ -1,15 +1,14 @@
-[gd_scene load_steps=21 format=4 uid="uid://utqkg6x75r86"]
+[gd_scene load_steps=19 format=4 uid="uid://utqkg6x75r86"]
 
-[ext_resource type="Texture2D" uid="uid://co5fairbgc4vm" path="res://assets/world/red/decorative_cracks_walls_czerwone.png" id="1_iyqfy"]
-[ext_resource type="Texture2D" uid="uid://b871mmy2qcxf3" path="res://assets/world/textures/FireSet.png" id="2_smndh"]
-[ext_resource type="Texture2D" uid="uid://qda2wabekpcf" path="res://assets/world/textures/ALL_content.png" id="3_sq0k0"]
-[ext_resource type="Texture2D" uid="uid://bbows24orh6ku" path="res://assets/world/red/walls_floor_czerowny.png" id="4_eye05"]
-[ext_resource type="Texture2D" uid="uid://b67cl47lu6poc" path="res://assets/world/red/Objects_czerwone.png" id="5_d0k71"]
-[ext_resource type="Texture2D" uid="uid://iasfjc4f58mb" path="res://assets/world/red/decorative_cracks_floor_czerwone.png" id="6_2o68w"]
-[ext_resource type="Script" uid="uid://wnfp6cirm6i" path="res://scripts/przeszkody/lawa.gd" id="7_eye05"]
+[ext_resource type="Texture2D" uid="uid://iq8hrodb55cq" path="res://assets/world/red/decorative_cracks_walls_czerwone.png" id="1_iyqfy"]
+[ext_resource type="Texture2D" uid="uid://bmd76stl2humf" path="res://assets/world/textures/FireSet.png" id="2_smndh"]
+[ext_resource type="Texture2D" uid="uid://r6oipo3wnvaj" path="res://assets/world/textures/ALL_content.png" id="3_sq0k0"]
+[ext_resource type="Texture2D" uid="uid://gk1whi0nncqd" path="res://assets/world/red/walls_floor_czerowny.png" id="4_eye05"]
+[ext_resource type="Texture2D" uid="uid://cojvxlhl51vdm" path="res://assets/world/red/Objects_czerwone.png" id="5_d0k71"]
+[ext_resource type="Texture2D" uid="uid://blfakq6xh235j" path="res://assets/world/red/decorative_cracks_floor_czerwone.png" id="6_2o68w"]
 [ext_resource type="PackedScene" uid="uid://c1fwdii2psobm" path="res://scenes/dodatki do pokoi/ogienki_red.tscn" id="8_sq0k0"]
-[ext_resource type="PackedScene" uid="uid://uyavh6jmglur" path="res://scenes/przeszkody/vanishing_wood.tscn" id="9_ue15h"]
 [ext_resource type="PackedScene" uid="uid://itbaxc17mvhw" path="res://scenes/drzwi/drzwi_cz.tscn" id="10_p4kq5"]
+[ext_resource type="PackedScene" uid="uid://4d5sunnlp8x7" path="res://scenes/przeszkody/lightning.tscn" id="11_iyqfy"]
 [ext_resource type="PackedScene" uid="uid://jepybpodmgpj" path="res://scenes/kraty/krata_cz.tscn" id="11_w1hs2"]
 [ext_resource type="PackedScene" uid="uid://dc755lyl5uwyu" path="res://scenes/dodatki do pokoi/skrzynia.tscn" id="12_smndh"]
 
@@ -1151,9 +1150,6 @@ sources/7 = SubResource("TileSetAtlasSource_lwgnx")
 sources/8 = SubResource("TileSetAtlasSource_4oupy")
 sources/9 = SubResource("TileSetAtlasSource_fa2c2")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f05lu"]
-size = Vector2(111.97662, 114.28223)
-
 [node name="red_room" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1181,59 +1177,11 @@ tile_set = SubResource("TileSet_8oql1")
 
 [node name="podłogi" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAVABsABwACAAgAAAAVABwABwACAAgAAAAWABwABwACAAgAAAAXABwABwACAAgAAAAYAB0ABwACAAgAAAAZAB0ABwACAAgAAAAaAB0ABgACAAMAAAAbAB4ABgACAAUAAAAcAB4ABgACAAUAAAAeAB4ABgACAAUAAAAeAB8ABgACAAMAAAAfAB8ABgACAAMAAAAgAB8ABgACAAMAAAAhAB8ABwACAAgAAAAiAB8ABwACAAgAAAAWABsABwACAAgAAAAXABsABwACAAgAAAAYABwABwACAAgAAAAZABwABwACAAgAAAAaABwABgACAAUAAAAbABwABgACAAUAAAAcAB0ABgACAAMAAAAdAB0ABgACAAMAAAAeAB0ABgACAAMAAAAfAB0ABgACAAMAAAAgAB4ABgACAAUAAAAhAB4ABwACAAgAAAAVAB0ABwACAAgAAAAVAB4ABwACAAgAAAAVAB8ABwACAAgAAAAVACAABwACAAgAAAAWAB0ABwACAAgAAAAWAB4ABwACAAgAAAAWAB8ABwACAAgAAAAXAB0ABwACAAgAAAAXAB4ABwACAAgAAAAXAB8ABwACAAgAAAAYABsABwACAAgAAAAYAB4ABwACAAgAAAAYAB8ABwACAAgAAAAYACAABwACAAgAAAAZABsABwACAAgAAAAZAB4ABwACAAgAAAAZAB8ABwACAAgAAAAZACAABwACAAgAAAAaABsABgACAAMAAAAaAB4ABgACAAUAAAAaAB8ABgACAAMAAAAaACAABgACAAUAAAAbABsABgACAAMAAAAbAB0ABgACAAMAAAAbAB8ABgACAAMAAAAbACAABgACAAUAAAAcABsABgACAAMAAAAcABwABgACAAUAAAAcAB8ABgACAAMAAAAcACAABgACAAUAAAAdABsABgACAAMAAAAdABwABgACAAUAAAAdAB8ABgACAAMAAAAdACAABgACAAUAAAAeABsABgACAAMAAAAeABwABgACAAUAAAAeACAABgACAAUAAAAfABsABgACAAMAAAAfABwABgACAAUAAAAfAB4ABgACAAUAAAAfACAABgACAAUAAAAgABsABgACAAMAAAAgABwABgACAAUAAAAgAB0ABgACAAMAAAAgACAABgACAAUAAAAhABsABwACAAgAAAAhABwABwACAAgAAAAhAB0ABwACAAgAAAAhACAABwACAAgAAAAiABsABwACAAgAAAAiABwABwACAAgAAAAiAB0ABwACAAgAAAAiAB4ABwACAAgAAAAiACAABwACAAgAAAAjABsABwACAAgAAAAjABwABwACAAgAAAAjAB0ABwACAAgAAAAjAB4ABwACAAgAAAAjAB8ABwACAAgAAAAjACAABwACAAgAAAAkABsABwACAAgAAAAkABwABwACAAgAAAAkAB0ABwACAAgAAAAkAB4ABwACAAgAAAAkAB8ABwACAAgAAAAkACAABwACAAgAAAAlABsABwACAAgAAAAlABwABwACAAgAAAAlAB0ABwACAAgAAAAlAB4ABwACAAgAAAAlAB8ABwACAAgAAAAlACAABwACAAgAAAAmABsABwACAAgAAAAmABwABwACAAgAAAAmAB0ABwACAAgAAAAmAB4ABwACAAgAAAAmAB8ABwACAAgAAAAmACAABwACAAgAAAAdAB4ABgACAAUAAAAUACEABwACAAgAAAAVACEABwACAAgAAAAYACEABwACAAgAAAAZACEABwACAAgAAAAaACEABgACAAUAAAAbACEABgACAAUAAAAcACEABgACAAUAAAAdACEABgACAAUAAAAeACEABgACAAUAAAAfACEABgACAAUAAAAgACEABgACAAUAAAAhACEABwACAAgAAAAiACEABwACAAgAAAAjACEABwACAAgAAAAkACEABwACAAgAAAAlACEABwACAAgAAAAmACEABwACAAgAAAAnACEABwACAAgAAAAUABsABwACAAgAAAAUABwABwACAAgAAAAUAB0ABwACAAgAAAAUAB4ABwACAAgAAAAUAB8ABwACAAgAAAAUACAABwACAAgAAAAUABoABwAMAA4AAAAVABoABwAMAA4AAAAWABoABwAMAA4AAAAXABoABwAMAA4AAAAYABoABwAMAA4AAAAZABoABwAMAA4AAAAaABoABwAMAA4AAAAbABoABwAMAA4AAAAcABoABwAMAA4AAAAdABoABwAMAA4AAAAeABoABwAMAA4AAAAfABoABwAMAA4AAAAgABoABwAMAA4AAAAhABoABwAMAA4AAAAiABoABwAMAA4AAAAjABoABwAMAA4AAAAkABoABwAMAA4AAAAlABoABwACAAIAAAAmABoABwACAAIAAAAnABoABwAMAA4AAAAnABsABwACAAgAAAAnABwABwACAAgAAAAnAB0ABwACAAgAAAAnAB4ABwACAAgAAAAnAB8ABwACAAgAAAAnACAABwACAAgAAAAUACIABwAMAA4AAAAVACIABwAMAA4AAAAYACIABwAMAA4AAAAZACIABwAMAA4AAAAaACIABwAMAA4AAAAbACIABwAMAA4AAAAcACIABwAMAA4AAAAdACIABwAMAA4AAAAeACIABwAMAA4AAAAfACIABwAMAA4AAAAgACIABwAMAA4AAAAhACIABwAMAA4AAAAiACIABwAMAA4AAAAjACIABwAMAA4AAAAkACIABwAMAA4AAAAlACIABwAMAA4AAAAmACIABwAMAA4AAAAnACIABwAMAA4AAAAWACQABwACAAgAAAAWACUABwACAAgAAAAWACMABwACAAgAAAAXACMABwACAAgAAAAXACQABwACAAgAAAAXACUABwACAAgAAAAXACYABwACAAgAAAAXACcABwACAAgAAAAWACcABwACAAgAAAAWACYABwACAAgAAAAWACAABwACAAgAAAAWACEABwACAAgAAAAWACIABwACAAgAAAAXACAABwACAAgAAAAXACEABwACAAgAAAAXACIABwACAAgAAAAlABkABwACAAIAAAAmABkABwACAAIAAAA=")
+tile_map_data = PackedByteArray("AAAVABsABwACAAgAAAAVABwABwACAAgAAAAWABwABwACAAgAAAAXABwABwACAAgAAAAYAB0ABwACAAgAAAAZAB0ABwACAAgAAAAhAB8ABwACAAgAAAAiAB8ABwACAAgAAAAWABsABwACAAgAAAAXABsABwACAAgAAAAYABwABwACAAgAAAAZABwABwACAAgAAAAhAB4ABwACAAgAAAAVAB0ABwACAAgAAAAVAB4ABwACAAgAAAAVAB8ABwACAAgAAAAVACAABwACAAgAAAAWAB0ABwACAAgAAAAWAB4ABwACAAgAAAAWAB8ABwACAAgAAAAXAB0ABwACAAgAAAAXAB4ABwACAAgAAAAXAB8ABwACAAgAAAAYABsABwACAAgAAAAYAB4ABwACAAgAAAAYAB8ABwACAAgAAAAYACAABwACAAgAAAAZABsABwACAAgAAAAZAB4ABwACAAgAAAAZAB8ABwACAAgAAAAZACAABwACAAgAAAAhABsABwACAAgAAAAhAB0ABwACAAgAAAAhACAABwACAAgAAAAiABsABwACAAgAAAAiABwABwACAAgAAAAiAB0ABwACAAgAAAAiAB4ABwACAAgAAAAiACAABwACAAgAAAAjABsABwACAAgAAAAjABwABwACAAgAAAAjAB0ABwACAAgAAAAjAB4ABwACAAgAAAAjAB8ABwACAAgAAAAjACAABwACAAgAAAAkABsABwACAAgAAAAkABwABwACAAgAAAAkAB0ABwACAAgAAAAkAB4ABwACAAgAAAAkAB8ABwACAAgAAAAkACAABwACAAgAAAAlABsABwACAAgAAAAlABwABwACAAgAAAAlAB0ABwACAAgAAAAlAB4ABwACAAgAAAAlAB8ABwACAAgAAAAlACAABwACAAgAAAAmABsABwACAAgAAAAmABwABwACAAgAAAAmAB0ABwACAAgAAAAmAB4ABwACAAgAAAAmAB8ABwACAAgAAAAmACAABwACAAgAAAAUACEABwACAAgAAAAVACEABwACAAgAAAAYACEABwACAAgAAAAZACEABwACAAgAAAAaACEABwACAAgAAAAbACEABwACAAgAAAAcACEABwACAAgAAAAdACEABwACAAgAAAAeACEABwACAAgAAAAfACEABwACAAgAAAAgACEABwACAAgAAAAhACEABwACAAgAAAAiACEABwACAAgAAAAjACEABwACAAgAAAAkACEABwACAAgAAAAlACEABwACAAgAAAAmACEABwACAAgAAAAnACEABwACAAgAAAAUABsABwACAAgAAAAUABwABwACAAgAAAAUAB0ABwACAAgAAAAUAB4ABwACAAgAAAAUAB8ABwACAAgAAAAUACAABwACAAgAAAAUABoABwAMAA4AAAAVABoABwAMAA4AAAAWABoABwAMAA4AAAAXABoABwAMAA4AAAAYABoABwAMAA4AAAAZABoABwAMAA4AAAAaABoABwAMAA4AAAAbABoABwAMAA4AAAAcABoABwAMAA4AAAAdABoABwAMAA4AAAAeABoABwAMAA4AAAAfABoABwAMAA4AAAAgABoABwAMAA4AAAAhABoABwAMAA4AAAAiABoABwAMAA4AAAAjABoABwAMAA4AAAAkABoABwAMAA4AAAAlABoABwACAAIAAAAmABoABwACAAIAAAAnABoABwAMAA4AAAAnABsABwACAAgAAAAnABwABwACAAgAAAAnAB0ABwACAAgAAAAnAB4ABwACAAgAAAAnAB8ABwACAAgAAAAnACAABwACAAgAAAAUACIABwAMAA4AAAAVACIABwAMAA4AAAAYACIABwAMAA4AAAAZACIABwAMAA4AAAAaACIABwAMAA4AAAAbACIABwAMAA4AAAAcACIABwAMAA4AAAAdACIABwAMAA4AAAAeACIABwAMAA4AAAAfACIABwAMAA4AAAAgACIABwAMAA4AAAAhACIABwAMAA4AAAAiACIABwAMAA4AAAAjACIABwAMAA4AAAAkACIABwAMAA4AAAAlACIABwAMAA4AAAAmACIABwAMAA4AAAAnACIABwAMAA4AAAAWACQABwACAAgAAAAWACUABwACAAgAAAAWACMABwACAAgAAAAXACMABwACAAgAAAAXACQABwACAAgAAAAXACUABwACAAgAAAAXACYABwACAAgAAAAXACcABwACAAgAAAAWACcABwACAAgAAAAWACYABwACAAgAAAAWACAABwACAAgAAAAWACEABwACAAgAAAAWACIABwACAAgAAAAXACAABwACAAgAAAAXACEABwACAAgAAAAXACIABwACAAgAAAAlABkABwACAAIAAAAmABkABwACAAIAAAAaABwABwACAAgAAAAbABwABwACAAgAAAAcABwABwACAAgAAAAdABwABwACAAgAAAAeABwABwACAAgAAAAfABwABwACAAgAAAAgABwABwACAAgAAAAgAB0ABwACAAgAAAAhABwABwACAAgAAAAaAB0ABwACAAgAAAAaAB4ABwACAAgAAAAaAB8ABwACAAgAAAAaACAABwACAAgAAAAbAB0ABwACAAgAAAAbAB4ABwACAAgAAAAbAB8ABwACAAgAAAAbACAABwACAAgAAAAcAB0ABwACAAgAAAAcAB4ABwACAAgAAAAcAB8ABwACAAgAAAAcACAABwACAAgAAAAdAB0ABwACAAgAAAAdAB4ABwACAAgAAAAdAB8ABwACAAgAAAAdACAABwACAAgAAAAeAB0ABwACAAgAAAAeAB4ABwACAAgAAAAeAB8ABwACAAgAAAAeACAABwACAAgAAAAfAB0ABwACAAgAAAAfAB4ABwACAAgAAAAfAB8ABwACAAgAAAAfACAABwACAAgAAAAgAB4ABwACAAgAAAAgAB8ABwACAAgAAAAgACAABwACAAgAAAAaABsABwACAAgAAAAbABsABwACAAgAAAAcABsABwACAAgAAAAdABsABwACAAgAAAAeABsABwACAAgAAAAfABsABwACAAgAAAAgABsABwACAAgAAAA=")
 tile_set = SubResource("TileSet_8oql1")
-
-[node name="lawa" type="Area2D" parent="."]
-position = Vector2(-0.099090576, 6.3421326)
-script = ExtResource("7_eye05")
-
-[node name="Collision-lawa" type="CollisionShape2D" parent="lawa"]
-position = Vector2(472.00967, 486.47433)
-shape = SubResource("RectangleShape2D_f05lu")
-debug_color = Color(0.97986513, 0.12792519, 0.15953073, 0.41960785)
-
-[node name="Timer" type="Timer" parent="lawa"]
 
 [node name="ogienki" parent="." instance=ExtResource("8_sq0k0")]
 z_index = 3
-
-[node name="woods" type="Node2D" parent="."]
-
-[node name="vanishing_wood2" parent="woods" instance=ExtResource("9_ue15h")]
-z_index = 1
-position = Vector2(429.40448, 479.4159)
-scale = Vector2(0.6, 1)
-
-[node name="vanishing_wood3" parent="woods" instance=ExtResource("9_ue15h")]
-z_index = 1
-position = Vector2(411.74622, 479.3135)
-scale = Vector2(0.6, 1)
-
-[node name="vanishing_wood6" parent="woods" instance=ExtResource("9_ue15h")]
-z_index = 1
-position = Vector2(464.79483, 479.32336)
-scale = Vector2(0.6, 1)
-
-[node name="vanishing_wood7" parent="woods" instance=ExtResource("9_ue15h")]
-z_index = 1
-position = Vector2(482.37497, 479.29303)
-scale = Vector2(0.6, 1)
-
-[node name="vanishing_wood8" parent="woods" instance=ExtResource("9_ue15h")]
-z_index = 1
-position = Vector2(499.9762, 479.29333)
-scale = Vector2(0.6, 1)
-
-[node name="vanishing_wood9" parent="woods" instance=ExtResource("9_ue15h")]
-z_index = 1
-position = Vector2(517.566, 479.2497)
-scale = Vector2(0.6, 1)
-
-[node name="vanishing_wood10" parent="woods" instance=ExtResource("9_ue15h")]
-z_index = 1
-position = Vector2(447.04843, 479.43024)
-scale = Vector2(0.6, 1)
 
 [node name="krata" parent="." instance=ExtResource("11_w1hs2")]
 z_index = 4
@@ -1250,6 +1198,22 @@ z_index = 4
 position = Vector2(368.0986, 526.2853)
 scale = Vector2(1.2, 1)
 
-[connection signal="body_entered" from="lawa" to="lawa" method="_on_body_entered"]
-[connection signal="body_exited" from="lawa" to="lawa" method="_on_body_exited"]
-[connection signal="timeout" from="lawa/Timer" to="lawa" method="_on_timer_timeout"]
+[node name="lightning" parent="." instance=ExtResource("11_iyqfy")]
+z_index = 4
+position = Vector2(425.4136, 462.0152)
+scale = Vector2(0.7, 0.7)
+
+[node name="lightning2" parent="." instance=ExtResource("11_iyqfy")]
+z_index = 4
+position = Vector2(455.96002, 436.40182)
+scale = Vector2(0.7, 0.7)
+
+[node name="lightning3" parent="." instance=ExtResource("11_iyqfy")]
+z_index = 4
+position = Vector2(486.59415, 461.80457)
+scale = Vector2(0.7, 0.7)
+
+[node name="lightning4" parent="." instance=ExtResource("11_iyqfy")]
+z_index = 4
+position = Vector2(518.0183, 435.47144)
+scale = Vector2(0.7, 0.7)

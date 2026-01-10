@@ -4,6 +4,7 @@ class_name Trap extends Area2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
+@onready var collision_hurt: CollisionShape2D = $HurtBox/CollisionShape2D
 
 ##zmienna opisująca czas przez który kolce są wysunięte z podłoża. 
 @export var up_time: float = 1.0
@@ -18,6 +19,7 @@ var trap_up: bool = false
 func _ready() -> void:
 	trap_up = false
 	collision_shape.disabled = true
+	collision_hurt.disabled = true
 	sprite.play("start")  
 	timer.start()
 
@@ -28,6 +30,7 @@ func _on_timer_timeout() -> void:
 		trap_up = false
 		sprite.play("trap_down")          
 		collision_shape.disabled = true  #nie zadaja obrazen
+		collision_hurt.disabled = true
 		timer.wait_time = down_time   
 		timer.start()
 	else:
@@ -35,12 +38,14 @@ func _on_timer_timeout() -> void:
 		sprite.play("trap_up")  
 		await get_tree().create_timer(0.5).timeout          
 		collision_shape.disabled = false #zadaja obrazenia 
+		collision_hurt.disabled = false
 		timer.wait_time = up_time    
 		timer.start()
 
 ##Funkcja wywoływana po zderzeniu z innym obiektem.
 ##Jeśli obiektem jest gracz, traci on punkty hp.
 ##@param body - obiekt, z którym nastąpiło zderzenie
+# ta funkcja jest niepotrzebna
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print("odjeto hp")

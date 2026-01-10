@@ -1,11 +1,13 @@
 ## Player state: moving while input direction is active
 class_name State_Walk extends State
 
-@export var move_speed : float = 250.0
+@export var move_speed : float = 100.0
 
 ## Reference to the other states
 @onready var idle: State = $"../idle"
 @onready var attack: State = $"../attack"
+@onready var hit: State = $"../hit"
+@onready var death: State = $"../death"
 
 
 ## Start walking animation when entering this state
@@ -22,6 +24,12 @@ func exit() -> void:
 ## Move the player if theres input, otherwise return to idle state
 ## Update facing direction and animation when direction changes
 func process(_delta : float) -> State:
+	#if player.got_hit == true:
+		#if player.hp == 0:
+			#return death
+		#player.got_hit = false
+		#player.update_animation("hit")
+		
 	if player.direction == Vector2.ZERO:
 		return idle
 	

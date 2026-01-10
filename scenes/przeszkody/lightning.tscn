@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://4d5sunnlp8x7"]
+[gd_scene load_steps=18 format=3 uid="uid://4d5sunnlp8x7"]
 
 [ext_resource type="Script" uid="uid://wixmueqan0c6" path="res://scripts/przeszkody/lightning.gd" id="1_raah3"]
-[ext_resource type="Texture2D" uid="uid://bnx7n0whpd7x8" path="res://assets/world/Lightning Trap - Level 1.png" id="2_tqmwp"]
+[ext_resource type="Texture2D" uid="uid://c74g3v1nmmkut" path="res://assets/world/Lightning Trap - Level 1.png" id="2_tqmwp"]
+[ext_resource type="PackedScene" uid="uid://cp2t3nwy6npky" path="res://scenes/GeneralNodes/hurt box/hurt_box.tscn" id="3_tqmwp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7nfe2"]
 atlas = ExtResource("2_tqmwp")
@@ -96,6 +97,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_raah3"]
 radius = 6.2315526
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7nfe2"]
+radius = 5.0990195
+
 [node name="lightning" type="Area2D"]
 script = ExtResource("1_raah3")
 
@@ -108,6 +112,14 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.085193634, 39.09659)
 shape = SubResource("CircleShape2D_raah3")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_tqmwp")]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 41)
+shape = SubResource("CircleShape2D_7nfe2")
+debug_color = Color(0.9325174, 0.2046122, 0.4158566, 0.41960785)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

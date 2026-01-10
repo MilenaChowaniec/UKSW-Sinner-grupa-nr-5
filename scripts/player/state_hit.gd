@@ -17,20 +17,24 @@ func enter() -> void:
 	
 	# If player is still alive, play hit animation and connect callback
 	if player.hp > 0:
-		player.update_animation("hit")
-		animation_player.animation_finished.connect(end_hit)
+		#player.update_animation("hit")
+		being_hit = false
+		#animation_player.animation_finished.connect(end_hit)
 	being_hit = true
 
+func take_damage(_damage : int) -> void:
+	#queue_free()
+	pass
 
 ## What happens when player exits this state?
 func exit() -> void:
-	animation_player.animation_finished.disconnect(end_hit)
+	#animation_player.animation_finished.disconnect(end_hit)
 	being_hit = false
 
 
 ## If player has 0 HP, call death, otherwise idle or walk
 func process(_delta : float) -> State:
-	player.velocity = Vector2.ZERO
+	#player.velocity = Vector2.ZERO
 	if player.hp == 0:
 		return death
 		
@@ -39,6 +43,7 @@ func process(_delta : float) -> State:
 			return idle
 		else:
 			return walk
+	
 	return null
 
 
