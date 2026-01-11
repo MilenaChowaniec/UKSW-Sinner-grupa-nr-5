@@ -245,6 +245,7 @@ radius = 5.3846164
 height = 21.538464
 
 [node name="Renger_v2" type="CharacterBody2D" groups=["enemy"]]
+z_index = 4
 script = ExtResource("1_ke24c")
 bullet_scene = ExtResource("2_6jrpl")
 

@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bo4f2d8flp5ph"]
+[gd_scene load_steps=17 format=3 uid="uid://bo4f2d8flp5ph"]
 
 [ext_resource type="Script" uid="uid://bxwfamcrjb8de" path="res://scripts/przejścia/krata.gd" id="1_52bl5"]
-[ext_resource type="Texture2D" uid="uid://bwha44qfect8l" path="res://assets/world/blue/doors_lever_chest_animation_blue.png" id="2_52bl5"]
+[ext_resource type="Texture2D" uid="uid://cw8g5conneyur" path="res://assets/world/blue/doors_lever_chest_animation_blue.png" id="2_52bl5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
 size = Vector2(32.299026, 35.1324)
@@ -101,6 +101,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52bl5"]
+size = Vector2(32.31462, 33.7965)
+
 [node name="krata" type="Area2D" node_paths=PackedStringArray("krata_animation")]
 script = ExtResource("1_52bl5")
 krata_animation = NodePath("AnimatedSprite2D")
@@ -113,6 +116,12 @@ shape = SubResource("RectangleShape2D_fiuaf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3.079544)
 sprite_frames = SubResource("SpriteFrames_08j4v")
+
+[node name="Blocker" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker"]
+position = Vector2(0.17974854, -0.22760773)
+shape = SubResource("RectangleShape2D_52bl5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

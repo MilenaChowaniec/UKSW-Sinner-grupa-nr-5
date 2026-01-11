@@ -1,11 +1,12 @@
-[gd_scene load_steps=22 format=4 uid="uid://utqkg6x75r86"]
+[gd_scene load_steps=23 format=4 uid="uid://utqkg6x75r86"]
 
-[ext_resource type="Texture2D" uid="uid://co5fairbgc4vm" path="res://assets/world/red/decorative_cracks_walls_czerwone.png" id="1_iyqfy"]
-[ext_resource type="Texture2D" uid="uid://cor8hth54q67i" path="res://assets/world/textures/FireSet.png" id="2_smndh"]
-[ext_resource type="Texture2D" uid="uid://vjehrt60ss13" path="res://assets/world/textures/ALL_content.png" id="3_sq0k0"]
-[ext_resource type="Texture2D" uid="uid://bbows24orh6ku" path="res://assets/world/red/walls_floor_czerowny.png" id="4_eye05"]
-[ext_resource type="Texture2D" uid="uid://b67cl47lu6poc" path="res://assets/world/red/Objects_czerwone.png" id="5_d0k71"]
-[ext_resource type="Texture2D" uid="uid://iasfjc4f58mb" path="res://assets/world/red/decorative_cracks_floor_czerwone.png" id="6_2o68w"]
+[ext_resource type="Script" uid="uid://1a6tl842m23i" path="res://scripts/rooms/red_room.gd" id="1_d0k71"]
+[ext_resource type="Texture2D" uid="uid://iq8hrodb55cq" path="res://assets/world/red/decorative_cracks_walls_czerwone.png" id="1_iyqfy"]
+[ext_resource type="Texture2D" uid="uid://bmd76stl2humf" path="res://assets/world/textures/FireSet.png" id="2_smndh"]
+[ext_resource type="Texture2D" uid="uid://r6oipo3wnvaj" path="res://assets/world/textures/ALL_content.png" id="3_sq0k0"]
+[ext_resource type="Texture2D" uid="uid://gk1whi0nncqd" path="res://assets/world/red/walls_floor_czerowny.png" id="4_eye05"]
+[ext_resource type="Texture2D" uid="uid://cojvxlhl51vdm" path="res://assets/world/red/Objects_czerwone.png" id="5_d0k71"]
+[ext_resource type="Texture2D" uid="uid://blfakq6xh235j" path="res://assets/world/red/decorative_cracks_floor_czerwone.png" id="6_2o68w"]
 [ext_resource type="PackedScene" uid="uid://c1fwdii2psobm" path="res://scenes/dodatki do pokoi/ogienki_red.tscn" id="8_sq0k0"]
 [ext_resource type="PackedScene" uid="uid://itbaxc17mvhw" path="res://scenes/drzwi/drzwi_cz.tscn" id="10_p4kq5"]
 [ext_resource type="PackedScene" uid="uid://4d5sunnlp8x7" path="res://scenes/przeszkody/lightning.tscn" id="11_iyqfy"]
@@ -1154,6 +1155,7 @@ sources/8 = SubResource("TileSetAtlasSource_4oupy")
 sources/9 = SubResource("TileSetAtlasSource_fa2c2")
 
 [node name="red_room" type="Node2D"]
+script = ExtResource("1_d0k71")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8oql1")
@@ -1222,6 +1224,7 @@ position = Vector2(518.0183, 435.47144)
 scale = Vector2(0.7, 0.7)
 
 [node name="Bat" parent="." instance=ExtResource("12_eye05")]
+z_index = 5
 position = Vector2(569, 445)
 
 [node name="Renger_v2" parent="." instance=ExtResource("13_d0k71")]

@@ -240,6 +240,7 @@ radius = 7.7777777
 height = 25.555557
 
 [node name="Renger" type="CharacterBody2D" groups=["enemy"]]
+z_index = 4
 script = ExtResource("1_kqdhr")
 bullet_scene = ExtResource("2_kqdhr")
 

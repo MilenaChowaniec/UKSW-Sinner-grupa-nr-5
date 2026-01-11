@@ -22,33 +22,2068 @@ code { font-family: Consolas, monospace; }
 <h1>Dokumentacja GDScript</h1>
 <p>Automatycznie wygenerowana z komentarzy <code>##</code>.</p>
 <h2>Spis treści</h2><ul>
-<li><a href='#scripts_main_menu.gd-MainMenu' title='scripts/main_menu.gd'>MainMenu</a></li>
+<li><a href='#scripts_bullet_bullet.gd-bullet' title='scripts/bullet/bullet.gd'>bullet</a></li>
+<li><a href='#scripts_dodatki do pokoi_ogienki.gd-Fire' title='scripts/dodatki do pokoi/ogienki.gd'>Fire</a></li>
+<li><a href='#scripts_dodatki do pokoi_skrzynia.gd-Chest' title='scripts/dodatki do pokoi/skrzynia.gd'>Chest</a></li>
+<li><a href='#scripts_enemy_bat.gd-(global)' title='scripts/enemy/bat.gd'>(global)</a></li>
+<li><a href='#scripts_enemy_Renger_pocisk_renger.gd-(global)' title='scripts/enemy/Renger/pocisk_renger.gd'>(global)</a></li>
+<li><a href='#scripts_enemy_Renger_renger.gd-(global)' title='scripts/enemy/Renger/renger.gd'>(global)</a></li>
+<li><a href='#scripts_enemy_Renger_renger_v_2.gd-(global)' title='scripts/enemy/Renger/renger_v_2.gd'>(global)</a></li>
+<li><a href='#scripts_game_gameover.gd-GameOver' title='scripts/game/gameover.gd'>GameOver</a></li>
+<li><a href='#scripts_game_main_menu.gd-MainMenu' title='scripts/game/main_menu.gd'>MainMenu</a></li>
+<li><a href='#scripts_game_spawn_area.gd-Spawn' title='scripts/game/spawn_area.gd'>Spawn</a></li>
+<li><a href='#scripts_GeneralNodes_hit box_hit_box.gd-Hit_Box' title='scripts/GeneralNodes/hit box/hit_box.gd'>Hit_Box</a></li>
+<li><a href='#scripts_GeneralNodes_hurt box_hurt_box.gd-Hurt_Box' title='scripts/GeneralNodes/hurt box/hurt_box.gd'>Hurt_Box</a></li>
+<li><a href='#scripts_hud_heart_container.gd-Hearts' title='scripts/hud/heart_container.gd'>Hearts</a></li>
+<li><a href='#scripts_hud_timer_game.gd-Timer_Game' title='scripts/hud/timer_game.gd'>Timer_Game</a></li>
+<li><a href='#scripts_player_player.gd-Player' title='scripts/player/player.gd'>Player</a></li>
+<li><a href='#scripts_player_player_state_machine.gd-PlayerStateMachine' title='scripts/player/player_state_machine.gd'>PlayerStateMachine</a></li>
+<li><a href='#scripts_player_state.gd-State' title='scripts/player/state.gd'>State</a></li>
+<li><a href='#scripts_player_state_attack.gd-State_Attack' title='scripts/player/state_attack.gd'>State_Attack</a></li>
+<li><a href='#scripts_player_state_death.gd-State_Death' title='scripts/player/state_death.gd'>State_Death</a></li>
+<li><a href='#scripts_player_state_hit.gd-State_Hit' title='scripts/player/state_hit.gd'>State_Hit</a></li>
+<li><a href='#scripts_player_state_idle.gd-State_Idle' title='scripts/player/state_idle.gd'>State_Idle</a></li>
+<li><a href='#scripts_player_state_walk.gd-State_Walk' title='scripts/player/state_walk.gd'>State_Walk</a></li>
+<li><a href='#scripts_przejścia_drzwi.gd-Door' title='scripts/przejścia/drzwi.gd'>Door</a></li>
+<li><a href='#scripts_przejścia_krata.gd-Grid' title='scripts/przejścia/krata.gd'>Grid</a></li>
+<li><a href='#scripts_przeszkody_lawa.gd-Lava' title='scripts/przeszkody/lawa.gd'>Lava</a></li>
+<li><a href='#scripts_przeszkody_lightning.gd-Lightning' title='scripts/przeszkody/lightning.gd'>Lightning</a></li>
+<li><a href='#scripts_przeszkody_trap.gd-Trap' title='scripts/przeszkody/trap.gd'>Trap</a></li>
+<li><a href='#scripts_przeszkody_vanishing_wood.gd-VanishingPlatform' title='scripts/przeszkody/vanishing_wood.gd'>VanishingPlatform</a></li>
+<li><a href='#scripts_room_bounds_purple_bounds.gd-(global)' title='scripts/room_bounds/purple_bounds.gd'>(global)</a></li>
+<li><a href='#scripts_rooms_blue_room.gd-BlueRoom' title='scripts/rooms/blue_room.gd'>BlueRoom</a></li>
+<li><a href='#scripts_rooms_purple_room.gd-PurpleRoom' title='scripts/rooms/purple_room.gd'>PurpleRoom</a></li>
+<li><a href='#scripts_rooms_red_room.gd-RedRoom' title='scripts/rooms/red_room.gd'>RedRoom</a></li>
 </ul>
-<div class='file-block' id='file-scripts_main_menu.gd'>
-<h2>Plik: <code>scripts/main_menu.gd</code></h2>
-<div class='class-block' id='scripts_main_menu.gd-MainMenu'>
+<div class='file-block' id='file-scripts_bullet_bullet.gd'>
+<h2>Plik: <code>scripts/bullet/bullet.gd</code></h2>
+<div class='class-block' id='scripts_bullet_bullet.gd-bullet'>
+<h3>Klasa: bullet</h3>
+<h4>Zmienne</h4><ul>
+<li><code>speed</code></li>
+<li><code>max_distance</code></li>
+<li><code>direction</code></li>
+<li><code>start_position</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_bullet_bullet.gd-bullet-0')">_ready()</p>
+<pre id='codeblock-scripts_bullet_bullet.gd-bullet-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	rotation = direction.angle()
+	explosion_sprite.visible = false
+	animation_player.animation_finished.connect(_on_explosion_finished)
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_bullet_bullet.gd-bullet-1')">_process()</p>
+<p>Move bullet every frame and check for max distance</p>
+<pre id='codeblock-scripts_bullet_bullet.gd-bullet-1' style='display:none;'><code class='language-gdscript'>func _process(delta):
+	# Update bullet position based on speed and direction
+	global_position += direction.normalized() * speed * delta
+	
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_bullet_bullet.gd-bullet-2')">explode()</p>
+<p>Trigger bullet explosion</p>
+<pre id='codeblock-scripts_bullet_bullet.gd-bullet-2' style='display:none;'><code class='language-gdscript'>func explode():
+	speed = 0 
+	sprite.visible = false 
+	explosion_sprite.visible = true
+	animation_player.play(&quot;explosion&quot;)
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_bullet_bullet.gd-bullet-3')">_on_body_entered()</p>
+<pre id='codeblock-scripts_bullet_bullet.gd-bullet-3' style='display:none;'><code class='language-gdscript'>func _on_body_entered(body: Node) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		return
+	explode()
+	 </code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_bullet_bullet.gd-bullet-4')">_on_explosion_finished()</p>
+<p>Callback for when explosion animation finishes</p>
+<pre id='codeblock-scripts_bullet_bullet.gd-bullet-4' style='display:none;'><code class='language-gdscript'>func _on_explosion_finished(anim_name: String) -&gt; void:
+	if anim_name == &quot;explosion&quot;:
+		queue_free()  # usuwa Bullet po zakończeniu animacji</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_dodatki do pokoi_ogienki.gd'>
+<h2>Plik: <code>scripts/dodatki do pokoi/ogienki.gd</code></h2>
+<div class='class-block' id='scripts_dodatki do pokoi_ogienki.gd-Fire'>
+<h3>Klasa: Fire</h3>
+<p>Klasa Fire obsługująca obiekty płomieni w rozgrywce.</p>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_dodatki do pokoi_ogienki.gd-Fire-0')">_on_body_entered()</p>
+<p>Funkcja uruchamia się po zderzeniu z innym obiektem.
+Jeśli obiektem jest gracz, funkcja odejmuje graczowi hp.
+@param body - obiekt, z którym nastąpiła kolizja</p>
+<pre id='codeblock-scripts_dodatki do pokoi_ogienki.gd-Fire-0' style='display:none;'><code class='language-gdscript'>func _on_body_entered(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		print(&quot;odejmujemy hp&quot;)
+		#tu trzeba odjac hp gracza</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_dodatki do pokoi_skrzynia.gd'>
+<h2>Plik: <code>scripts/dodatki do pokoi/skrzynia.gd</code></h2>
+<div class='class-block' id='scripts_dodatki do pokoi_skrzynia.gd-Chest'>
+<h3>Klasa: Chest</h3>
+<p>Klasa Chest obsługująca obiekty skrzynek z wypadającymi serduszkami do zebrania przez gracza.</p>
+<h4>Zmienne</h4><ul>
+<li><code>skrzynia_animation</code> – Referencja do animacji skrzyni.</li>
+<li><code>open</code> – Zmienna określająca czy skrzynia jest otwarta: true - skrzynia otwarta, false - skrzynia zamknięta.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-0')">_ready()</p>
+<p>Funkcja ustawia parametry początkowe obiektów: serca na początku mają wyłączoną widoczność i wykrywanie obiektów.</p>
+<pre id='codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	serce.visible = false
+	serce.monitoring = false
+	serce2.visible = false
+	serce2.monitoring = false
+	open = false
+	serce.body_entered.connect(_on_serce_body_entered)
+	serce2.body_entered.connect(_on_serce2_body_entered)
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-1')">_on_collision_area_body_entered()</p>
+<p>Funkcja aktywowana przez wejście ciała na obiekt skrzyni.
+Funkcja uruchamia animację otwierania skrzyni.</p>
+<pre id='codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-1' style='display:none;'><code class='language-gdscript'>func _on_collision_area_body_entered(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot; and not open:
+		skrzynia_animation.play(&quot;open&quot;)
+		open = true
+		
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-2')">_on_animated_sprite_2d_animation_finished()</p>
+<p>Funkcja aktywowana po zakończeniu animacji otwarcia skrzyni.
+Funkcja przełącza widoczność serc na włączoną i wykrywanie obiektów na aktywne.</p>
+<pre id='codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-2' style='display:none;'><code class='language-gdscript'>func _on_animated_sprite_2d_animation_finished() -&gt; void:
+	if skrzynia_animation.animation == &quot;open&quot;:
+		serce.visible = true
+		serce.monitoring = true
+		serce2.visible = true
+		serce2.monitoring = true
+		
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-3')">_on_serce_body_entered()</p>
+<p>Funkcja aktywowana po dotknięciu pierwszego serca przez inny obiekt.
+Funkcja dodaje punkty hp graczowi.</p>
+<pre id='codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-3' style='display:none;'><code class='language-gdscript'>func _on_serce_body_entered(body: Node) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		body.hp += 1
+		print(body.hp)
+		serce.queue_free()
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-4')">_on_serce2_body_entered()</p>
+<p>Funkcja aktywowana po dotknięciu drugiego serca przez inny obiekt.
+Funkcja dodaje punkty hp graczowi.</p>
+<pre id='codeblock-scripts_dodatki do pokoi_skrzynia.gd-Chest-4' style='display:none;'><code class='language-gdscript'>func _on_serce2_body_entered(body: Node) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		body.hp += 1
+		print(body.hp)
+		serce2.queue_free()</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_enemy_bat.gd'>
+<h2>Plik: <code>scripts/enemy/bat.gd</code></h2>
+<div class='class-block' id='scripts_enemy_bat.gd-(global)'>
+<h3>Klasa: (global)</h3>
+<h4>Zmienne</h4><ul>
+<li><code>speed</code></li>
+<li><code>patrol_radius</code></li>
+<li><code>patrol_speed</code></li>
+<li><code>hp</code></li>
+<li><code>knockback_force</code></li>
+<li><code>knockback_duration</code></li>
+<li><code>player</code></li>
+<li><code>player_in_detection_area</code></li>
+<li><code>patrol_center</code></li>
+<li><code>patrol_angle</code></li>
+<li><code>is_dead</code></li>
+<li><code>got_hit</code></li>
+<li><code>is_knockback</code></li>
+<li><code>knockback_velocity</code></li>
+<li><code>knockback_timer</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-0')">_ready()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-0' style='display:none;'><code class='language-gdscript'>func _ready():
+	# Zapisz startową pozycję jako środek okręgu patrolowego
+	patrol_center = global_position
+	$HitBox.damaged.connect(take_damage)
+	# Znajdź gracza w grupie &quot;player&quot;
+	var players = get_tree().get_nodes_in_group(&quot;player&quot;)
+	if players.size() &gt; 0:
+		player = players[0]  # Pobierz pierwszego gracza z grupy
+	
+	# Uruchom animację lotu
+	if animated_sprite:
+		animated_sprite.play(&quot;fly&quot;)
+	
+	# Połącz sygnały z DetectionArea
+	if detection_area:
+		detection_area.body_entered.connect(_on_detection_area_body_entered)
+		detection_area.body_exited.connect(_on_detection_area_body_exited)
+	
+	# Połącz sygnał zakończenia animacji
+	if animated_sprite:
+		animated_sprite.animation_finished.connect(_on_animation_finished)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-1')">_physics_process()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-1' style='display:none;'><code class='language-gdscript'>func _physics_process(delta):
+	# Jeśli bat jest martwy, nie wykonuj żadnej logiki ruchu
+	if is_dead:
+		return
+	
+	# Jeśli bat jest w trakcie knockback
+	if is_knockback:
+		handle_knockback(delta)
+		return
+	
+	# Sprawdź czy gracz istnieje i czy jest w zasięgu wykrywania
+	if player == null or not player_in_detection_area:
+		# Gracz nie jest w zasięgu - wykonaj patrol w kółko
+		patrol_in_circle(delta)
+		return
+	
+	# Gracz jest w zasięgu - ścigaj gracza
+	# Oblicz kierunek do gracza
+	var direction = (player.global_position - global_position).normalized()
+	
+	# Obróć bata w stronę gracza
+	flip_sprite_towards_player()
+	
+	# Ustaw prędkość w kierunku gracza
+	velocity = direction * speed
+	
+	# Przesuń bata używając wbudowanej funkcji
+	move_and_slide()
+	
+	# Sprawdź kolizję z graczem
+	check_collision_with_player()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-2')">check_collision_with_player()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-2' style='display:none;'><code class='language-gdscript'>func check_collision_with_player():
+	# Sprawdź czy bat zderzył się z graczem
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group(&quot;player&quot;):
+			apply_knockback_from_player()
+			break
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-3')">apply_knockback_from_player()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-3' style='display:none;'><code class='language-gdscript'>func apply_knockback_from_player():
+	if player == null:
+		return
+	
+	# Oblicz kierunek odrzutu (od gracza)
+	var knockback_direction = (global_position - player.global_position).normalized()
+	
+	# Ustaw prędkość odrzutu
+	knockback_velocity = knockback_direction * knockback_force
+	
+	# Włącz stan knockback
+	is_knockback = true
+	knockback_timer = knockback_duration
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-4')">handle_knockback()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-4' style='display:none;'><code class='language-gdscript'>func handle_knockback(delta):
+	# Zmniejsz timer
+	knockback_timer -= delta
+	
+	# Jeśli timer się skończył, wyłącz knockback
+	if knockback_timer &lt;= 0:
+		is_knockback = false
+		knockback_velocity = Vector2.ZERO
+		return
+	
+	# Zastosuj prędkość knockback
+	velocity = knockback_velocity
+	
+	# Stopniowo zmniejszaj prędkość odrzutu (opcjonalne)
+	knockback_velocity = knockback_velocity.lerp(Vector2.ZERO, delta * 5)
+	
+	# Przesuń bata
+	move_and_slide()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-5')">flip_sprite_towards_player()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-5' style='display:none;'><code class='language-gdscript'>func flip_sprite_towards_player():
+	# Sprawdź czy gracz jest po lewej stronie bata
+	if player.global_position.x &lt; global_position.x:
+		animated_sprite.flip_h = true  # Odwróć sprite w lewo
+	else:
+		animated_sprite.flip_h = false  # Sprite patrzy w prawo (domyślnie)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-6')">patrol_in_circle()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-6' style='display:none;'><code class='language-gdscript'>func patrol_in_circle(delta):
+	# Zwiększ kąt obrotu (obraca się w czasie)
+	patrol_angle += patrol_speed * delta
+	
+	# Oblicz nową pozycję na okręgu używając sin i cos
+	var offset = Vector2(
+		cos(patrol_angle) * patrol_radius,  # Pozycja X na okręgu
+		sin(patrol_angle) * patrol_radius   # Pozycja Y na okręgu
+	)
+	
+	# Docelowa pozycja = środek okręgu + offset
+	var target_position = patrol_center + offset
+	
+	# Oblicz kierunek do docelowej pozycji
+	var direction = (target_position - global_position).normalized()
+	
+	# Obróć sprite w kierunku ruchu
+	if direction.x &lt; 0:
+		animated_sprite.flip_h = true
+	else:
+		animated_sprite.flip_h = false
+	
+	# Ustaw prędkość
+	velocity = direction * speed
+	
+	# Przesuń bata
+	move_and_slide()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-7')">_on_detection_area_body_entered()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-7' style='display:none;'><code class='language-gdscript'>func _on_detection_area_body_entered(body):
+	# Sprawdź czy ciało które weszło to gracz
+	if body.is_in_group(&quot;player&quot;):
+		player_in_detection_area = true  # Gracz wszedł w zasięg
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-8')">_on_detection_area_body_exited()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-8' style='display:none;'><code class='language-gdscript'>func _on_detection_area_body_exited(body):
+	# Sprawdź czy ciało które wyszło to gracz
+	if body.is_in_group(&quot;player&quot;):
+		player_in_detection_area = false  # Gracz wyszedł z zasięgu
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-9')">take_damage()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-9' style='display:none;'><code class='language-gdscript'>func take_damage(_damage: int) -&gt; void:
+	got_hit = true  # Oznacz że bat został trafiony
+	hp -= 1  # Odejmij 1 HP
+	
+	# Sprawdź czy bat powinien umrzeć
+	check_death()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-10')">check_death()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-10' style='display:none;'><code class='language-gdscript'>func check_death():
+	if hp &lt;= 0 and not is_dead:
+		die()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-11')">die()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-11' style='display:none;'><code class='language-gdscript'>func die():
+	is_dead = true  # Oznacz bata jako martwego
+	velocity = Vector2.ZERO  # Zatrzymaj ruch
+	
+	# Odtwórz animację śmierci
+	if animated_sprite:
+		animated_sprite.play(&quot;die&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_bat.gd-(global)-12')">_on_animation_finished()</p>
+<pre id='codeblock-scripts_enemy_bat.gd-(global)-12' style='display:none;'><code class='language-gdscript'>func _on_animation_finished():
+	# Jeśli zakończyła się animacja śmierci, usuń bata
+	if is_dead and animated_sprite.animation == &quot;die&quot;:
+		queue_free()  # Usuń bata ze sceny</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_enemy_Renger_pocisk_renger.gd'>
+<h2>Plik: <code>scripts/enemy/Renger/pocisk_renger.gd</code></h2>
+<div class='class-block' id='scripts_enemy_Renger_pocisk_renger.gd-(global)'>
+<h3>Klasa: (global)</h3>
+<h4>Zmienne</h4><ul>
+<li><code>speed</code></li>
+<li><code>damage</code></li>
+<li><code>lifetime</code></li>
+<li><code>direction</code></li>
+<li><code>lifetime_timer</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_pocisk_renger.gd-(global)-0')">_ready()</p>
+<pre id='codeblock-scripts_enemy_Renger_pocisk_renger.gd-(global)-0' style='display:none;'><code class='language-gdscript'>func _ready():
+	# Połącz sygnał kolizji
+	#body_entered.connect(_on_body_entered)
+	pass
+	
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_pocisk_renger.gd-(global)-1')">_physics_process()</p>
+<pre id='codeblock-scripts_enemy_Renger_pocisk_renger.gd-(global)-1' style='display:none;'><code class='language-gdscript'>func _physics_process(delta):
+	# Poruszaj pociskiem w kierunku
+	if direction != Vector2.ZERO:
+		global_position += direction * speed * delta
+	
+	# Zliczaj czas życia
+	lifetime_timer += delta
+	if lifetime_timer &gt;= lifetime:
+		queue_free()  # Usuń pocisk po określonym czasie
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_pocisk_renger.gd-(global)-2')">set_direction()</p>
+<pre id='codeblock-scripts_enemy_Renger_pocisk_renger.gd-(global)-2' style='display:none;'><code class='language-gdscript'>func set_direction(new_direction: Vector2):
+	direction = new_direction.normalized()
+	
+	# Obróć pocisk w kierunku lotu
+	rotation = direction.angle()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_pocisk_renger.gd-(global)-3')">_on_body_entered()</p>
+<pre id='codeblock-scripts_enemy_Renger_pocisk_renger.gd-(global)-3' style='display:none;'><code class='language-gdscript'>func _on_body_entered(body):
+	print(&quot;Pocisk trafił w: &quot;, body.name)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_enemy_Renger_renger.gd'>
+<h2>Plik: <code>scripts/enemy/Renger/renger.gd</code></h2>
+<div class='class-block' id='scripts_enemy_Renger_renger.gd-(global)'>
+<h3>Klasa: (global)</h3>
+<h4>Zmienne</h4><ul>
+<li><code>hp</code></li>
+<li><code>move_speed</code></li>
+<li><code>shoot_cooldown</code></li>
+<li><code>bullet_scene</code></li>
+<li><code>player</code></li>
+<li><code>player_detected</code></li>
+<li><code>is_awake</code></li>
+<li><code>is_dead</code></li>
+<li><code>is_going_to_sleep</code></li>
+<li><code>can_move</code></li>
+<li><code>is_damaged</code></li>
+<li><code>is_aggroed</code></li>
+<li><code>player_in_shoot_range</code></li>
+<li><code>is_shooting</code></li>
+<li><code>can_shoot</code></li>
+<li><code>shoot_timer</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-0')">_ready()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-0' style='display:none;'><code class='language-gdscript'>func _ready():
+	# Uruchom animację początkową - ranger śpi
+	if animated_sprite:
+		animated_sprite.play(&quot;static_idle&quot;)
+	$HitBox.damaged.connect(take_damage)
+	# Znajdź gracza w grupie &quot;player&quot;
+	var players = get_tree().get_nodes_in_group(&quot;player&quot;)
+	if players.size() &gt; 0:
+		player = players[0]
+	
+	# Połącz sygnały z PlayerDetectionZone
+	if player_detection_zone:
+		player_detection_zone.body_entered.connect(_on_player_detection_zone_entered)
+		player_detection_zone.body_exited.connect(_on_player_detection_zone_exited)
+	
+	# Połącz sygnały z ShootRange
+	if shoot_range:
+		shoot_range.body_entered.connect(_on_shoot_range_entered)
+		shoot_range.body_exited.connect(_on_shoot_range_exited)
+	
+	# Połącz sygnał zakończenia animacji
+	if animated_sprite:
+		animated_sprite.animation_finished.connect(_on_animation_finished)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-1')">_physics_process()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-1' style='display:none;'><code class='language-gdscript'>func _physics_process(delta):
+	# Obsługa cooldownu strzału
+	if not can_shoot:
+		shoot_timer -= delta
+		if shoot_timer &lt;= 0:
+			can_shoot = true
+	
+	# Jeśli ranger nie żyje, jest w animacji obrażeń lub strzela, nie ruszaj się
+	if is_dead or is_damaged or is_shooting:
+		return
+	
+	# Jeśli gracz jest w zasięgu strzału i ranger może strzelać, zacznij strzelać
+	if player_in_shoot_range and can_shoot and is_awake and not is_dead:
+		start_shooting()
+		return
+	
+	# W przeciwnym razie poruszaj się (jeśli może)
+	if not can_move:
+		return
+	
+	# Jeśli ranger jest rozwścieczony, ZAWSZE goni gracza (nawet poza detection zone)
+	if is_aggroed and player:
+		move_towards_player()
+	# W przeciwnym razie tylko gdy gracz jest wykryty
+	elif player and player_detected:
+		move_towards_player()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-2')">move_towards_player()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-2' style='display:none;'><code class='language-gdscript'>func move_towards_player():
+	# Oblicz kierunek do gracza
+	var direction = (player.global_position - global_position).normalized()
+	
+	# Obróć sprite w stronę gracza
+	if direction.x &lt; 0:
+		animated_sprite.flip_h = true  # Gracz po lewej
+	else:
+		animated_sprite.flip_h = false  # Gracz po prawej
+	
+	# Ustaw prędkość w kierunku gracza
+	velocity = direction * move_speed
+	
+	# Odtwórz animację ruchu
+	if animated_sprite.animation != &quot;move&quot;:
+		animated_sprite.play(&quot;move&quot;)
+	
+	# Przesuń rangera
+	move_and_slide()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-3')">start_shooting()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-3' style='display:none;'><code class='language-gdscript'>func start_shooting():
+	is_shooting = true
+	can_move = false
+	velocity = Vector2.ZERO  # Zatrzymaj się
+	
+	# Obróć się w stronę gracza
+	if player:
+		if player.global_position.x &lt; global_position.x:
+			animated_sprite.flip_h = true
+			# Przesuń marker na lewą stronę
+			if bullet_spawn_point:
+				bullet_spawn_point.position.x = -abs(bullet_spawn_point.position.x)
+		else:
+			animated_sprite.flip_h = false
+			# Przesuń marker na prawą stronę
+			if bullet_spawn_point:
+				bullet_spawn_point.position.x = abs(bullet_spawn_point.position.x)
+	
+	# Odtwórz animację strzału
+	if animated_sprite:
+		animated_sprite.play(&quot;shoot&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-4')">shoot_bullet()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-4' style='display:none;'><code class='language-gdscript'>func shoot_bullet():
+	if bullet_scene == null:
+		return
+
+	if player == null:
+		return
+
+	# Stwórz instancję pocisku
+	var bullet = bullet_scene.instantiate()
+
+	# Dodaj pocisk do sceny (jako dziecko root node, nie rangera!)
+	get_tree().root.add_child(bullet)
+
+	# Ustaw pozycję pocisku NA POZYCJI MARKERA (zamiast rangera)
+	if bullet_spawn_point:
+		bullet.global_position = bullet_spawn_point.global_position
+	else:
+		# Fallback - jeśli nie ma markera, użyj pozycji rangera
+		bullet.global_position = global_position
+
+	# Oblicz kierunek do gracza
+	var direction = (player.global_position - global_position).normalized()
+
+	# Ustaw kierunek pocisku
+	bullet.set_direction(direction)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-5')">_on_shoot_range_entered()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-5' style='display:none;'><code class='language-gdscript'>func _on_shoot_range_entered(body):
+	if body.is_in_group(&quot;player&quot;):
+		player_in_shoot_range = true
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-6')">_on_shoot_range_exited()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-6' style='display:none;'><code class='language-gdscript'>func _on_shoot_range_exited(body):
+	if body.is_in_group(&quot;player&quot;):
+		player_in_shoot_range = false
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-7')">_on_player_detection_zone_entered()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-7' style='display:none;'><code class='language-gdscript'>func _on_player_detection_zone_entered(body):
+	if body.is_in_group(&quot;player&quot;):
+		player_detected = true
+		
+		if is_going_to_sleep:
+			is_going_to_sleep = false
+		
+		if not is_awake and not is_dead:
+			wake_up()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-8')">_on_player_detection_zone_exited()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-8' style='display:none;'><code class='language-gdscript'>func _on_player_detection_zone_exited(body):
+	if body.is_in_group(&quot;player&quot;):
+		player_detected = false
+		
+		if not is_aggroed:
+			can_move = false
+			velocity = Vector2.ZERO
+			
+			if is_awake and not is_dead:
+				go_to_sleep()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-9')">wake_up()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-9' style='display:none;'><code class='language-gdscript'>func wake_up():
+	is_awake = true
+	can_move = false
+	
+	if animated_sprite:
+		animated_sprite.play(&quot;wake&quot;)
+		animated_sprite.speed_scale = 1.0
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-10')">go_to_sleep()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-10' style='display:none;'><code class='language-gdscript'>func go_to_sleep():
+	is_going_to_sleep = true
+	
+	if animated_sprite:
+		animated_sprite.play_backwards(&quot;wake&quot;)
+		animated_sprite.speed_scale = 1.0
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-11')">take_damage()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-11' style='display:none;'><code class='language-gdscript'>func take_damage(_damage: int) -&gt; void:
+	if is_dead:
+		return
+	
+	if not is_aggroed:
+		is_aggroed = true
+		
+		if not is_awake:
+			wake_up()
+	
+	hp -= _damage
+	
+	if hp &lt;= 0:
+		die()
+	else:
+		play_damaged_animation()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-12')">play_damaged_animation()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-12' style='display:none;'><code class='language-gdscript'>func play_damaged_animation():
+	is_damaged = true
+	can_move = false
+	velocity = Vector2.ZERO
+	
+	if animated_sprite:
+		animated_sprite.play(&quot;damaged&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-13')">die()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-13' style='display:none;'><code class='language-gdscript'>func die():
+	is_dead = true
+	can_move = false
+	is_aggroed = false
+	velocity = Vector2.ZERO
+	
+	if animated_sprite:
+		animated_sprite.play(&quot;death&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger.gd-(global)-14')">_on_animation_finished()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger.gd-(global)-14' style='display:none;'><code class='language-gdscript'>func _on_animation_finished():
+	if animated_sprite.animation == &quot;wake&quot;:
+		if is_going_to_sleep:
+			is_awake = false
+			is_going_to_sleep = false
+			can_move = false
+			animated_sprite.play(&quot;static_idle&quot;)
+		else:
+			can_move = true
+			if player_detected or is_aggroed:
+				# Sprawdź czy gracz jest w zasięgu strzału
+				if not player_in_shoot_range:
+					animated_sprite.play(&quot;move&quot;)
+	
+	elif animated_sprite.animation == &quot;damaged&quot;:
+		is_damaged = false
+		
+		if not is_dead and is_awake:
+			can_move = true
+			if player and not player_in_shoot_range:
+				animated_sprite.play(&quot;move&quot;)
+	
+	elif animated_sprite.animation == &quot;shoot&quot;:
+		# Wystrzel pocisk na końcu animacji
+		shoot_bullet()
+		
+		# Ustaw cooldown
+		can_shoot = false
+		shoot_timer = shoot_cooldown
+		is_shooting = false
+		
+		# Jeśli gracz nadal jest w zasięgu strzału, ranger będzie czekał i strzelił ponownie
+		# Jeśli gracz wyszedł, ranger zacznie go gonić
+		if not player_in_shoot_range and is_awake:
+			can_move = true
+	
+	elif animated_sprite.animation == &quot;death&quot;:
+		queue_free()</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_enemy_Renger_renger_v_2.gd'>
+<h2>Plik: <code>scripts/enemy/Renger/renger_v_2.gd</code></h2>
+<div class='class-block' id='scripts_enemy_Renger_renger_v_2.gd-(global)'>
+<h3>Klasa: (global)</h3>
+<h4>Zmienne</h4><ul>
+<li><code>hp</code></li>
+<li><code>patrol_distance</code></li>
+<li><code>patrol_speed</code></li>
+<li><code>shoot_delay</code></li>
+<li><code>bullet_scene</code></li>
+<li><code>is_dead</code></li>
+<li><code>is_damaged</code></li>
+<li><code>patrol_state</code></li>
+<li><code>patrol_start_position</code></li>
+<li><code>current_patrol_direction</code></li>
+<li><code>shots_fired</code></li>
+<li><code>time_since_last_shot</code></li>
+<li><code>shoot_directions</code></li>
+<li><code>current_shot_index</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-0')">_ready()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-0' style='display:none;'><code class='language-gdscript'>func _ready():
+	# Połącz sygnał obrażeń
+	$HitBox.damaged.connect(take_damage)
+	
+	# Połącz sygnał zakończenia animacji
+	if animated_sprite:
+		animated_sprite.animation_finished.connect(_on_animation_finished)
+	
+	# Zapisz pozycję startową patrolu
+	patrol_start_position = global_position
+	
+	# Zacznij od razu patrolować (w lewo)
+	current_patrol_direction = -1
+	patrol_state = PatrolState.MOVING
+	animated_sprite.flip_h = true
+	
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-1')">_physics_process()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-1' style='display:none;'><code class='language-gdscript'>func _physics_process(delta):
+	# Jeśli nie żyje lub w animacji obrażeń, nic nie rób
+	if is_dead or is_damaged:
+		return
+	
+	# Obsługa patrolu
+	match patrol_state:
+		PatrolState.MOVING:
+			patrol_movement(delta)
+		
+		PatrolState.STANDING_AND_SHOOTING:
+			shooting_sequence(delta)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-2')">patrol_movement()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-2' style='display:none;'><code class='language-gdscript'>func patrol_movement(delta):
+	# Oblicz docelową pozycję
+	var target_x = patrol_start_position.x + (patrol_distance * current_patrol_direction)
+	
+	# Sprawdź czy dotarł do celu
+	var reached_target = false
+	if current_patrol_direction == -1 and global_position.x &lt;= target_x:
+		reached_target = true
+	elif current_patrol_direction == 1 and global_position.x &gt;= target_x:
+		reached_target = true
+	
+	if reached_target:
+		# Dotarł - ZATRZYMAJ SIĘ i przygotuj strzelanie
+		velocity = Vector2.ZERO
+		patrol_state = PatrolState.STANDING_AND_SHOOTING
+		shots_fired = 0
+		current_shot_index = 0
+		time_since_last_shot = 0.0
+		
+		# Ustaw pierwsze 2 kierunki strzałów (przód + góra)
+		if animated_sprite.flip_h:  # Patrzy w lewo
+			shoot_directions = [Vector2.LEFT, Vector2.UP]
+		else:  # Patrzy w prawo
+			shoot_directions = [Vector2.RIGHT, Vector2.UP]
+		
+		return
+	
+	# Poruszaj się w kierunku celu
+	velocity.x = current_patrol_direction * patrol_speed
+	velocity.y = 0
+	
+	# Obróć sprite i marker
+	if current_patrol_direction == -1:
+		animated_sprite.flip_h = true
+		update_bullet_spawn_point()
+	else:
+		animated_sprite.flip_h = false
+		update_bullet_spawn_point()
+	
+	# Animacja ruchu
+	if animated_sprite.animation != &quot;move&quot;:
+		animated_sprite.play(&quot;move&quot;)
+	
+	move_and_slide()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-3')">update_bullet_spawn_point()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-3' style='display:none;'><code class='language-gdscript'>func update_bullet_spawn_point():
+	if bullet_spawn_point:
+		if animated_sprite.flip_h:
+			# Patrzy w lewo - marker po lewej stronie
+			bullet_spawn_point.position.x = -abs(bullet_spawn_point.position.x)
+		else:
+			# Patrzy w prawo - marker po prawej stronie
+			bullet_spawn_point.position.x = abs(bullet_spawn_point.position.x)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-4')">shooting_sequence()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-4' style='display:none;'><code class='language-gdscript'>func shooting_sequence(delta):
+	time_since_last_shot += delta
+	
+	# Czy czas na kolejny strzał?
+	if time_since_last_shot &gt;= shoot_delay:
+		# Wystrzel!
+		fire_bullet()
+		
+		shots_fired += 1
+		time_since_last_shot = 0.0
+		
+		# Po 2 strzale (przód + góra) - OBRÓĆ SIĘ
+		if shots_fired == 2:
+			animated_sprite.flip_h = !animated_sprite.flip_h
+			update_bullet_spawn_point()  # Obróć marker!
+			# Zaktualizuj kierunki strzałów po obrocie
+			if animated_sprite.flip_h:  # Teraz patrzy w lewo
+				shoot_directions = [Vector2.LEFT, Vector2.DOWN]
+			else:  # Teraz patrzy w prawo
+				shoot_directions = [Vector2.RIGHT, Vector2.DOWN]
+			current_shot_index = 0  # Reset indeksu dla nowych kierunków
+		else:
+			current_shot_index += 1
+		
+		
+		# Czy skończył wszystkie 4 strzały?
+		if shots_fired &gt;= 4:
+			# Zmień kierunek patrolu i wróć do ruchu
+			current_patrol_direction *= -1
+			patrol_state = PatrolState.MOVING
+			
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-5')">fire_bullet()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-5' style='display:none;'><code class='language-gdscript'>func fire_bullet():
+	if bullet_scene == null:
+		print(&quot;ERROR: bullet_scene is null!&quot;)
+		return
+	
+	# Animacja strzału
+	if animated_sprite:
+		animated_sprite.play(&quot;shoot&quot;)
+	
+	# Stwórz instancję pocisku
+	var bullet = bullet_scene.instantiate()
+	
+	# Dodaj pocisk do sceny
+	get_tree().root.add_child(bullet)
+	
+	# Ustaw pozycję pocisku
+	if bullet_spawn_point:
+		bullet.global_position = bullet_spawn_point.global_position
+	else:
+		bullet.global_position = global_position
+	
+	# Pobierz kierunek z tablicy
+	var direction = shoot_directions[current_shot_index]
+	
+	# Ustaw kierunek pocisku
+	if bullet.has_method(&quot;set_direction&quot;):
+		bullet.set_direction(direction)
+	else:
+		print(&quot;ERROR: Bullet doesn&#x27;t have set_direction method!&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-6')">take_damage()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-6' style='display:none;'><code class='language-gdscript'>func take_damage(_damage: int) -&gt; void:
+	if is_dead:
+		return
+	
+	hp -= _damage
+	
+	if hp &lt;= 0:
+		die()
+	else:
+		play_damaged_animation()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-7')">play_damaged_animation()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-7' style='display:none;'><code class='language-gdscript'>func play_damaged_animation():
+	is_damaged = true
+	velocity = Vector2.ZERO
+	
+	if animated_sprite:
+		animated_sprite.play(&quot;damaged&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-8')">die()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-8' style='display:none;'><code class='language-gdscript'>func die():
+	is_dead = true
+	velocity = Vector2.ZERO
+	
+	if animated_sprite:
+		animated_sprite.play(&quot;death&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-9')">_on_animation_finished()</p>
+<pre id='codeblock-scripts_enemy_Renger_renger_v_2.gd-(global)-9' style='display:none;'><code class='language-gdscript'>func _on_animation_finished():
+	if animated_sprite.animation == &quot;damaged&quot;:
+		# Po obrażeniach wróć do patrolu
+		is_damaged = false
+	
+	elif animated_sprite.animation == &quot;death&quot;:
+		queue_free()</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_game_gameover.gd'>
+<h2>Plik: <code>scripts/game/gameover.gd</code></h2>
+<div class='class-block' id='scripts_game_gameover.gd-GameOver'>
+<h3>Klasa: GameOver</h3>
+<p>Klasa GameOver obsługuje ekran ponownego rozpoczęcia rozgrywki.</p>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_gameover.gd-GameOver-0')">_on_settings_pressed()</p>
+<p>Funkcja uruchamiana po naciśnięciu przycisku restart. Włącza rozgrywkę od nowa.</p>
+<pre id='codeblock-scripts_game_gameover.gd-GameOver-0' style='display:none;'><code class='language-gdscript'>func _on_settings_pressed() -&gt; void:
+	get_tree().change_scene_to_file(&quot;res://scenes/game/game.tscn&quot;)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_game_main_menu.gd'>
+<h2>Plik: <code>scripts/game/main_menu.gd</code></h2>
+<div class='class-block' id='scripts_game_main_menu.gd-MainMenu'>
 <h3>Klasa: MainMenu</h3>
 <p>Klasa odpowiadająca za odsługe menu głównego w grze.</p>
 <h4>Funkcje</h4>
-<p class='func-button' onclick="toggle('codeblock-scripts_main_menu.gd-MainMenu-0')">_on_start_game_pressed()</p>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_main_menu.gd-MainMenu-0')">_on_start_game_pressed()</p>
 <p>Funkcja wywoływana po naciśnięciu przycisku Start. Przenosi gracza do ekranu rozgrywki.</p>
-<pre id='codeblock-scripts_main_menu.gd-MainMenu-0' style='display:none;'><code class='language-gdscript'>func _on_start_game_pressed() -&gt; void:
-	get_tree().change_scene_to_file(&quot;res://scenes/game.tscn&quot;) # Replace with function body.
+<pre id='codeblock-scripts_game_main_menu.gd-MainMenu-0' style='display:none;'><code class='language-gdscript'>func _on_start_game_pressed() -&gt; void:
+	get_tree().change_scene_to_file(&quot;res://scenes/game/game.tscn&quot;) # Replace with function body.
 </code></pre>
-<p class='func-button' onclick="toggle('codeblock-scripts_main_menu.gd-MainMenu-1')">_on_continue_pressed()</p>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_main_menu.gd-MainMenu-1')">_on_continue_pressed()</p>
 <p>Funkcja wywoływana po naciśnięciu przycisku Continue. Przenosi gracza do ekranu rozgrywki wcześniej rozpoczętej i zapisanej rozgrywki.</p>
-<pre id='codeblock-scripts_main_menu.gd-MainMenu-1' style='display:none;'><code class='language-gdscript'>func _on_continue_pressed() -&gt; void:
+<pre id='codeblock-scripts_game_main_menu.gd-MainMenu-1' style='display:none;'><code class='language-gdscript'>func _on_continue_pressed() -&gt; void:
 	pass # Replace with function body.
 </code></pre>
-<p class='func-button' onclick="toggle('codeblock-scripts_main_menu.gd-MainMenu-2')">_on_settings_pressed()</p>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_main_menu.gd-MainMenu-2')">_on_settings_pressed()</p>
 <p>Funkcja wywoływana po naciśnięciu przycisku ustawień. Przenosi gracza do ekranu wyboru ustawień rozgrywki.</p>
-<pre id='codeblock-scripts_main_menu.gd-MainMenu-2' style='display:none;'><code class='language-gdscript'>func _on_settings_pressed() -&gt; void:
+<pre id='codeblock-scripts_game_main_menu.gd-MainMenu-2' style='display:none;'><code class='language-gdscript'>func _on_settings_pressed() -&gt; void:
 	pass # Replace with function body.
 </code></pre>
-<p class='func-button' onclick="toggle('codeblock-scripts_main_menu.gd-MainMenu-3')">_on_exit_pressed()</p>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_main_menu.gd-MainMenu-3')">_on_exit_pressed()</p>
 <p>Funkcja wywoływana po naciśnięciu przycisku Exit. Kończy działanie programu.</p>
-<pre id='codeblock-scripts_main_menu.gd-MainMenu-3' style='display:none;'><code class='language-gdscript'>func _on_exit_pressed() -&gt; void:
+<pre id='codeblock-scripts_game_main_menu.gd-MainMenu-3' style='display:none;'><code class='language-gdscript'>func _on_exit_pressed() -&gt; void:
 	get_tree().quit() # Replace with function body.</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_game_spawn_area.gd'>
+<h2>Plik: <code>scripts/game/spawn_area.gd</code></h2>
+<div class='class-block' id='scripts_game_spawn_area.gd-Spawn'>
+<h3>Klasa: Spawn</h3>
+<p>Klasa Spawn odpowiadająca za początkowe ustawienie pozycji gracza przy zmianie pokoju.</p>
+<h4>Zmienne</h4><ul>
+<li><code>current_room</code> – Zmienna przechowująca aktualny pokój, w którym znajduje się gracz.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_spawn_area.gd-Spawn-0')">_ready()</p>
+<p>Funkcja wywoływana przy inicjalizacji sceny.
+Funkcja ustawia początkową pozycję gracza oraz granice kamery dla pierwszego pokoju.</p>
+<pre id='codeblock-scripts_game_spawn_area.gd-Spawn-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	player.global_position = spawn_purple.global_position
+	set_camera_bounds(550, 100, 300, 400)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_spawn_area.gd-Spawn-1')">_on_spawn_area_purple_body_entered()</p>
+<p>Funkcja wywoływana przy wejściu gracza w obszar przejścia z pokoju fioletowego do niebieskiego.
+Funkcja ustawia nową pozycję gracza oraz granice kamery dla pokoju niebieskiego.</p>
+<pre id='codeblock-scripts_game_spawn_area.gd-Spawn-1' style='display:none;'><code class='language-gdscript'>func _on_spawn_area_purple_body_entered(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		body.global_position = spawn_blue.global_position
+		set_camera_bounds(3150, 0, 300, 600)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_spawn_area.gd-Spawn-2')">_on_spawn_area_blue_body_entered()</p>
+<p>Funkcja wywoływana przy wejściu gracza w obszar przejścia z pokoju niebieskiego do czerwonego.
+Funkcja ustawia nową pozycję gracza oraz granice kamery dla pokoju czerwonego.</p>
+<pre id='codeblock-scripts_game_spawn_area.gd-Spawn-2' style='display:none;'><code class='language-gdscript'>func _on_spawn_area_blue_body_entered(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		body.global_position = spawn_red.global_position
+		set_camera_bounds(5250, 300, 600, 300)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_spawn_area.gd-Spawn-3')">_on_spawn_area_red_body_entered()</p>
+<p>Funkcja wywoływana przy wejściu gracza w obszar zakończenia gry.
+Funkcja przełącza scenę na ekran końca gry.</p>
+<pre id='codeblock-scripts_game_spawn_area.gd-Spawn-3' style='display:none;'><code class='language-gdscript'>func _on_spawn_area_red_body_entered(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		get_tree().change_scene_to_file(&quot;res://scenes/game/gameover.tscn&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_spawn_area.gd-Spawn-4')">set_camera_bounds()</p>
+<p>Funkcja ustawiająca granice kamery gracza.
+Parametry określają maksymalne granice ruchu kamery w aktualnym pokoju.</p>
+<pre id='codeblock-scripts_game_spawn_area.gd-Spawn-4' style='display:none;'><code class='language-gdscript'>func set_camera_bounds(left: int, top: int, right: int, bottom: int) -&gt; void:
+	player.camera_2d.limit_left = left
+	player.camera_2d.limit_top = top
+	player.camera_2d.limit_right = right
+	player.camera_2d.limit_bottom = bottom</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_GeneralNodes_hit box_hit_box.gd'>
+<h2>Plik: <code>scripts/GeneralNodes/hit box/hit_box.gd</code></h2>
+<div class='class-block' id='scripts_GeneralNodes_hit box_hit_box.gd-Hit_Box'>
+<h3>Klasa: Hit_Box</h3>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_GeneralNodes_hit box_hit_box.gd-Hit_Box-0')">_ready()</p>
+<pre id='codeblock-scripts_GeneralNodes_hit box_hit_box.gd-Hit_Box-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	pass # Replace with function body.
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_GeneralNodes_hit box_hit_box.gd-Hit_Box-1')">_process()</p>
+<pre id='codeblock-scripts_GeneralNodes_hit box_hit_box.gd-Hit_Box-1' style='display:none;'><code class='language-gdscript'>func _process(delta: float) -&gt; void:
+	pass
+	
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_GeneralNodes_hit box_hit_box.gd-Hit_Box-2')">take_damage()</p>
+<pre id='codeblock-scripts_GeneralNodes_hit box_hit_box.gd-Hit_Box-2' style='display:none;'><code class='language-gdscript'>func take_damage(damage : int) -&gt; void:
+	print(&quot;take damage: &quot;, damage)
+	damaged.emit(damage)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_GeneralNodes_hurt box_hurt_box.gd'>
+<h2>Plik: <code>scripts/GeneralNodes/hurt box/hurt_box.gd</code></h2>
+<div class='class-block' id='scripts_GeneralNodes_hurt box_hurt_box.gd-Hurt_Box'>
+<h3>Klasa: Hurt_Box</h3>
+<h4>Zmienne</h4><ul>
+<li><code>damage</code> – ten kod zadaje obrazenia, gdy w poblizu ma obiekt typu hit box</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_GeneralNodes_hurt box_hurt_box.gd-Hurt_Box-0')">_ready()</p>
+<pre id='codeblock-scripts_GeneralNodes_hurt box_hurt_box.gd-Hurt_Box-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	area_entered.connect(areaEntered)
+	pass # Replace with function body.
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_GeneralNodes_hurt box_hurt_box.gd-Hurt_Box-1')">_process()</p>
+<pre id='codeblock-scripts_GeneralNodes_hurt box_hurt_box.gd-Hurt_Box-1' style='display:none;'><code class='language-gdscript'>func _process(delta: float) -&gt; void:
+	pass
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_GeneralNodes_hurt box_hurt_box.gd-Hurt_Box-2')">areaEntered()</p>
+<pre id='codeblock-scripts_GeneralNodes_hurt box_hurt_box.gd-Hurt_Box-2' style='display:none;'><code class='language-gdscript'>func areaEntered(a : Area2D) -&gt; void:
+	if a is Hit_Box:
+		a.take_damage(damage)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_hud_heart_container.gd'>
+<h2>Plik: <code>scripts/hud/heart_container.gd</code></h2>
+<div class='class-block' id='scripts_hud_heart_container.gd-Hearts'>
+<h3>Klasa: Hearts</h3>
+<h4>Zmienne</h4><ul>
+<li><code>max_hp</code></li>
+<li><code>player</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_hud_heart_container.gd-Hearts-0')">_ready()</p>
+<p>Get the player node from the current scene and initialize hearts</p>
+<pre id='codeblock-scripts_hud_heart_container.gd-Hearts-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	player = get_tree().current_scene.get_node(&quot;Player&quot;)
+	#update_hearts()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_hud_heart_container.gd-Hearts-1')">_process()</p>
+<p>Continuously update hearts every frame based on player&#x27;s current HP</p>
+<pre id='codeblock-scripts_hud_heart_container.gd-Hearts-1' style='display:none;'><code class='language-gdscript'>func _process(_delta: float) -&gt; void:
+	if player:
+		update_hearts()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_hud_heart_container.gd-Hearts-2')">update_hearts()</p>
+<p>Loop through all heart sprites in this container and update their state</p>
+<pre id='codeblock-scripts_hud_heart_container.gd-Hearts-2' style='display:none;'><code class='language-gdscript'>func update_hearts():
+	var current_hp = player.hp
+	var hearts_container = get_child(0)  # zakładamy, że pierwsze dziecko to Control
+	for i in range(hearts_container.get_child_count()):
+		var heart = hearts_container.get_child(i) as Sprite2D
+		if heart == null:
+			continue
+		
+		var heart_index = (hearts_container.get_child_count() - 1 - i) * 2
+		if current_hp &gt;= heart_index + 2:
+			heart.frame = 0
+		elif current_hp == heart_index + 1:
+			heart.frame = 1
+		else:
+			heart.frame = 2</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_hud_timer_game.gd'>
+<h2>Plik: <code>scripts/hud/timer_game.gd</code></h2>
+<div class='class-block' id='scripts_hud_timer_game.gd-Timer_Game'>
+<h3>Klasa: Timer_Game</h3>
+<h4>Zmienne</h4><ul>
+<li><code>start_time</code></li>
+<li><code>elapsed_time</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_hud_timer_game.gd-Timer_Game-0')">_ready()</p>
+<pre id='codeblock-scripts_hud_timer_game.gd-Timer_Game-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	elapsed_time = start_time
+	update_label()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_hud_timer_game.gd-Timer_Game-1')">_process()</p>
+<pre id='codeblock-scripts_hud_timer_game.gd-Timer_Game-1' style='display:none;'><code class='language-gdscript'>func _process(delta: float) -&gt; void:
+	elapsed_time += delta
+	update_label()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_hud_timer_game.gd-Timer_Game-2')">update_label()</p>
+<pre id='codeblock-scripts_hud_timer_game.gd-Timer_Game-2' style='display:none;'><code class='language-gdscript'>func update_label():
+	var minutes = int(elapsed_time / 60)
+	var seconds = int(elapsed_time) % 60
+	timer_label.text = str(minutes).pad_zeros(2) + &quot;:&quot; + str(seconds).pad_zeros(2)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_player_player.gd'>
+<h2>Plik: <code>scripts/player/player.gd</code></h2>
+<div class='class-block' id='scripts_player_player.gd-Player'>
+<h3>Klasa: Player</h3>
+<h4>Zmienne</h4><ul>
+<li><code>cardinal_direction</code></li>
+<li><code>direction</code></li>
+<li><code>hp</code></li>
+<li><code>got_hit</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player.gd-Player-0')">_ready()</p>
+<p>Initialize the state machine and pass this player to it</p>
+<pre id='codeblock-scripts_player_player.gd-Player-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	state_machine.initialize(self)
+	$Interactions/HitBox.damaged.connect(take_damage)
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player.gd-Player-1')">take_damage()</p>
+<pre id='codeblock-scripts_player_player.gd-Player-1' style='display:none;'><code class='language-gdscript'>func take_damage(_damage : int) -&gt; void:
+	got_hit = true
+	hp -= 1
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player.gd-Player-2')">add_hp()</p>
+<pre id='codeblock-scripts_player_player.gd-Player-2' style='display:none;'><code class='language-gdscript'>func add_hp(hp: int):
+	hp = hp + 1
+	</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player.gd-Player-3')">_process()</p>
+<p>Check input each frame and update movement direction</p>
+<pre id='codeblock-scripts_player_player.gd-Player-3' style='display:none;'><code class='language-gdscript'>func _process(_delta: float) -&gt; void:
+	direction.x = Input.get_action_strength(&quot;right&quot;) - Input.get_action_strength(&quot;left&quot;)
+	direction.y = Input.get_action_strength(&quot;down&quot;) - Input.get_action_strength(&quot;up&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player.gd-Player-4')">_physics_process()</p>
+<p>Handle physics (built-in function)</p>
+<pre id='codeblock-scripts_player_player.gd-Player-4' style='display:none;'><code class='language-gdscript'>func _physics_process(_delta: float) -&gt; void:
+	move_and_slide()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player.gd-Player-5')">set_direction()</p>
+<p>Decide if the facing direction should change based on movements
+Returns true if the direction changed</p>
+<pre id='codeblock-scripts_player_player.gd-Player-5' style='display:none;'><code class='language-gdscript'>func set_direction() -&gt; bool:
+	var new_dir : Vector2 = cardinal_direction
+	
+	# No input - direction stays the same
+	if direction == Vector2.ZERO:
+		return false
+	
+	if direction.x != 0:
+		new_dir = Vector2.LEFT if direction.x &lt; 0 else Vector2.RIGHT
+	# If direction didnt change - do nothing
+	if new_dir == cardinal_direction:
+		return false
+		
+	cardinal_direction = new_dir
+	return true
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player.gd-Player-6')">update_animation()</p>
+<p>Play animation using current state (walk, idle, etc) and facing direction (left, right, etc)</p>
+<pre id='codeblock-scripts_player_player.gd-Player-6' style='display:none;'><code class='language-gdscript'>func update_animation(state : String) -&gt; void:
+	animation_player.play(state + &quot;_&quot; + animation_direction())
+	pass
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player.gd-Player-7')">animation_direction()</p>
+<p>Convert facing direction to a string used in animation naming</p>
+<pre id='codeblock-scripts_player_player.gd-Player-7' style='display:none;'><code class='language-gdscript'>func animation_direction() -&gt; String:
+	if cardinal_direction == Vector2.LEFT:
+		return &quot;left&quot;
+	else:
+		return &quot;right&quot;</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_player_player_state_machine.gd'>
+<h2>Plik: <code>scripts/player/player_state_machine.gd</code></h2>
+<div class='class-block' id='scripts_player_player_state_machine.gd-PlayerStateMachine'>
+<h3>Klasa: PlayerStateMachine</h3>
+<p>Handles swtiching between different player state (idle, walk etc)</p>
+<h4>Zmienne</h4><ul>
+<li><code>states</code></li>
+<li><code>prev_state</code></li>
+<li><code>curr_state</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-0')">_ready()</p>
+<p>Disable processing until a state is set during initialization</p>
+<pre id='codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-1')">_process()</p>
+<p>Let the active state run its logic each frame and check if it requests a state change</p>
+<pre id='codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-1' style='display:none;'><code class='language-gdscript'>func _process(delta: float) -&gt; void:
+	change_state(curr_state.process(delta))
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-2')">_physics_process()</p>
+<p>Same as above, but for physics-based state behavior</p>
+<pre id='codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-2' style='display:none;'><code class='language-gdscript'>func _physics_process(delta: float) -&gt; void:
+	change_state(curr_state.physics(delta))
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-3')">_unhandled_input()</p>
+<p>Pass input to the active state</p>
+<pre id='codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-3' style='display:none;'><code class='language-gdscript'>func _unhandled_input(event: InputEvent) -&gt; void:
+	change_state(curr_state.handle_input(event))
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-4')">initialize()</p>
+<p>Find state nodes, attach player references, and set the default starting state</p>
+<pre id='codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-4' style='display:none;'><code class='language-gdscript'>func initialize(_player : Player) -&gt; void:
+	states = []
+	
+	## Collect all children (nodes) that are valid states
+	for c in get_children(): # get_children returns an array of nodes
+		if c is State:
+			states.append(c)
+	
+	## Activate the first state as the initial one
+	if states.size() &gt; 0:
+		states[0].player = _player
+		change_state(states[0])
+		process_mode = Node.PROCESS_MODE_INHERIT ## Enable processing again once the initial state is set
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-5')">change_state()</p>
+<p>Switch state to a new state if its different and valid</p>
+<pre id='codeblock-scripts_player_player_state_machine.gd-PlayerStateMachine-5' style='display:none;'><code class='language-gdscript'>func change_state(new_state : State) -&gt; void:
+	if new_state == null || new_state == curr_state:
+		return
+	
+	if curr_state:
+		curr_state.exit()
+	
+	prev_state = curr_state
+	curr_state = new_state
+	
+	curr_state.enter()</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_player_state.gd'>
+<h2>Plik: <code>scripts/player/state.gd</code></h2>
+<div class='class-block' id='scripts_player_state.gd-State'>
+<h3>Klasa: State</h3>
+<p>Base class for all player states
+Each specific state (idle, walk etc) should extend this and override its methods</p>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state.gd-State-0')">_ready()</p>
+<pre id='codeblock-scripts_player_state.gd-State-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	pass 
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state.gd-State-1')">enter()</p>
+<p>What happens when player enters this state?</p>
+<pre id='codeblock-scripts_player_state.gd-State-1' style='display:none;'><code class='language-gdscript'>func enter() -&gt; void:
+	pass
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state.gd-State-2')">exit()</p>
+<p>What happens when player exits this state?</p>
+<pre id='codeblock-scripts_player_state.gd-State-2' style='display:none;'><code class='language-gdscript'>func exit() -&gt; void:
+	pass
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state.gd-State-3')">process()</p>
+<p>What happens during the _process update in this state?</p>
+<pre id='codeblock-scripts_player_state.gd-State-3' style='display:none;'><code class='language-gdscript'>func process(_delta : float) -&gt; State:
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state.gd-State-4')">physics()</p>
+<p>What happens during the _physics_process update in this state?</p>
+<pre id='codeblock-scripts_player_state.gd-State-4' style='display:none;'><code class='language-gdscript'>func physics(_delta : float) -&gt; State:
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state.gd-State-5')">handle_input()</p>
+<p>What happens with input events in this state?</p>
+<pre id='codeblock-scripts_player_state.gd-State-5' style='display:none;'><code class='language-gdscript'>func handle_input(_event: InputEvent) -&gt; State:
+	return null</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_player_state_attack.gd'>
+<h2>Plik: <code>scripts/player/state_attack.gd</code></h2>
+<div class='class-block' id='scripts_player_state_attack.gd-State_Attack'>
+<h3>Klasa: State_Attack</h3>
+<p>Player state: attacking</p>
+<h4>Zmienne</h4><ul>
+<li><code>attacking</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_attack.gd-State_Attack-0')">enter()</p>
+<p>Start attacking animation when entering this state</p>
+<pre id='codeblock-scripts_player_state_attack.gd-State_Attack-0' style='display:none;'><code class='language-gdscript'>func enter() -&gt; void:
+	player.update_animation(&quot;attack&quot;)
+	# Connect the callback so we know when the animation ends
+	animation_player.animation_finished.connect(end_attack) 
+	attacking = true
+	
+	spawn_bullet()
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_attack.gd-State_Attack-1')">exit()</p>
+<p>Called when leaving state - disconnect signal and allow transition to other states</p>
+<pre id='codeblock-scripts_player_state_attack.gd-State_Attack-1' style='display:none;'><code class='language-gdscript'>func exit() -&gt; void:
+	animation_player.animation_finished.disconnect(end_attack)
+	attacking = false
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_attack.gd-State_Attack-2')">process()</p>
+<p>Player cant move while attacking (for now)</p>
+<pre id='codeblock-scripts_player_state_attack.gd-State_Attack-2' style='display:none;'><code class='language-gdscript'>func process(_delta : float) -&gt; State:
+	if player.got_hit == true:
+		if player.hp == 0:
+			return death
+		player.got_hit = false
+		player.update_animation(&quot;hit&quot;)
+		player.velocity = Vector2.ZERO
+	
+	player.velocity -= player.velocity * decelerate_speed * _delta
+	
+	# Once the animation is finished, switch the transition
+	if attacking == false:
+		if player.direction == Vector2.ZERO:
+			return idle
+		else:
+			return walk
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_attack.gd-State_Attack-3')">physics()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_attack.gd-State_Attack-3' style='display:none;'><code class='language-gdscript'>func physics(_delta : float) -&gt; State:
+	return null
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_attack.gd-State_Attack-4')">spawn_bullet()</p>
+<p>Spawn a bullet in the direction of the mouse</p>
+<pre id='codeblock-scripts_player_state_attack.gd-State_Attack-4' style='display:none;'><code class='language-gdscript'>func spawn_bullet():
+	var bullet_scene = preload(&quot;res://scenes/player/bullet.tscn&quot;)
+	var bullet_ = bullet_scene.instantiate()
+	
+	# Set bullet start position at player
+	if player.cardinal_direction == Vector2.RIGHT:
+		bullet_.global_position = gun_point_right.global_position
+	else:
+		bullet_.global_position = gun_point_left.global_position
+	
+	bullet_.start_position = bullet_.global_position
+	
+	# Calculate direction towards mouse
+	var mouse_pos = player.get_global_mouse_position()
+	bullet_.direction = (mouse_pos - bullet_.global_position).normalized()
+	
+	bullet_.scale = player.scale
+	
+	# Add bullet to current scene
+	get_tree().current_scene.add_child(bullet_)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_attack.gd-State_Attack-5')">handle_input()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_attack.gd-State_Attack-5' style='display:none;'><code class='language-gdscript'>func handle_input(_event: InputEvent) -&gt; State:
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_attack.gd-State_Attack-6')">end_attack()</p>
+<p>Callback triggered when AnimationPlayer finishes the attack animation</p>
+<pre id='codeblock-scripts_player_state_attack.gd-State_Attack-6' style='display:none;'><code class='language-gdscript'>func end_attack(_new_anim_state : String) -&gt; void:
+	attacking = false</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_player_state_death.gd'>
+<h2>Plik: <code>scripts/player/state_death.gd</code></h2>
+<div class='class-block' id='scripts_player_state_death.gd-State_Death'>
+<h3>Klasa: State_Death</h3>
+<h4>Zmienne</h4><ul>
+<li><code>dying</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_death.gd-State_Death-0')">enter()</p>
+<p>Start death animation when entering this state</p>
+<pre id='codeblock-scripts_player_state_death.gd-State_Death-0' style='display:none;'><code class='language-gdscript'>func enter() -&gt; void:
+	dying = true
+	player.update_animation(&quot;death&quot;)
+	animation_player.animation_finished.connect(end_death)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_death.gd-State_Death-1')">exit()</p>
+<p>Disconnects animation signal</p>
+<pre id='codeblock-scripts_player_state_death.gd-State_Death-1' style='display:none;'><code class='language-gdscript'>func exit() -&gt; void:
+	# tu musi byc ze koniec gry, odnosienie do menu po smierci
+	pass
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_death.gd-State_Death-2')">process()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_death.gd-State_Death-2' style='display:none;'><code class='language-gdscript'>func process(_delta : float) -&gt; State:
+	player.velocity = Vector2.ZERO
+	return null
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_death.gd-State_Death-3')">end_death()</p>
+<p>Callback triggered when death animation finishes</p>
+<pre id='codeblock-scripts_player_state_death.gd-State_Death-3' style='display:none;'><code class='language-gdscript'>func end_death(_new_anim : String) -&gt; void:
+	dying = false
+	get_tree().change_scene_to_file(&quot;res://scenes/game/gameover.tscn&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_death.gd-State_Death-4')">physics()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_death.gd-State_Death-4' style='display:none;'><code class='language-gdscript'>func physics(_delta : float) -&gt; State:
+	return null
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_death.gd-State_Death-5')">handle_input()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_death.gd-State_Death-5' style='display:none;'><code class='language-gdscript'>func handle_input(_event: InputEvent) -&gt; State:
+	return null</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_player_state_hit.gd'>
+<h2>Plik: <code>scripts/player/state_hit.gd</code></h2>
+<div class='class-block' id='scripts_player_state_hit.gd-State_Hit'>
+<h3>Klasa: State_Hit</h3>
+<h4>Zmienne</h4><ul>
+<li><code>being_hit</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_hit.gd-State_Hit-0')">enter()</p>
+<p>Reduce player HP by 1 and check if the player is alive</p>
+<pre id='codeblock-scripts_player_state_hit.gd-State_Hit-0' style='display:none;'><code class='language-gdscript'>func enter() -&gt; void:
+	player.hp -=1
+	
+	# If player is still alive, play hit animation and connect callback
+	if player.hp &gt; 0:
+		#player.update_animation(&quot;hit&quot;)
+		being_hit = false
+		#animation_player.animation_finished.connect(end_hit)
+	being_hit = true
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_hit.gd-State_Hit-1')">take_damage()</p>
+<pre id='codeblock-scripts_player_state_hit.gd-State_Hit-1' style='display:none;'><code class='language-gdscript'>func take_damage(_damage : int) -&gt; void:
+	#queue_free()
+	pass
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_hit.gd-State_Hit-2')">exit()</p>
+<p>What happens when player exits this state?</p>
+<pre id='codeblock-scripts_player_state_hit.gd-State_Hit-2' style='display:none;'><code class='language-gdscript'>func exit() -&gt; void:
+	#animation_player.animation_finished.disconnect(end_hit)
+	being_hit = false
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_hit.gd-State_Hit-3')">process()</p>
+<p>If player has 0 HP, call death, otherwise idle or walk</p>
+<pre id='codeblock-scripts_player_state_hit.gd-State_Hit-3' style='display:none;'><code class='language-gdscript'>func process(_delta : float) -&gt; State:
+	#player.velocity = Vector2.ZERO
+	if player.hp == 0:
+		return death
+		
+	if being_hit == false:
+		if player.direction == Vector2.ZERO:
+			return idle
+		else:
+			return walk
+	
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_hit.gd-State_Hit-4')">end_hit()</p>
+<p>Marks player as no longer being hit</p>
+<pre id='codeblock-scripts_player_state_hit.gd-State_Hit-4' style='display:none;'><code class='language-gdscript'>func end_hit(_new_anim : String) -&gt; void:
+	being_hit = false
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_hit.gd-State_Hit-5')">physics()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_hit.gd-State_Hit-5' style='display:none;'><code class='language-gdscript'>func physics(_delta : float) -&gt; State:
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_hit.gd-State_Hit-6')">handle_input()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_hit.gd-State_Hit-6' style='display:none;'><code class='language-gdscript'>func handle_input(_event: InputEvent) -&gt; State:
+	return null</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_player_state_idle.gd'>
+<h2>Plik: <code>scripts/player/state_idle.gd</code></h2>
+<div class='class-block' id='scripts_player_state_idle.gd-State_Idle'>
+<h3>Klasa: State_Idle</h3>
+<p>Player state: stanind still</p>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_idle.gd-State_Idle-0')">enter()</p>
+<p>Start idle animation when entering this state</p>
+<pre id='codeblock-scripts_player_state_idle.gd-State_Idle-0' style='display:none;'><code class='language-gdscript'>func enter() -&gt; void:
+	player.update_animation(&quot;idle&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_idle.gd-State_Idle-1')">exit()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_idle.gd-State_Idle-1' style='display:none;'><code class='language-gdscript'>func exit() -&gt; void:
+	pass
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_idle.gd-State_Idle-2')">process()</p>
+<p>If the player presses movement, switch to walk state</p>
+<pre id='codeblock-scripts_player_state_idle.gd-State_Idle-2' style='display:none;'><code class='language-gdscript'>func process(_delta : float) -&gt; State:
+	if player.got_hit == true:
+		if player.hp == 0:
+			return death
+		player.got_hit = false
+		player.update_animation(&quot;hit&quot;)
+		player.velocity = Vector2.ZERO
+	
+	if player.direction != Vector2.ZERO:
+		return walk
+		
+	player.velocity = Vector2.ZERO
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_idle.gd-State_Idle-3')">physics()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_idle.gd-State_Idle-3' style='display:none;'><code class='language-gdscript'>func physics(_delta : float) -&gt; State:
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_idle.gd-State_Idle-4')">handle_input()</p>
+<p>Check if the player starts a new attack</p>
+<pre id='codeblock-scripts_player_state_idle.gd-State_Idle-4' style='display:none;'><code class='language-gdscript'>func handle_input(_event: InputEvent) -&gt; State:
+	if _event.is_action_pressed(&quot;attack&quot;):
+		return attack
+	return null</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_player_state_walk.gd'>
+<h2>Plik: <code>scripts/player/state_walk.gd</code></h2>
+<div class='class-block' id='scripts_player_state_walk.gd-State_Walk'>
+<h3>Klasa: State_Walk</h3>
+<p>Player state: moving while input direction is active</p>
+<h4>Zmienne</h4><ul>
+<li><code>move_speed</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_walk.gd-State_Walk-0')">enter()</p>
+<p>Start walking animation when entering this state</p>
+<pre id='codeblock-scripts_player_state_walk.gd-State_Walk-0' style='display:none;'><code class='language-gdscript'>func enter() -&gt; void:
+	player.update_animation(&quot;walk&quot;)
+	pass
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_walk.gd-State_Walk-1')">exit()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_walk.gd-State_Walk-1' style='display:none;'><code class='language-gdscript'>func exit() -&gt; void:
+	pass
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_walk.gd-State_Walk-2')">process()</p>
+<p>Move the player if theres input, otherwise return to idle state
+Update facing direction and animation when direction changes</p>
+<pre id='codeblock-scripts_player_state_walk.gd-State_Walk-2' style='display:none;'><code class='language-gdscript'>func process(_delta : float) -&gt; State:
+	if player.got_hit == true:
+		if player.hp == 0:
+			return death
+		player.got_hit = false
+		player.update_animation(&quot;hit&quot;)
+		player.velocity = Vector2.ZERO
+		
+	if player.direction == Vector2.ZERO:
+		return idle
+	
+	player.velocity = player.direction.normalized() * move_speed
+	
+	if player.set_direction():
+		player.update_animation(&quot;walk&quot;)
+	
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_walk.gd-State_Walk-3')">physics()</p>
+<p>Not required in this state</p>
+<pre id='codeblock-scripts_player_state_walk.gd-State_Walk-3' style='display:none;'><code class='language-gdscript'>func physics(_delta : float) -&gt; State:
+	return null
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_player_state_walk.gd-State_Walk-4')">handle_input()</p>
+<p>Check if the player starts a new attack</p>
+<pre id='codeblock-scripts_player_state_walk.gd-State_Walk-4' style='display:none;'><code class='language-gdscript'>func handle_input(_event: InputEvent) -&gt; State:
+	if _event.is_action_pressed(&quot;attack&quot;):
+		return attack
+	return null</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_przejścia_drzwi.gd'>
+<h2>Plik: <code>scripts/przejścia/drzwi.gd</code></h2>
+<div class='class-block' id='scripts_przejścia_drzwi.gd-Door'>
+<h3>Klasa: Door</h3>
+<p>Klasa Drzwi obsługuje obiekty drzwi w rozgrywce.</p>
+<h4>Zmienne</h4><ul>
+<li><code>open</code> – Zmienna określająca czy drzwi są otwarte: false – zamknięte, true – otwarte.</li>
+<li><code>locked</code> – Zmienna określająca czy możliwe jest otworzenie drzwi.</li>
+<li><code>drzwi_animation</code> – Referencja do animacji drzwi.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_drzwi.gd-Door-0')">_ready()</p>
+<p>Funkcja wywoływana po wejściu obiektu drzwi do drzewa sceny.</p>
+<pre id='codeblock-scripts_przejścia_drzwi.gd-Door-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	blocker_shape.disabled = not locked
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_drzwi.gd-Door-1')">unlock()</p>
+<p>Funkcja odblokowująca drzwi i umożliwiająca przejście gracza.</p>
+<pre id='codeblock-scripts_przejścia_drzwi.gd-Door-1' style='display:none;'><code class='language-gdscript'>func unlock() -&gt; void:
+	locked = false
+	blocker_shape.disabled = true
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_drzwi.gd-Door-2')">lock()</p>
+<p>Funkcja blokująca drzwi i uniemożliwiająca przejście gracza.</p>
+<pre id='codeblock-scripts_przejścia_drzwi.gd-Door-2' style='display:none;'><code class='language-gdscript'>func lock() -&gt; void:
+	locked = true
+	blocker_shape.disabled = false
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_drzwi.gd-Door-3')">_on_body_entered()</p>
+<p>Funkcja wywoływana gdy gracz wejdzie w obszar kolizji obiektu drzwi.
+Funkcja uruchamia animację otwierania drzwi.</p>
+<pre id='codeblock-scripts_przejścia_drzwi.gd-Door-3' style='display:none;'><code class='language-gdscript'>func _on_body_entered(body: Node2D) -&gt; void:
+	if body.name != &quot;Player&quot;:
+		return
+	if locked:
+		return
+	if not open:
+		open = true
+		drzwi_animation.play(&quot;open&quot;)
+		body.set_physics_process(false)
+		await drzwi_animation.animation_finished
+		body.set_physics_process(true)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_drzwi.gd-Door-4')">_on_body_exited()</p>
+<p>Funkcja wywoływana gdy gracz wyjdzie z obszaru kolizji obiektu drzwi.
+Funkcja uruchamia animację zamykania drzwi.</p>
+<pre id='codeblock-scripts_przejścia_drzwi.gd-Door-4' style='display:none;'><code class='language-gdscript'>func _on_body_exited(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot; and open:
+		open = false
+		drzwi_animation.play(&quot;close&quot;)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_przejścia_krata.gd'>
+<h2>Plik: <code>scripts/przejścia/krata.gd</code></h2>
+<div class='class-block' id='scripts_przejścia_krata.gd-Grid'>
+<h3>Klasa: Grid</h3>
+<p>Klasa Krata obsługuje obiekty krat w rozgrywce.</p>
+<h4>Zmienne</h4><ul>
+<li><code>krata_animation</code> – Referencja do animacji kraty.</li>
+<li><code>open</code> – Zmienna określająca czy krata jest otwarta: false – zamknięta, true – otwarta.</li>
+<li><code>locked</code> – Zmienna określająca czy możliwe jest otworzenie kraty.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_krata.gd-Grid-0')">_ready()</p>
+<p>Funkcja wywoływana po wejściu obiektu kraty do drzewa sceny.</p>
+<pre id='codeblock-scripts_przejścia_krata.gd-Grid-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	blocker_shape.disabled = not locked
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_krata.gd-Grid-1')">unlock()</p>
+<p>Funkcja odblokowująca kratę i umożliwiająca przejście gracza.</p>
+<pre id='codeblock-scripts_przejścia_krata.gd-Grid-1' style='display:none;'><code class='language-gdscript'>func unlock() -&gt; void:
+	locked = false
+	blocker_shape.disabled = true
+	
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_krata.gd-Grid-2')">lock()</p>
+<p>Funkcja blokująca kratę i uniemożliwiająca przejście gracza.</p>
+<pre id='codeblock-scripts_przejścia_krata.gd-Grid-2' style='display:none;'><code class='language-gdscript'>func lock() -&gt; void:
+	locked = true
+	blocker_shape.disabled = false
+	
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_krata.gd-Grid-3')">_on_body_entered()</p>
+<p>Funkcja wywoływana gdy gracz wejdzie w obszar kolizji obiektu kraty.
+Funkcja uruchamia animację otwierania kraty.</p>
+<pre id='codeblock-scripts_przejścia_krata.gd-Grid-3' style='display:none;'><code class='language-gdscript'>func _on_body_entered(body: Node2D) -&gt; void:
+	if body.name != &quot;Player&quot;:
+		return
+	if locked:
+		return
+	if not open:
+		open = true
+		krata_animation.play(&quot;open&quot;)
+		body.set_physics_process(false)
+		await krata_animation.animation_finished
+		body.set_physics_process(true)
+	
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przejścia_krata.gd-Grid-4')">_on_body_exited()</p>
+<p>Funkcja wywoływana gdy gracz wyjdzie z obszaru kolizji obiektu kraty.
+Funkcja uruchamia animację zamykania kraty.</p>
+<pre id='codeblock-scripts_przejścia_krata.gd-Grid-4' style='display:none;'><code class='language-gdscript'>func _on_body_exited(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot; and open:
+		open = false
+		krata_animation.play(&quot;close&quot;)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_przeszkody_lawa.gd'>
+<h2>Plik: <code>scripts/przeszkody/lawa.gd</code></h2>
+<div class='class-block' id='scripts_przeszkody_lawa.gd-Lava'>
+<h3>Klasa: Lava</h3>
+<p>Klasa Lava obsługuje działanie pułapki lawy w grze.</p>
+<h4>Zmienne</h4><ul>
+<li><code>player_inside</code> – Zmienna określająca czy gracz znajduje się w lawie: false - gracz poza lawą, true - gracz w lawie.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_lawa.gd-Lava-0')">_on_body_entered()</p>
+<p>Funkcja uruchamiana gdy obiekt wejdzie w obszar kolizji obiektu lawa.
+Jeśli obiektem jest gracz, funkcja uruchamia timer.
+@param body - obiekt, który wszedł w obszar kolizji</p>
+<pre id='codeblock-scripts_przeszkody_lawa.gd-Lava-0' style='display:none;'><code class='language-gdscript'>func _on_body_entered(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		player_inside = true
+		$Timer.start()
+	</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_lawa.gd-Lava-1')">_on_body_exited()</p>
+<p>Funkcja uruchamiana gdy obiekt wyjdzie z obszaru kolizji obiektu lawa.
+Jeśli obiektem jest gracz, funkcja zatrzymuje timer.
+@param body - obiekt, który wszedł w obszar kolizji</p>
+<pre id='codeblock-scripts_przeszkody_lawa.gd-Lava-1' style='display:none;'><code class='language-gdscript'>func _on_body_exited(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		player_inside = false
+		$Timer.stop()
+	</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_lawa.gd-Lava-2')">_on_timer_timeout()</p>
+<p>Funkcja sprawdza czy gracz znajduje się w obszarze kolizji lawy.
+Następnie sprawdza czy gracz znajduje się również na którejś z platform znajdujących się nad lawą.
+Jeśli gracz znajduje się w obszarze kolizji lawy i nie znajduje się na żadnej z platform funkcja odejmuje HP gracza.</p>
+<pre id='codeblock-scripts_przeszkody_lawa.gd-Lava-2' style='display:none;'><code class='language-gdscript'>func _on_timer_timeout() -&gt; void:
+	if not player_inside:
+		return
+		
+	var player_on_any_wood := false
+	for wood in get_tree().get_nodes_in_group(&quot;wood_platforms&quot;):
+		if wood.player_on_this_wood:
+			hurt_box.set_collision_mask_value(9, false)
+			player_on_any_wood = true
+			break
+		#else:
+			#hurt_box.set_collision_mask_value(9, true)
+				
+	if player_on_any_wood:
+		return
+	else:
+		#tu trzeba odjąc hp gracza
+		print(&quot;odejmuje HP&quot;)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_przeszkody_lightning.gd'>
+<h2>Plik: <code>scripts/przeszkody/lightning.gd</code></h2>
+<div class='class-block' id='scripts_przeszkody_lightning.gd-Lightning'>
+<h3>Klasa: Lightning</h3>
+<p>Klasa Błyskawica obsługuje pułapki typu błyskawica w rozgrywce.</p>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_lightning.gd-Lightning-0')">freeze_player()</p>
+<pre id='codeblock-scripts_przeszkody_lightning.gd-Lightning-0' style='display:none;'><code class='language-gdscript'>func freeze_player(player: Node2D, duration: float) -&gt; void:
+	player.set_physics_process(false)
+	await get_tree().create_timer(duration).timeout
+	player.set_physics_process(true)
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_lightning.gd-Lightning-1')">_on_body_entered()</p>
+<p>Funkcja uruchamiana przy kolizji z innym obiektem.
+Jeśli obiektem jest gracz, funkcja odejmuje mu punkty hp.
+@param body - obiekt, z którym nastąpiło zderzenie.</p>
+<pre id='codeblock-scripts_przeszkody_lightning.gd-Lightning-1' style='display:none;'><code class='language-gdscript'>func _on_body_entered(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		animation.play(&quot;active&quot;)
+		#tu trzeba odjąc hp graczowi
+		body.set_physics_process(false)
+		await animation.animation_finished
+		body.set_physics_process(true)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_przeszkody_trap.gd'>
+<h2>Plik: <code>scripts/przeszkody/trap.gd</code></h2>
+<div class='class-block' id='scripts_przeszkody_trap.gd-Trap'>
+<h3>Klasa: Trap</h3>
+<h4>Zmienne</h4><ul>
+<li><code>up_time</code> – zmienna opisująca czas przez który kolce są wysunięte z podłoża.</li>
+<li><code>down_time</code> – zmienna opisująca czas przez który kolce są schowane.</li>
+<li><code>trap_up</code> – zmienna określająca czy kolce są wysunięte: wartość false - kolce nie są wysunięte, wartość true - kolce są wysunięte.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_trap.gd-Trap-0')">_ready()</p>
+<p>Funkcja przygotowująca obiekt, urchamiana przy inicjalizacji.
+Funkcja ustawia parametry początkowe obiektu.</p>
+<pre id='codeblock-scripts_przeszkody_trap.gd-Trap-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	trap_up = false
+	collision_shape.disabled = true
+	collision_hurt.disabled = true
+	sprite.play(&quot;start&quot;)  
+	timer.start()
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_trap.gd-Trap-1')">_on_timer_timeout()</p>
+<p>Funkcja wywoływana automatycznie po upłynięciu czasu timera.
+Steruje stanem pułapki – naprzemiennie podnosi ją i opuszcza.</p>
+<pre id='codeblock-scripts_przeszkody_trap.gd-Trap-1' style='display:none;'><code class='language-gdscript'>func _on_timer_timeout() -&gt; void:
+	if trap_up:
+		trap_up = false
+		sprite.play(&quot;trap_down&quot;)          
+		collision_shape.disabled = true  #nie zadaja obrazen
+		collision_hurt.disabled = true
+		timer.wait_time = down_time   
+		timer.start()
+	else:
+		trap_up = true
+		sprite.play(&quot;trap_up&quot;)  
+		await get_tree().create_timer(0.5).timeout          
+		collision_shape.disabled = false #zadaja obrazenia 
+		collision_hurt.disabled = false
+		timer.wait_time = up_time    
+		timer.start()
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_trap.gd-Trap-2')">_on_body_entered()</p>
+<p>Funkcja wywoływana po zderzeniu z innym obiektem.
+Jeśli obiektem jest gracz, traci on punkty hp.
+@param body - obiekt, z którym nastąpiło zderzenie</p>
+<pre id='codeblock-scripts_przeszkody_trap.gd-Trap-2' style='display:none;'><code class='language-gdscript'>func _on_body_entered(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		print(&quot;odjeto hp&quot;)
+		#tu trzeba odjac hp graczowi</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_przeszkody_vanishing_wood.gd'>
+<h2>Plik: <code>scripts/przeszkody/vanishing_wood.gd</code></h2>
+<div class='class-block' id='scripts_przeszkody_vanishing_wood.gd-VanishingPlatform'>
+<h3>Klasa: VanishingPlatform</h3>
+<p>Klasa reprezentująca platformę, która znika po wejściu gracza i odradza się po określonym czasie.</p>
+<h4>Zmienne</h4><ul>
+<li><code>disappear_delay</code> – zmienna określająca czas po którym po wejściu gracza na platformę zaczyna ona znikać.</li>
+<li><code>respawn_delay</code> – zmienna określająca czas po którym platfroma znów się pojawia po zniknięciu.</li>
+<li><code>is_active</code> – zmienna określająca czy platforma jest aktualnie aktywna: false - nieaktywna, true - aktywna.</li>
+<li><code>player_on_this_wood</code> – zmienna określająca czy gracz znajduje się na konkretnej platformie: false - gracz poza platformą, true - gracz na platformie.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-0')">_physics_process()</p>
+<p>Funkcja sprawdza czy na ppowierzchni platformy znajdują się jakieś obiekty i czy wśród nich jest gracz.
+Ustawia zmienną player_on_this_wood w zależności od wyniku.</p>
+<pre id='codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-0' style='display:none;'><code class='language-gdscript'>func _physics_process(_delta: float) -&gt; void:
+	var bodies = get_overlapping_bodies()
+	for b in bodies:
+		if b.name == &quot;Player&quot;:
+			player_on_this_wood = true
+		else:
+			player_on_this_wood = false
+	
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-1')">_ready()</p>
+<p>Funkcja uruchamiana przy inicjalizacji obiektu.
+Funkcja określa parametry początkowe obiektu.</p>
+<pre id='codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-1' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	add_to_group(&quot;wood_platforms&quot;) 
+	modulate.a = 1.0
+	collision_shape_2d.disabled = false
+	collision_area.disabled = false
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-2')">_on_timer_timeout()</p>
+<p>Funkcja wywoływana automatycznie po upłynięciu czasu timera.
+Steruje cyklem działania platformy -&gt; zniknięcie -&gt; odrodzenie -&gt; zniknięcie -&gt; ...</p>
+<pre id='codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-2' style='display:none;'><code class='language-gdscript'>func _on_timer_timeout() -&gt; void:
+	if is_active:
+		is_active = false
+		var tween = create_tween()
+		tween.tween_property(self, &quot;modulate:a&quot;, 0, 0.3)
+		
+		collision_shape_2d.disabled = true
+		collision_area.disabled = true
+		
+		timer.wait_time = respawn_delay
+		timer.start()
+	else:
+		is_active = true
+		
+		collision_shape_2d.disabled = false
+		collision_area.disabled = false
+		
+		var tween = create_tween()
+		tween.tween_property(self, &quot;modulate:a&quot;, 1.0, 0.3)
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-3')">_on_area_2d_body_entered()</p>
+<p>Funkcja wywoływana, gdy dowolne ciało wejdzie do Area2D platformy.
+Funkcja sprawdza czy obiekt to gracz i ustawia czas odliczania na disappear_delay oraz uruchamia timer.
+@param body - obiekt, z którym nastąpiła kolizja</p>
+<pre id='codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-3' style='display:none;'><code class='language-gdscript'>func _on_area_2d_body_entered(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		timer.wait_time = disappear_delay
+		timer.start()
+		</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-4')">_on_area_2d_body_exited()</p>
+<p>Funkcja wywoływana, gdy dowolne ciało wyjdzie z Area2D platformy.
+Funkcja sprawdza czy obiekt to gracz i przestawia wartość zmiennej player_on_this_wood.
+@param body - obiekt, który opuścił obszar platformy</p>
+<pre id='codeblock-scripts_przeszkody_vanishing_wood.gd-VanishingPlatform-4' style='display:none;'><code class='language-gdscript'>func _on_area_2d_body_exited(body: Node2D) -&gt; void:
+	if body.name == &quot;Player&quot;:
+		player_on_this_wood = false</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_room_bounds_purple_bounds.gd'>
+<h2>Plik: <code>scripts/room_bounds/purple_bounds.gd</code></h2>
+<div class='class-block' id='scripts_room_bounds_purple_bounds.gd-(global)'>
+<h3>Klasa: (global)</h3>
+<h4>Zmienne</h4><ul>
+<li><code>limit_left</code></li>
+<li><code>limit_top</code></li>
+<li><code>limit_right</code></li>
+<li><code>limit_bottom</code></li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_room_bounds_purple_bounds.gd-(global)-0')">_ready()</p>
+<pre id='codeblock-scripts_room_bounds_purple_bounds.gd-(global)-0' style='display:none;'><code class='language-gdscript'>func _ready():
+	# Połącz sygnał body_entered z funkcją
+	body_entered.connect(_on_body_entered)
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_room_bounds_purple_bounds.gd-(global)-1')">_on_body_entered()</p>
+<pre id='codeblock-scripts_room_bounds_purple_bounds.gd-(global)-1' style='display:none;'><code class='language-gdscript'>func _on_body_entered(body: Node2D):
+	# Zakładamy, że tylko gracz (Player) ma ciało, które może wejść do tego obszaru.
+	# Warto dodać sprawdzenie, np. if body.name == &quot;Player&quot;:
+	if body.name != &quot;Player&quot;:
+		return
+	# Emituj sygnał z danymi o granicach, które zostaną odebrane przez kamerę.
+	camera_limits_set.emit(limit_left, limit_top, limit_right, limit_bottom)</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_rooms_blue_room.gd'>
+<h2>Plik: <code>scripts/rooms/blue_room.gd</code></h2>
+<div class='class-block' id='scripts_rooms_blue_room.gd-BlueRoom'>
+<h3>Klasa: BlueRoom</h3>
+<p>Klasa BlueRoom obsługuje mechanizm odblokowywania drzwi w niebieskim pokoju.</p>
+<h4>Zmienne</h4><ul>
+<li><code>enemies_left</code> – Licznik przeciwników pozostałych do pokonania w pokoju.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_rooms_blue_room.gd-BlueRoom-0')">_ready()</p>
+<p>Funkcja wywoływana przy wejściu pokoju do drzewa sceny.</p>
+<pre id='codeblock-scripts_rooms_blue_room.gd-BlueRoom-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	drzwi.lock()
+	krata.unlock()
+	
+	var enemies := [bat, renger_2, renger]
+	enemies = enemies.filter(func(e): return is_instance_valid(e))
+	enemies_left = enemies.size()
+	
+	if enemies_left == 0:
+		drzwi.unlock()
+		return
+	
+	for e in enemies:
+		e.tree_exited.connect(_on_enemy_removed)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_rooms_blue_room.gd-BlueRoom-1')">_on_enemy_removed()</p>
+<p>Funkcja wywoływana w momencie usunięcia przeciwnika ze sceny.</p>
+<pre id='codeblock-scripts_rooms_blue_room.gd-BlueRoom-1' style='display:none;'><code class='language-gdscript'>func _on_enemy_removed() -&gt; void:
+	enemies_left -= 1
+	if enemies_left &lt;= 0:
+		drzwi.unlock()</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_rooms_purple_room.gd'>
+<h2>Plik: <code>scripts/rooms/purple_room.gd</code></h2>
+<div class='class-block' id='scripts_rooms_purple_room.gd-PurpleRoom'>
+<h3>Klasa: PurpleRoom</h3>
+<p>Klasa RedRoom obsługuje mechanizm odblokowywania drzwi w czerwonym pokoju.</p>
+<h4>Zmienne</h4><ul>
+<li><code>enemies_left</code> – Licznik przeciwników pozostałych do pokonania w pokoju.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_rooms_purple_room.gd-PurpleRoom-0')">_ready()</p>
+<p>Funkcja wywoływana przy wejściu pokoju do drzewa sceny.</p>
+<pre id='codeblock-scripts_rooms_purple_room.gd-PurpleRoom-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	drzwi.unlock()
+	krata.lock()
+	
+	var enemies := [renger_v_2]
+	enemies = enemies.filter(func(e): return is_instance_valid(e))
+	enemies_left = enemies.size()
+	
+	if enemies_left == 0:
+		krata.unlock()
+		return
+	
+	for e in enemies:
+		e.tree_exited.connect(_on_enemy_removed)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_rooms_purple_room.gd-PurpleRoom-1')">_on_enemy_removed()</p>
+<p>Funkcja wywoływana w momencie usunięcia przeciwnika ze sceny.</p>
+<pre id='codeblock-scripts_rooms_purple_room.gd-PurpleRoom-1' style='display:none;'><code class='language-gdscript'>func _on_enemy_removed() -&gt; void:
+	enemies_left -= 1
+	if enemies_left &lt;= 0:
+		krata.unlock()</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_rooms_red_room.gd'>
+<h2>Plik: <code>scripts/rooms/red_room.gd</code></h2>
+<div class='class-block' id='scripts_rooms_red_room.gd-RedRoom'>
+<h3>Klasa: RedRoom</h3>
+<p>Klasa RedRoom obsługuje mechanizm odblokowywania drzwi w czerwonym pokoju.</p>
+<h4>Zmienne</h4><ul>
+<li><code>enemies_left</code> – Licznik przeciwników pozostałych do pokonania w pokoju.</li>
+</ul>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_rooms_red_room.gd-RedRoom-0')">_ready()</p>
+<p>Funkcja wywoływana przy wejściu pokoju do drzewa sceny.</p>
+<pre id='codeblock-scripts_rooms_red_room.gd-RedRoom-0' style='display:none;'><code class='language-gdscript'>func _ready() -&gt; void:
+	drzwi.unlock()
+	krata.lock()
+	
+	var enemies := [bat, renger_v_2, renger]
+	enemies = enemies.filter(func(e): return is_instance_valid(e))
+	enemies_left = enemies.size()
+	
+	if enemies_left == 0:
+		krata.unlock()
+		return
+	
+	for e in enemies:
+		e.tree_exited.connect(_on_enemy_removed)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_rooms_red_room.gd-RedRoom-1')">_on_enemy_removed()</p>
+<p>Funkcja wywoływana w momencie usunięcia przeciwnika ze sceny.</p>
+<pre id='codeblock-scripts_rooms_red_room.gd-RedRoom-1' style='display:none;'><code class='language-gdscript'>func _on_enemy_removed() -&gt; void:
+	enemies_left -= 1
+	if enemies_left &lt;= 0:
+		krata.unlock()</code></pre>
 </div>
 </div>
 </body></html>

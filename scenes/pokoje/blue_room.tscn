@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://cxlqvcxvlj5ce"]
+[gd_scene load_steps=20 format=4 uid="uid://cxlqvcxvlj5ce"]
 
-[ext_resource type="Texture2D" uid="uid://d1va33gyw5b8t" path="res://assets/world/blue/walls_floor_blue.png" id="1_jggjw"]
-[ext_resource type="Texture2D" uid="uid://dowm86vam4nsk" path="res://assets/world/blue/decorative_cracks_floor_blue.png" id="2_jctr2"]
-[ext_resource type="Texture2D" uid="uid://ditxkoyn1y72q" path="res://assets/world/blue/decorative_cracks_walls_blue.png" id="3_58056"]
-[ext_resource type="Texture2D" uid="uid://bwha44qfect8l" path="res://assets/world/blue/doors_lever_chest_animation_blue.png" id="4_cvwd6"]
-[ext_resource type="Texture2D" uid="uid://dboqwqq61ijw" path="res://assets/world/blue/Objects_blue.png" id="5_tj3ro"]
+[ext_resource type="Texture2D" uid="uid://n7apqebwse41" path="res://assets/world/blue/walls_floor_blue.png" id="1_jggjw"]
+[ext_resource type="Script" uid="uid://d4hr3vq31iun6" path="res://scripts/rooms/blue_room.gd" id="1_qad0c"]
+[ext_resource type="Texture2D" uid="uid://p4ymqxa3g5k" path="res://assets/world/blue/decorative_cracks_floor_blue.png" id="2_jctr2"]
+[ext_resource type="Texture2D" uid="uid://h6x0vxjrt4yn" path="res://assets/world/blue/decorative_cracks_walls_blue.png" id="3_58056"]
+[ext_resource type="Texture2D" uid="uid://cw8g5conneyur" path="res://assets/world/blue/doors_lever_chest_animation_blue.png" id="4_cvwd6"]
+[ext_resource type="Texture2D" uid="uid://737ct1vkmugx" path="res://assets/world/blue/Objects_blue.png" id="5_tj3ro"]
 [ext_resource type="PackedScene" uid="uid://c8ae4odoj3dc3" path="res://scenes/drzwi/drzwi_n.tscn" id="6_qad0c"]
 [ext_resource type="PackedScene" uid="uid://bo4f2d8flp5ph" path="res://scenes/kraty/krata_n.tscn" id="7_qfjod"]
 [ext_resource type="PackedScene" uid="uid://bbwcn6mei3dwv" path="res://scenes/dodatki do pokoi/ogienki_blue.tscn" id="8_cvwd6"]
@@ -1246,6 +1247,7 @@ sources/9 = SubResource("TileSetAtlasSource_7vc6b")
 sources/10 = SubResource("TileSetAtlasSource_twgjl")
 
 [node name="blue_room" type="Node2D"]
+script = ExtResource("1_qad0c")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-53.533386, -283.8)

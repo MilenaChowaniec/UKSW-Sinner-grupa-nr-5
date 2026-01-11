@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://itbaxc17mvhw"]
+[gd_scene load_steps=17 format=3 uid="uid://itbaxc17mvhw"]
 
 [ext_resource type="Script" uid="uid://bgdr86xk85e6k" path="res://scripts/przejścia/drzwi.gd" id="1_rk71f"]
-[ext_resource type="Texture2D" uid="uid://bmfd45gu83qg1" path="res://assets/world/red/doors_lever_chest_animation.png" id="2_lna5m"]
+[ext_resource type="Texture2D" uid="uid://baoc48k80p478" path="res://assets/world/red/doors_lever_chest_animation.png" id="2_lna5m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuaf"]
 size = Vector2(32.299026, 41.978798)
@@ -101,6 +101,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lna5m"]
+size = Vector2(32.31462, 33.7965)
+
 [node name="drzwi" type="Area2D" node_paths=PackedStringArray("drzwi_animation")]
 script = ExtResource("1_rk71f")
 drzwi_animation = NodePath("AnimatedSprite2D")
@@ -113,6 +116,12 @@ shape = SubResource("RectangleShape2D_fiuaf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -0.08189392)
 sprite_frames = SubResource("SpriteFrames_08j4v")
+
+[node name="Blocker" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker"]
+position = Vector2(-0.1478424, 3.7853584)
+shape = SubResource("RectangleShape2D_lna5m")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

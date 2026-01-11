@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://croixqo1ufg6b"]
+[gd_scene load_steps=17 format=4 uid="uid://croixqo1ufg6b"]
 
-[ext_resource type="Texture2D" uid="uid://c26i0s4q8evma" path="res://assets/world/purple/walls_floor.png" id="1_j0ani"]
-[ext_resource type="Texture2D" uid="uid://ctcm8vxt4lgx8" path="res://assets/world/purple/decorative_cracks_floor.png" id="2_6jfl2"]
-[ext_resource type="Texture2D" uid="uid://bkoy56xlx5p4i" path="res://assets/world/purple/decorative_cracks_walls.png" id="3_350lj"]
-[ext_resource type="Texture2D" uid="uid://bk0kmternb3l" path="res://assets/world/purple/Objects.png" id="4_8pv4i"]
+[ext_resource type="Script" uid="uid://dpsasffjxod3s" path="res://scripts/rooms/purple_room.gd" id="1_8pv4i"]
+[ext_resource type="Texture2D" uid="uid://dy7sgh4iehev2" path="res://assets/world/purple/walls_floor.png" id="1_j0ani"]
+[ext_resource type="Texture2D" uid="uid://hya8y8enbdjc" path="res://assets/world/purple/decorative_cracks_floor.png" id="2_6jfl2"]
+[ext_resource type="Texture2D" uid="uid://dwsqf668wtwq3" path="res://assets/world/purple/decorative_cracks_walls.png" id="3_350lj"]
+[ext_resource type="Texture2D" uid="uid://bdcgogascwwv3" path="res://assets/world/purple/Objects.png" id="4_8pv4i"]
 [ext_resource type="PackedScene" uid="uid://d0wyp7plf1l64" path="res://scenes/drzwi/drzwi_f.tscn" id="5_nrapo"]
 [ext_resource type="PackedScene" uid="uid://cw2krqatvdhqs" path="res://scenes/kraty/krata_f.tscn" id="6_my236"]
 [ext_resource type="PackedScene" uid="uid://bgik8t4oilkdy" path="res://scenes/dodatki do pokoi/pochodnia.tscn" id="7_vlmgv"]
@@ -978,7 +979,8 @@ sources/1 = SubResource("TileSetAtlasSource_0akh5")
 sources/2 = SubResource("TileSetAtlasSource_d0u7m")
 sources/3 = SubResource("TileSetAtlasSource_3wwl0")
 
-[node name="room_2" type="Node2D"]
+[node name="purple_room" type="Node2D"]
+script = ExtResource("1_8pv4i")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8oql1")

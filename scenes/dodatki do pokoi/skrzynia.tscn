@@ -1,11 +1,11 @@
 [gd_scene load_steps=22 format=3 uid="uid://dc755lyl5uwyu"]
 
 [ext_resource type="Script" uid="uid://c5ppk3gdut2wh" path="res://scripts/dodatki do pokoi/skrzynia.gd" id="1_iwfkv"]
-[ext_resource type="Texture2D" uid="uid://h2h13pr88c7a" path="res://assets/world/skrzynie/Chests.png" id="2_s6l28"]
-[ext_resource type="Texture2D" uid="uid://m8nbshjxm5io" path="res://assets/world/skrzynie/Coração-Cristal-Pulso.png" id="3_fowqi"]
+[ext_resource type="Texture2D" uid="uid://dhu06suqpp6w1" path="res://assets/world/skrzynie/Chests.png" id="2_s6l28"]
+[ext_resource type="Texture2D" uid="uid://0gtwtqvtq5fk" path="res://assets/world/skrzynie/Coração-Cristal-Pulso.png" id="3_fowqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcycw"]
-size = Vector2(25.842869, 20.30511)
+size = Vector2(28.664577, 20.30511)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rysid"]
 atlas = ExtResource("2_s6l28")
@@ -84,7 +84,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bcob"]
-size = Vector2(28.979218, 22.201448)
+size = Vector2(30.30651, 22.201448)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbp77"]
 radius = 6.1431127
@@ -131,7 +131,7 @@ script = ExtResource("1_iwfkv")
 skrzynia_animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5660458, 3.8948135)
+position = Vector2(2.9769, 3.8948135)
 shape = SubResource("RectangleShape2D_gcycw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -141,7 +141,7 @@ sprite_frames = SubResource("SpriteFrames_7c5wl")
 [node name="collision_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision_area"]
-position = Vector2(2.2129745, 3.9311342)
+position = Vector2(2.8766212, 3.9311342)
 shape = SubResource("RectangleShape2D_7bcob")
 
 [node name="serce1" type="Area2D" parent="."]
