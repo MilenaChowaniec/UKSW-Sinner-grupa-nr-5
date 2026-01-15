@@ -12,8 +12,13 @@ func _on_continue_pressed() -> void:
 
 ##Funkcja wywoływana po naciśnięciu przycisku ustawień. Przenosi gracza do ekranu wyboru ustawień rozgrywki.
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/game/settings.tscn")
 
 ##Funkcja wywoływana po naciśnięciu przycisku Exit. Kończy działanie programu.
 func _on_exit_pressed() -> void:
 	get_tree().quit() # Replace with function body.
+
+
+func _input(event):
+	if event.is_action_pressed("quit_game"):
+		get_tree().quit()

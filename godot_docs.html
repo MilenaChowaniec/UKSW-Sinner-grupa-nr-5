@@ -31,6 +31,7 @@ code { font-family: Consolas, monospace; }
 <li><a href='#scripts_enemy_Renger_renger_v_2.gd-(global)' title='scripts/enemy/Renger/renger_v_2.gd'>(global)</a></li>
 <li><a href='#scripts_game_gameover.gd-GameOver' title='scripts/game/gameover.gd'>GameOver</a></li>
 <li><a href='#scripts_game_main_menu.gd-MainMenu' title='scripts/game/main_menu.gd'>MainMenu</a></li>
+<li><a href='#scripts_game_settings.gd-(global)' title='scripts/game/settings.gd'>(global)</a></li>
 <li><a href='#scripts_game_spawn_area.gd-Spawn' title='scripts/game/spawn_area.gd'>Spawn</a></li>
 <li><a href='#scripts_GeneralNodes_hit box_hit_box.gd-Hit_Box' title='scripts/GeneralNodes/hit box/hit_box.gd'>Hit_Box</a></li>
 <li><a href='#scripts_GeneralNodes_hurt box_hurt_box.gd-Hurt_Box' title='scripts/GeneralNodes/hurt box/hurt_box.gd'>Hurt_Box</a></li>
@@ -951,7 +952,12 @@ Funkcja dodaje punkty hp graczowi.</p>
 <p class='func-button' onclick="toggle('codeblock-scripts_game_gameover.gd-GameOver-0')">_on_settings_pressed()</p>
 <p>Funkcja uruchamiana po naciśnięciu przycisku restart. Włącza rozgrywkę od nowa.</p>
 <pre id='codeblock-scripts_game_gameover.gd-GameOver-0' style='display:none;'><code class='language-gdscript'>func _on_settings_pressed() -&gt; void:
-	get_tree().change_scene_to_file(&quot;res://scenes/game/game.tscn&quot;)</code></pre>
+	get_tree().change_scene_to_file(&quot;res://scenes/game/game.tscn&quot;)
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_gameover.gd-GameOver-1')">_input()</p>
+<pre id='codeblock-scripts_game_gameover.gd-GameOver-1' style='display:none;'><code class='language-gdscript'>func _input(event):
+	if event.is_action_pressed(&quot;quit_game&quot;):
+		get_tree().quit()</code></pre>
 </div>
 </div>
 <div class='file-block' id='file-scripts_game_main_menu.gd'>
@@ -973,12 +979,49 @@ Funkcja dodaje punkty hp graczowi.</p>
 <p class='func-button' onclick="toggle('codeblock-scripts_game_main_menu.gd-MainMenu-2')">_on_settings_pressed()</p>
 <p>Funkcja wywoływana po naciśnięciu przycisku ustawień. Przenosi gracza do ekranu wyboru ustawień rozgrywki.</p>
 <pre id='codeblock-scripts_game_main_menu.gd-MainMenu-2' style='display:none;'><code class='language-gdscript'>func _on_settings_pressed() -&gt; void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file(&quot;res://scenes/game/settings.tscn&quot;)
 </code></pre>
 <p class='func-button' onclick="toggle('codeblock-scripts_game_main_menu.gd-MainMenu-3')">_on_exit_pressed()</p>
 <p>Funkcja wywoływana po naciśnięciu przycisku Exit. Kończy działanie programu.</p>
 <pre id='codeblock-scripts_game_main_menu.gd-MainMenu-3' style='display:none;'><code class='language-gdscript'>func _on_exit_pressed() -&gt; void:
-	get_tree().quit() # Replace with function body.</code></pre>
+	get_tree().quit() # Replace with function body.
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_main_menu.gd-MainMenu-4')">_input()</p>
+<pre id='codeblock-scripts_game_main_menu.gd-MainMenu-4' style='display:none;'><code class='language-gdscript'>func _input(event):
+	if event.is_action_pressed(&quot;quit_game&quot;):
+		get_tree().quit()</code></pre>
+</div>
+</div>
+<div class='file-block' id='file-scripts_game_settings.gd'>
+<h2>Plik: <code>scripts/game/settings.gd</code></h2>
+<div class='class-block' id='scripts_game_settings.gd-(global)'>
+<h3>Klasa: (global)</h3>
+<h4>Funkcje</h4>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_settings.gd-(global)-0')">_on_fullscreen_pressed()</p>
+<pre id='codeblock-scripts_game_settings.gd-(global)-0' style='display:none;'><code class='language-gdscript'>func _on_fullscreen_pressed() -&gt; void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_settings.gd-(global)-1')">_on_window_pressed()</p>
+<pre id='codeblock-scripts_game_settings.gd-(global)-1' style='display:none;'><code class='language-gdscript'>func _on_window_pressed() -&gt; void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_settings.gd-(global)-2')">_on_back_pressed()</p>
+<pre id='codeblock-scripts_game_settings.gd-(global)-2' style='display:none;'><code class='language-gdscript'>func _on_back_pressed() -&gt; void:
+	get_tree().change_scene_to_file(&quot;res://scenes/game/main_menu.tscn&quot;)
+
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_settings.gd-(global)-3')">_on_h_slider_value_changed()</p>
+<pre id='codeblock-scripts_game_settings.gd-(global)-3' style='display:none;'><code class='language-gdscript'>func _on_h_slider_value_changed(value: float) -&gt; void:
+	var db = linear_to_db(value / 100.0)
+	AudioServer.set_bus_volume_db(0, db) # 0 = Master
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_settings.gd-(global)-4')">_input()</p>
+<pre id='codeblock-scripts_game_settings.gd-(global)-4' style='display:none;'><code class='language-gdscript'>func _input(event):
+	if event.is_action_pressed(&quot;quit_game&quot;):
+		get_tree().quit()</code></pre>
 </div>
 </div>
 <div class='file-block' id='file-scripts_game_spawn_area.gd'>
@@ -1031,7 +1074,13 @@ Parametry określają maksymalne granice ruchu kamery w aktualnym pokoju.</p>
 	player.camera_2d.limit_left = left
 	player.camera_2d.limit_top = top
 	player.camera_2d.limit_right = right
-	player.camera_2d.limit_bottom = bottom</code></pre>
+	player.camera_2d.limit_bottom = bottom
+	
+</code></pre>
+<p class='func-button' onclick="toggle('codeblock-scripts_game_spawn_area.gd-Spawn-5')">_input()</p>
+<pre id='codeblock-scripts_game_spawn_area.gd-Spawn-5' style='display:none;'><code class='language-gdscript'>func _input(event):
+	if event.is_action_pressed(&quot;quit_game&quot;):
+		get_tree().quit()</code></pre>
 </div>
 </div>
 <div class='file-block' id='file-scripts_GeneralNodes_hit box_hit_box.gd'>

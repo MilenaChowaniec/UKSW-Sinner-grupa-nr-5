@@ -64,3 +64,8 @@ func set_camera_bounds(left: int, top: int, right: int, bottom: int) -> void:
 	player.camera_2d.limit_top = top
 	player.camera_2d.limit_right = right
 	player.camera_2d.limit_bottom = bottom
+	
+
+func _input(event):
+	if event.is_action_pressed("quit_game"):
+		get_tree().quit()

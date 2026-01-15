@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bd66ycspy0wha" path="res://assets/buttons/settings_blue_pressed.png" id="11_5pajh"]
 [ext_resource type="FontFile" uid="uid://bql8obr3wlyca" path="res://assets/fonts/GrapeSoda.ttf" id="14_7b55j"]
 
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pajh"]
 texture = ExtResource("2_5dd4i")
 modulate_color = Color(0.5409902, 0.5409906, 0.5409904, 1)
@@ -24,7 +23,6 @@ position = Vector2(328, 451)
 script = ExtResource("1_7b55j")
 
 [node name="background" type="Panel" parent="."]
-anchors_preset = -1
 offset_left = -333.0
 offset_top = -455.0
 offset_right = 831.0
@@ -108,4 +106,4 @@ stretch_mode = 5
 [connection signal="pressed" from="VBoxContainer/start_game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="settings" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
